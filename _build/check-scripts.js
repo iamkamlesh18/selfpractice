@@ -15,6 +15,9 @@ const REQUIRES = {
   'assets/js/frequencies.js': ['#freqGrid', '.freq'],
   'assets/js/chakra.js': ['#chakraStage', '.chakra-item', '#ckGo'],
   'assets/js/music.js': ['#trackGrid', '.track'],
+  // Shared recorder: it also loads on pages that only *write* to the log, and
+  // returns early when the Journey UI is absent, so these are page-only hooks.
+  'assets/js/journey.js': ['#journeyPage', '#jTotal', '#jHeat', '#jBreakdown'],
   'assets/js/ambient.js': ['#dock', '#dockToggle', '#dockClose'],
   'assets/js/site.js': ['#nav']
 };
@@ -58,6 +61,9 @@ for (const p of pages) {
       continue;
     }
     checkIds(p, html, src);
+    // page.ts is loaded everywhere but only renders where its markup exists
+    if (src === 'assets/js/journey.js' && !hasSelector(html, '#journeyPage')) continue;
+
     for (const sel of REQUIRES[src] || []) {
       const ok = hasSelector(html, sel);
       if (!ok) {

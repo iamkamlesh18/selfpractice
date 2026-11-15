@@ -10,7 +10,8 @@ const NAV = [
   ['yoga.html', 'Yoga', 'yoga'],
   ['frequencies.html', 'Frequencies', 'frequencies'],
   ['chakras.html', 'Chakras', 'chakras'],
-  ['music.html', 'Music', 'music']
+  ['music.html', 'Music', 'music'],
+  ['journey.html', 'Journey', 'journey']
 ];
 
 const SPRITE = fs.readFileSync(path.join(ROOT, 'assets', 'partials', 'sprite.svg'), 'utf8').trim();
@@ -83,6 +84,7 @@ function footer() {
         <a href="yoga.html">Yoga</a>
         <a href="breathing.html#pranayama">Pranayama</a>
         <a href="chakras.html">Chakra meditation</a>
+        <a href="journey.html">Your journey</a>
       </div>
       <div>
         <h4>Explore</h4>

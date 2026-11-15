@@ -280,5 +280,5 @@ console.log(page({
   desc: 'Meditate on the seven chakras with their true colours, yantra art and frequencies (396–963 Hz), plus a per-chakra timer you set from 2 to 30 minutes.',
   page: 'chakras',
   body: `${dataTag}\n${body}`,
-  scripts: ['assets/js/chakra.js']
+  scripts: ['assets/js/journey.js', 'assets/js/chakra.js']
 }));

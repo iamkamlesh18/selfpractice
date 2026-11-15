@@ -4,3 +4,4 @@ require('./pages-yoga.js');
 require('./pages-frequencies.js');
 require('./pages-chakras.js');
 require('./pages-music.js');
+require('./pages-journey.js');

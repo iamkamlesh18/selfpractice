@@ -90,6 +90,7 @@
       <a href="frequencies.html">Frequencies</a>
       <a href="chakras.html">Chakras</a>
       <a href="music.html">Music</a>
+      <a href="journey.html">Journey</a>
     </nav>
     <a href="breathing.html" class="btn btn--ghost nav__cta">
       <span>Begin</span><svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg>
@@ -134,12 +135,12 @@
         <p class="patterns__label">Choose your rhythm</p>
         <div class="patterns__list" role="tablist" aria-label="Breathing patterns">
           <button class="pattern is-active" role="tab" aria-selected="true"
-            data-name="Simple 4–4"
+            data-name="4–4 Equal Breath"
             data-desc="Four in, four out. The gentlest starting point — even and steady, with no holds to remember."
             data-in="4" data-holdin="0" data-out="4" data-holdout="0">
             <span class="pattern__index">01</span>
             <span class="pattern__body">
-              <span class="pattern__name">Simple 4–4</span>
+              <span class="pattern__name">4–4 Equal Breath</span>
               <span class="pattern__meta">4 · 4</span>
             </span>
             <span class="pattern__bar"><i></i></span>
@@ -156,13 +157,13 @@
             <span class="pattern__bar"><i></i></span>
           </button>
           <button class="pattern" role="tab" aria-selected="false"
-            data-name="4–4 Breath"
-            data-desc="In for four, hold for four, out for four. A short pause after the inhale helps the lungs absorb oxygen."
+            data-name="4-4-4 Breath"
+            data-desc="In for four, hold for four, out for four. A short pause after the inhale that many people find easier than box breathing."
             data-in="4" data-holdin="4" data-out="4" data-holdout="0">
             <span class="pattern__index">03</span>
             <span class="pattern__body">
-              <span class="pattern__name">4–4 Breath</span>
-              <span class="pattern__meta">4 · 4</span>
+              <span class="pattern__name">4–4–4 Calming</span>
+              <span class="pattern__meta">4 · 4 · 4</span>
             </span>
             <span class="pattern__bar"><i></i></span>
           </button>
@@ -185,6 +186,39 @@
             <span class="pattern__body">
               <span class="pattern__name">4 : 6 Sleep Breath</span>
               <span class="pattern__meta">4 · 6</span>
+            </span>
+            <span class="pattern__bar"><i></i></span>
+          </button>
+          <button class="pattern" role="tab" aria-selected="false"
+            data-name="4-8 Breathing"
+            data-desc="Four in, eight out — a 1:2 ratio. A long, unforced exhale is the quickest lever for slowing a racing mind."
+            data-in="4" data-holdin="0" data-out="8" data-holdout="0">
+            <span class="pattern__index">06</span>
+            <span class="pattern__body">
+              <span class="pattern__name">4 : 8 Extended Exhale</span>
+              <span class="pattern__meta">4 · 8</span>
+            </span>
+            <span class="pattern__bar"><i></i></span>
+          </button>
+          <button class="pattern" role="tab" aria-selected="false"
+            data-name="Coherent 5-5"
+            data-desc="About six breaths a minute, the pace where heart rate and breath often fall into resonance. Simple and deeply settling."
+            data-in="5" data-holdin="0" data-out="5" data-holdout="0">
+            <span class="pattern__index">07</span>
+            <span class="pattern__body">
+              <span class="pattern__name">5 : 5 Coherent</span>
+              <span class="pattern__meta">5 · 5</span>
+            </span>
+            <span class="pattern__bar"><i></i></span>
+          </button>
+          <button class="pattern" role="tab" aria-selected="false"
+            data-name="Physiological Sigh"
+            data-desc="Two inhales through the nose, then one long exhale through the mouth. The fastest known way to lower stress in the moment."
+            data-in="2" data-holdin="0" data-out="6" data-holdout="0" data-topup="2">
+            <span class="pattern__index">08</span>
+            <span class="pattern__body">
+              <span class="pattern__name">Physiological Sigh</span>
+              <span class="pattern__meta">2 · 2 · 6</span>
             </span>
             <span class="pattern__bar"><i></i></span>
           </button>
@@ -494,6 +528,7 @@
         <a href="yoga.html">Yoga</a>
         <a href="breathing.html#pranayama">Pranayama</a>
         <a href="chakras.html">Chakra meditation</a>
+        <a href="journey.html">Your journey</a>
       </div>
       <div>
         <h4>Explore</h4>
@@ -526,6 +561,7 @@
 {/* site.js defines window.Soma — every page bundle depends on it, so it must come FIRST */}
 <script src="assets/js/site.js"></script>
 <script src="assets/js/ambient.js"></script>
+<script src="assets/js/journey.js"></script>
 <script src="assets/js/breath.js"></script>
 <script src="assets/js/sounds.js"></script>
 <script src="assets/js/pranayama.js"></script>

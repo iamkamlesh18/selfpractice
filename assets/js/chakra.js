@@ -157,6 +157,10 @@
           paintTimer();
           clearInterval(tick);
           running = false;
+          // bank the completed sit in the journey log
+          if (window.SomaJourney) {
+            window.SomaJourney.add(minutes * 60, 'chakra', `${current.en} · ${minutes} min`);
+          }
           setRunning(false);
           timeEl.textContent = 'done';
           [1, 2, 3].forEach((k) => setTimeout(() => AudioKit.tone(current.freq, 4, 0.12), k * 900));
@@ -168,6 +172,12 @@
     } else {
       clearInterval(tick);
       stopTone();
+      // a paused sit still counts for the time already spent (but not after
+      // it has completed normally, and never twice)
+      const spent = minutes * 60 - left;
+      if (spent >= 5 && left > 0 && window.SomaJourney) {
+        window.SomaJourney.add(spent, 'chakra', `${current.en} · ${Math.round(spent / 60)} min`);
+      }
     }
     paintTimer();
   }

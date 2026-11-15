@@ -184,7 +184,7 @@ const breathingPage = `
         <div class="patterns__list" role="tablist" aria-label="Breathing patterns">
 ${[
     {
-      idx: '01', title: 'Simple 4–4', name: 'Simple 4–4', show: '4–4', meta: '4 · 4', in: 4, hi: 0, out: 4, ho: 0,
+      idx: '01', title: '4–4 Equal Breath', name: '4–4 Equal Breath', show: '4–4', meta: '4 · 4', in: 4, hi: 0, out: 4, ho: 0,
       desc: 'Four in, four out. The gentlest starting point — even and steady, with no holds to remember.', active: true
     },
     {
@@ -192,8 +192,8 @@ ${[
       desc: 'Four equal sides: inhale, hold, exhale, hold. Steady and grounding — a favourite of athletes and first responders.'
     },
     {
-      idx: '03', title: '4–4 Breath', name: '4–4 Breath', show: '4–4', meta: '4 · 4', in: 4, hi: 4, out: 4, ho: 0,
-      desc: 'In for four, hold for four, out for four. A short pause after the inhale helps the lungs absorb oxygen.'
+      idx: '03', title: '4–4–4 Calming', name: '4-4-4 Breath', show: '4-4-4', meta: '4 · 4 · 4', in: 4, hi: 4, out: 4, ho: 0,
+      desc: 'In for four, hold for four, out for four. A short pause after the inhale that many people find easier than box breathing.'
     },
     {
       idx: '04', title: '4–7–8 Relax', name: '4–7–8 Relax', show: '4-7-8', meta: '4 · 7 · 8', in: 4, hi: 7, out: 8, ho: 0,
@@ -202,6 +202,18 @@ ${[
     {
       idx: '05', title: '4 : 6 Sleep Breath', name: '4-6 Breath', show: '4:6', meta: '4 · 6', in: 4, hi: 0, out: 6, ho: 0,
       desc: 'Four in, six out. A 1:1.5 ratio that soothes the heart rate. Popular with singers, swimmers and anyone wound up before bed.'
+    },
+    {
+      idx: '06', title: '4 : 8 Extended Exhale', name: '4-8 Breathing', show: '4:8', meta: '4 · 8', in: 4, hi: 0, out: 8, ho: 0,
+      desc: 'Four in, eight out — a 1:2 ratio. A long, unforced exhale is the quickest lever for slowing a racing mind.'
+    },
+    {
+      idx: '07', title: '5 : 5 Coherent', name: 'Coherent 5-5', show: '5:5', meta: '5 · 5', in: 5, hi: 0, out: 5, ho: 0,
+      desc: 'About six breaths a minute, the pace where heart rate and breath often fall into resonance. Simple and deeply settling.'
+    },
+    {
+      idx: '08', title: 'Physiological Sigh', name: 'Physiological Sigh', show: 'Sigh', meta: '2 · 2 · 6', in: 2, topup: 2, hi: 0, out: 6, ho: 0,
+      desc: 'Two inhales through the nose, then one long exhale through the mouth. The fastest known way to lower stress in the moment.'
     }
   ].map((o) => patternBtn({
     ...o,
@@ -424,7 +436,7 @@ const homePage = `
 
   <section class="section" id="paths">
     <div class="section__head section__head--center">
-      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Five doors in</p>
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Six doors in</p>
       <h2 class="section__title reveal">Where would you like to <em>begin</em>?</h2>
       <p class="section__lead reveal">Every practice has its own room. Choose the one your body is asking for today.</p>
     </div>
@@ -463,6 +475,13 @@ const homePage = `
         <h3>Music</h3>
         <p>Hand-picked YouTube meditations — mantras, healing frequencies, chakra music and long ambient spaces to sit in.</p>
         <span class="path-card__more">Press play <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a href="journey.html" class="path-card reveal" data-delay="90" style="--pc:rgba(121,242,220,.26); --pc-h:rgba(121,242,220,.85); --pcfg:#79f2dc">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-heart"/></svg></span>
+        <h3>Journey</h3>
+        <p>Every minute you spend breathing, counted quietly — total time, daily streak and the rhythms you return to.</p>
+        <span class="path-card__more">See your progress <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg></span>
       </a>
     </div>
 
@@ -525,7 +544,7 @@ const out = [
     desc: 'Guided breathwork with a live breathing orb: simple 4–4, box breathing, 4–4 breath, 4–7–8 and the 4:6 sleep breath, plus ambient soundscapes.',
     page: 'breathing',
     body: breathingPage,
-    scripts: ['assets/js/breath.js', 'assets/js/sounds.js', 'assets/js/pranayama.js']
+    scripts: ['assets/js/journey.js', 'assets/js/breath.js', 'assets/js/sounds.js', 'assets/js/pranayama.js']
   })
 ];
 

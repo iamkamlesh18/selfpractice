@@ -283,7 +283,68 @@ const ISHA_MORE = [
   {
     id: 'LVojRjzUJLE', title: 'Patanjali Yoga Sutras — musical rendition', hours: 'Sadhguru', tag: 'Yoga Sutras',
     note: 'A musical rendition of Patanjali\u2019s Yoga Sutras, for International Day of Yoga.', c1: '#d8c4a0', c2: '#7f6329'
-  }
+  },
+
+  /* --- from the Sounds of Isha channel listing (all verified) --- */
+  { id: '0OFIjRfNU6E', title: 'Namah Aum Namah Shivaya', hours: 'Mahashivratri', tag: 'Shiva',
+    note: 'A devotional Shiva chant released for Mahashivratri.', c1: '#a8b8e8', c2: '#35458f' },
+  { id: 'BfCf7pMQNkU', title: 'Shiv Kailasho Ke Vasi', hours: 'Mohit Chauhan', tag: 'Shiva',
+    note: 'Sadhguru sings with Mohit Chauhan.', c1: '#a9c9e8', c2: '#35597f' },
+  { id: 'd2etuly9Zfc', title: 'Shiva Shiva Shiva Shambho', hours: 'Prithvi Gandharv', tag: 'Shiva',
+    note: 'A Mahashivratri chant with Prithvi Gandharv.', c1: '#b0c4e8', c2: '#3a5480' },
+  { id: 'uWYdEqdMHYM', title: 'Mera Bhola Hai Bandhari', hours: 'Swagat Rathod', tag: 'Shiva',
+    note: 'A folk-flavoured Shiva bhajan.', c1: '#c8b8e8', c2: '#553f83' },
+  { id: 'MiwgNHbdMfk', title: 'Babam Bam Lehri', hours: 'Aishwarya Nigam', tag: 'Shiva',
+    note: 'A rousing Mahashivratri piece.', c1: '#e8c0a0', c2: '#8a4f24' },
+  { id: 'v6OC7H-Gzkw', title: 'Kya Leke Aaya Jagat Mai', hours: 'folk', tag: 'Folk',
+    note: 'A folk song asking what any of us brought into this world.', c1: '#d8c8a8', c2: '#7a6030' },
+  { id: '6nJ-hWLNCjg', title: 'Jaya Sada Shiva', hours: 'Sachet Tandon', tag: 'Shiva',
+    note: 'With Sachet Tandon and Vishal Khatri, for Sawan.', c1: '#b8c8e8', c2: '#3f5283' },
+  { id: 'VBkHP4QZU1E', title: 'Kalabhairava Chant', hours: 'Sadhguru', tag: 'Kalabhairava',
+    note: 'The Kalabhairava chant, led by Sadhguru.', c1: '#b8c8d8', c2: '#3f5872' },
+
+  { id: '74KWY5lCfD8', title: 'Man Lago Mero Yaar Fakiri Mein', hours: 'Kabir', tag: 'Kabir',
+    note: 'A Kabir bhajan about the fakir\u2019s contentment.', c1: '#d8c8b0', c2: '#7a6040' },
+  { id: 'reb5fw5RUn8', title: 'Ae Ri Sakhi More', hours: 'Parthiv Gohil', tag: 'Devotional',
+    note: 'A devotional with Parthiv Gohil and Prithvi Gandharv.', c1: '#e8c8d8', c2: '#8a4a6a' },
+  { id: '4e1nOze-5Yw', title: 'Dam Da Dam — studio version', hours: 'studio', tag: 'Devotional',
+    note: 'The studio recording with Aishwarya Nigam.', c1: '#e0b8a0', c2: '#8a4a24' },
+  { id: '3zRi2IAbNJs', title: 'Dam Da Dam — Zindagi Jiya Main Yaara', hours: 'live', tag: 'Devotional',
+    note: 'The Mahashivratri live version.', c1: '#d8b0a0', c2: '#7a3f24' },
+  { id: 'rnE3m446n3Y', title: 'Delulu to Solulu', hours: 'Miracle of Mind', tag: 'Modern',
+    note: 'A contemporary piece from the Miracle of Mind series.', c1: '#c8b8e8', c2: '#553f83' },
+  { id: 'TWf_eX_wAHA', title: 'Buddham Sharanam Gacchami', hours: 'Buddha Purnima', tag: 'Buddha',
+    note: 'The refuge chant, for Buddha Purnima.', c1: '#c8c8d8', c2: '#4a4a60' },
+  { id: 'UE8n5NA_DyQ', title: 'Ennappan Allava', hours: 'Tamil', tag: 'Dhyanalinga',
+    note: 'Papanasam Sivan\u2019s Tamil song, with Akshit Nirupam.', c1: '#e8d0a8', c2: '#8a6a2a' },
+  { id: 'f5rGll4VGQo', title: 'Mei Porul Kandu', hours: 'Tamil', tag: 'Shiva',
+    note: 'A Tamil song with Sandeep Narayan.', c1: '#c8d8b0', c2: '#4a6b30' },
+  { id: 'D0KdiOJPWTA', title: 'Chandrachooda', hours: 'Purandara Dasa', tag: 'Bhajan',
+    note: 'Purandara Dasa\u2019s bhajan, for the Dhyanalinga consecration day.', c1: '#b8c8d8', c2: '#3f5872' },
+  { id: 'YntYzVwmI8M', title: 'Sojugada Sooju Mallige', hours: 'Kannada', tag: 'Folk',
+    note: 'A Kannada folk song.', c1: '#c8d8b8', c2: '#4a6b3a' },
+  { id: '0f2PS-40tjY', title: 'Sneha Tappida', hours: 'Vachana', tag: 'Vachana',
+    note: 'A vachana by Basavanna, in Kannada.', c1: '#b8d0c0', c2: '#3a6b52' },
+  { id: 'sPlP2N6MD0M', title: 'Nudidare Muttina Haradantirabeku', hours: 'Vachana', tag: 'Vachana',
+    note: 'Basavanna\u2019s vachana on speech as a string of pearls.', c1: '#b8ccc0', c2: '#3a6252' },
+  { id: 'zrkoAw7On0s', title: 'Ullavaru Shivalaya Maduvaru', hours: 'Vachana', tag: 'Vachana',
+    note: 'Basavanna\u2019s vachana on the temple within.', c1: '#b0c8c0', c2: '#355f52' },
+  { id: 'kO-EVegh9-E', title: 'Ethana Mamara', hours: 'Allama Prabhu', tag: 'Vachana',
+    note: 'A vachana by Allama Prabhu, in Kannada.', c1: '#b8d0c8', c2: '#3a6b60' },
+  { id: 'mG9_sKHTcMk', title: 'Vachanadalli Namamruta Tumbi', hours: 'Vachana', tag: 'Vachana',
+    note: 'A Basavanna vachana filled with the nectar of the name.', c1: '#b4ccc4', c2: '#386457' },
+  { id: 'vSlJwPEA1HM', title: 'Bettada Melondu', hours: 'Akka Mahadevi', tag: 'Vachana',
+    note: 'Akka Mahadevi\u2019s vachana, with Ram Miriyala.', c1: '#c0d0c8', c2: '#3f6b60' },
+  { id: '8LZgV1tJiEw', title: 'Aigiri Nandini — Bhairavi Stotram', hours: 'Devi', tag: 'Devi',
+    note: 'Adi Shankaracharya\u2019s hymn to the Devi, from Ye Devi.', c1: '#f0b8c8', c2: '#8a3f50' },
+  { id: '3OqX-c9s2HU', title: 'Ya Devi Sarva Bhuteshu', hours: 'Devi Suktam', tag: 'Devi',
+    note: 'The Devi Suktam on the presence of the goddess in all beings.', c1: '#e8b0c8', c2: '#8a3058' },
+  { id: 'VKlBYhHkdcg', title: 'Na Taato Na Maata', hours: 'Bhairavi Stavan', tag: 'Devi',
+    note: 'Adi Shankaracharya\u2019s stavan — \u201cnot father, not mother\u201d.', c1: '#e8b8c0', c2: '#8a3a48' },
+  { id: 'hk7LbfWOomM', title: 'Naga Stotram — Ye Devi reprise', hours: 'Devi', tag: 'Devi',
+    note: 'A reprise from the Ye Devi collection, for Navratri.', c1: '#e0b8c0', c2: '#7a3a48' },
+  { id: 'yp0bZDSm05Q', title: 'Linga Bhairavi Shayana Arati', hours: 'Arijit Singh', tag: 'Devi',
+    note: 'The Linga Bhairavi arati, sung by Arijit Singh.', c1: '#f0b0b8', c2: '#8a3038' }
 ];
 
 /* ---------- Marathi & devotional from other artists ---------- */
@@ -421,6 +482,7 @@ function uniqueById(list) {
     return true;
   });
 }
+
 const ISHA_LIST = uniqueById([...ISHA, ...ISHA_MORE]);
 const OTHER_LIST = uniqueById([...OTHER_DEVOTIONAL, ...DEVOTIONAL_MORE]);
 

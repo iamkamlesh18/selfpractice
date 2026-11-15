@@ -15,7 +15,8 @@ audio files or trackers. Fonts come from Google Fonts, with a graceful system fa
 | `yoga.html` | Surya Namaskar as text only: 12 steps with Sanskrit names, breathing cues, chakra focus and the mantra for each step, a verified video tutorial, and exercises |
 | `frequencies.html` | Every Solfeggio tone (174–963 Hz) plus planetary and healing tones, each playable |
 | `chakras.html` | 7 chakras with true colours, yantra art, frequencies and a 2–30 minute timer per chakra |
-| `music.html` | Hand-picked YouTube meditations (mantra, frequencies, chakra, sleep, ambient) with an in-page player |
+| `music.html` | 100+ verified YouTube meditations — Sounds of Isha chants, devotional, mantra, frequencies, sleep, ambient — with a full in-page player |
+| `journey.html` | Your practice time: total minutes, daily streak, 30-day heatmap, favourite patterns and recent sessions (stored locally) |
 
 ## Structure
 
@@ -31,6 +32,7 @@ assets/
   js/frequencies.js            ← frequencies page filters
   js/chakra.js                 ← chakra page
   js/music.js                  ← music page (filters + YouTube player)
+  js/journey.js                ← practice log + journey page rendering
   audio/spiritual-ambient.ogg  ← CC BY 4.0 track (see credits below)
   partials/sprite.svg          ← shared icon/logo sprite (inlined at build time)
 _build/
@@ -39,6 +41,10 @@ _build/
   pages-*.js                   ← one generator per page
   build.js                     ← regenerates all pages
   check-links.js               ← verifies links, anchors, symbols and duplicate ids
+  check-scripts.js             ← verifies each script's DOM hooks and ids exist
+  check-runtime.js             ← verifies script load order (site.js first)
+  audit-links.js / audit-raw.js ← verifies every pasted YouTube link is on the page
+  test-journey.js              ← offline tests for the practice-time logic
 .github/workflows/deploy.yml   ← GitHub Pages deployment
 ```
 

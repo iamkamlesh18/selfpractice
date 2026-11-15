@@ -165,6 +165,7 @@
       running = false;
       cancelAnimationFrame(rafId);
       stageElapsed = clamp(stageElapsed + (performance.now() - phaseStart) / 1000, 0, phases[stage].dur);
+      recordSession();
       orb.classList.remove('is-running');
       toggle.classList.remove('is-on');
       toggleLabel.textContent = 'Resume';
@@ -175,7 +176,19 @@
       countEl.textContent = '—';
     }
 
+    /* Write the practice time to the journey log. Called whenever we stop
+       (pause, reset, pattern change, leaving the page) so nothing is lost,
+       and the clock is zeroed so the same seconds are never counted twice. */
+    function recordSession() {
+      if (elapsed >= 5 && window.SomaJourney) {
+        window.SomaJourney.add(elapsed, 'breath', cfg.name);
+      }
+      elapsed = 0;
+      sessionStart = performance.now();
+    }
+
     function reset() {
+      recordSession();
       running = false;
       cancelAnimationFrame(rafId);
       elapsed = 0; cycles = 0; stage = 0; firstStart = true; stageElapsed = 0;
@@ -224,6 +237,15 @@
 
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && running) pause();
+    });
+
+    // a closing tab never fires visibilitychange — save on the way out
+    window.addEventListener('pagehide', () => {
+      if (running) {
+        stageElapsed = clamp(stageElapsed + (performance.now() - phaseStart) / 1000, 0, phases[stage].dur);
+        running = false;
+        recordSession();
+      }
     });
   }
 
