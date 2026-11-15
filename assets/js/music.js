@@ -27,6 +27,13 @@
       chips.forEach((c) => c.classList.remove('is-active'));
       chip.classList.add('is-active');
       const f = chip.dataset.filter;
+
+      // "Sounds of Isha" has its own section rather than cards in this grid
+      if (f === 'isha') {
+        document.getElementById('isha')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+
       let shown = 0;
       tracks.forEach((t) => {
         const match = f === 'all' || t.dataset.cat === f;
@@ -239,7 +246,8 @@
     lastFocus?.focus();
   }
 
-  $$('.track__thumb').forEach((btn) => {
+  // both the main shelf and the Sounds of Isha grid use the same player
+  $$('.track__thumb, .isha-card__thumb').forEach((btn) => {
     btn.addEventListener('click', () => {
       open(btn.dataset.video, btn.dataset.title, btn.dataset.author);
     });

@@ -123,12 +123,173 @@ const VIDEOS = [
 const CATS = [
   ['all', 'All'],
   ['mantra', 'Mantra &amp; chant'],
+  ['isha', 'Sounds of Isha'],
   ['frequency', 'Frequencies'],
   ['chakra', 'Chakras'],
   ['sleep', 'Sleep &amp; rest'],
   ['practice', 'Practice'],
   ['focus', 'Ambient &amp; focus']
 ];
+
+/* =========================================================
+   SOUNDS OF ISHA
+   Every id below was verified live via YouTube oEmbed: it resolves
+   to a public, embeddable video on the @soundsofisha channel and the
+   title used here matches the real one. Hours come from the title.
+   ========================================================= */
+const ISHA = [
+  {
+    id: 'lacf-Wa4o_A', title: 'Guru Paduka Stotram', hours: '1 hour',
+    tag: 'Guru', note: 'The verses in praise of the guru\u2019s sandals, extended to an unbroken hour.',
+    c1: '#e8c88a', c2: '#8a5f1f'
+  },
+  {
+    id: 'Z1DP7MKH9Rc', title: 'Nirvana Shatakam', hours: '1 hour',
+    tag: 'Vairagya', note: 'Adi Shankara\u2019s six verses of disidentification. Long, spacious, very still.',
+    c1: '#b9a9e8', c2: '#4a3a8f'
+  },
+  {
+    id: '_Sbm7DSPddk', title: 'Brahmananda Swaroopa', hours: '1 hour',
+    tag: 'Vairagya', note: 'A chant of the bliss of the infinite. One of the most-used Sounds of Isha pieces.',
+    c1: '#9fd0e8', c2: '#2f6383'
+  },
+  {
+    id: 'DjD4WXMt4No', title: 'Shambho — by Sadhguru', hours: '1 hour',
+    tag: 'Shiva', note: 'The Shambho invocation sung by Sadhguru with Sounds of Isha.',
+    c1: '#e8a87a', c2: '#8f4a1f'
+  },
+  {
+    id: 'ijpTQkFCjW8', title: 'Yoga Yoga Yogeshwaraya', hours: '1 hour',
+    tag: 'Adiyogi', note: 'The Adiyogi chant, one full hour — a staple of Satsang and practice.',
+    c1: '#c9b0e8', c2: '#573f83'
+  },
+  {
+    id: 'dJON7OZYHcY', title: 'Na Hi Shiva Sneha', hours: 'Damaru',
+    tag: 'Adiyogi Chants', note: 'From the Damaru / Adiyogi chants collection.',
+    c1: '#a9c9e8', c2: '#35597f'
+  },
+  {
+    id: 'pv7ZiedzncE', title: 'Guru Ashtakam', hours: 'Damaru',
+    tag: 'Adiyogi Chants', note: 'Eight verses in praise of the guru, from the Adiyogi chant series.',
+    c1: '#e8cfa0', c2: '#8a6524'
+  },
+  {
+    id: 'GemW0xWAi6c', title: 'Adiyoginam Pranamamyaham', hours: 'Damaru',
+    tag: 'Adiyogi Chants', note: 'The first of the Adiyogi chants \u2014 bowing to the first yogi.',
+    c1: '#b0c4e8', c2: '#3a5480'
+  },
+  {
+    id: 'iUrjWDnyFCM', title: 'Yogeshwaraya Mahadevaya', hours: 'stotram',
+    tag: 'Shiva', note: 'Sadhguru and Sounds of Isha — a Shiva stotram.',
+    c1: '#d8b8e8', c2: '#6a3f83'
+  },
+  {
+    id: 'VECfX823mxU', title: 'Chandrashekhara Ashtakam', hours: 'Damaru',
+    tag: 'Adiyogi Chants', note: 'Eight verses to Chandrashekhara (Shiva crowned with the moon).',
+    c1: '#a8c8e0', c2: '#33587f'
+  },
+  {
+    id: 'sfdQwmgaS1M', title: 'Kalabhairavashtakam', hours: 'Trigun',
+    tag: 'Trigun', note: 'The Ashtakam to Kala Bhairava, from the Trigun collection.',
+    c1: '#d9a8a8', c2: '#7a3232'
+  },
+  {
+    id: '6rJExE8HGVg', title: 'Bilvashtakam', hours: 'Trigun',
+    tag: 'Trigun', note: 'The eight verses offered with bilva leaves, from Trigun.',
+    c1: '#c2d9a8', c2: '#46692f'
+  },
+  {
+    id: 'FEGlQt11p4E', title: 'Bhairavi Jaya Bhairavi', hours: 'kirtan',
+    tag: 'Devotional', note: 'A flowing homage to Bhairavi.',
+    c1: '#e0b8c8', c2: '#83405a'
+  },
+  {
+    id: '41cn42LltI4', title: 'Kya Karun', hours: 'Chandrajeevan',
+    tag: 'Devotional', note: 'A quieter, reflective piece with Chandrajeevan.',
+    c1: '#c8b8a8', c2: '#6b5340'
+  },
+  {
+    id: 'luwe3NKvxos', title: 'Alakh Niranjan', hours: 'bhajan',
+    tag: 'Devotional', note: 'A traditional chant of the formless one, with Ram Miriyala.',
+    c1: '#b8c8d8', c2: '#3f5872'
+  },
+  {
+    id: 'yh1uxjP7nYI', title: 'Aum Namah Shivaya', hours: 'Vairagya',
+    tag: 'Shiva', note: 'The five-syllable mantra to Shiva.',
+    c1: '#a8b8e8', c2: '#35458f'
+  },
+  {
+    id: 'Fh53p0Tnnxg', title: 'Amla — Yoga Padhi', hours: 'instrumental',
+    tag: 'Instrumental', note: 'Meditative instrumental music \u2014 no vocals, good for practice.',
+    c1: '#b8d9c8', c2: '#2f6b52'
+  },
+  {
+    id: '4smH2362ulU', title: 'Guru Paduka Stotram', hours: 'short',
+    tag: 'Guru', note: 'A shorter recording of the same stotram \u2014 use it to learn the melody.',
+    c1: '#e8d4a8', c2: '#8a6a2a'
+  }
+];
+
+/* Same list, but from other channels \u2014 kept separate so attribution is honest */
+const OTHER_DEVOTIONAL = [
+  {
+    id: 'GePN4-Cajvk', title: 'Vedic Chanting', hours: 'Manish Vyas', tag: 'Chant',
+    note: 'Traditional Vedic recitation by Manish Vyas.', c1: '#e0cfa8', c2: '#7a6228'
+  },
+  {
+    id: 'l3CunU4M0jQ', title: 'Prasanna Vadanam Shloka', hours: 'shloka', tag: 'Radha-Krishna',
+    note: 'A short shloka offered to Radha and Krishna.', c1: '#f0b8d0', c2: '#8a3f61'
+  },
+  {
+    id: 'CYT7WfoTZZ4', title: 'Bhaja Govindam — with lyrics & meaning', hours: 'with lyrics', tag: 'Vedanta',
+    note: 'Adi Shankara\u2019s Moha Mudgaram, sung with text and translation.', c1: '#d8b8a8', c2: '#7a4a35'
+  },
+  {
+    id: 'IdLhCGU78j4', title: 'Ram Siya Ram', hours: 'Sonu Nigam', tag: 'Ramayan',
+    note: 'The Ramayan chaupai, sung by Sonu Nigam.', c1: '#e8c0a0', c2: '#8a4f24'
+  },
+  {
+    id: 'dJON7OZYHcY', title: 'Na Hi Shiva Sneha', hours: 'Damaru', tag: 'Shiva',
+    note: 'Kept here as it also appears in the Isha playlist.', c1: '#a9c9e8', c2: '#35597f', hidden: true
+  }
+].filter((v) => !v.hidden);
+
+/* A video may appear in several of the source playlists \u2014 show it once. */
+function uniqueById(list) {
+  const seen = new Set();
+  return list.filter((v) => {
+    if (seen.has(v.id)) return false;
+    seen.add(v.id);
+    return true;
+  });
+}
+const ISHA_LIST = uniqueById(ISHA);
+const OTHER_LIST = uniqueById(OTHER_DEVOTIONAL);
+
+/* The main shelf must not repeat anything already featured above. */
+const FEATURED_IDS = new Set([...ISHA_LIST, ...OTHER_LIST].map((v) => v.id));
+const SHELF = VIDEOS.filter((v) => !FEATURED_IDS.has(v.id));
+
+/* =========================================================
+   The Sounds of Isha card: portrait thumbnail + tag + note
+   ========================================================= */
+const ishaCard = (v, i) => `
+      <article class="isha-card reveal" data-song="${v.id}" data-delay="${(i % 3) * 70}"
+        style="--ic1:${v.c1};--ic2:${v.c2}">
+        <button class="isha-card__thumb" data-video="${v.id}"
+          data-title="${v.title.replace(/"/g, '')}" data-author="Sounds of Isha"
+          aria-label="Play ${v.title.replace(/"/g, '')} by Sounds of Isha">
+          <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="isha-card__len">${v.hours}</span>
+        </button>
+        <div class="isha-card__meta">
+          <span class="isha-card__tag">${v.tag}</span>
+          <h3>${v.title}</h3>
+          <p>${v.note}</p>
+          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        </div>
+      </article>`;
 
 const card = (v, i) => `
       <article class="track reveal" data-cat="${v.cat}" data-delay="${(i % 3) * 70}"
@@ -152,21 +313,49 @@ const body = `
       <p class="breadcrumb reveal"><a href="index.html">Home</a><span>/</span>Music</p>
       <h1 class="page-hero__title reveal" data-delay="80">Music to <em>sit in</em>.</h1>
       <p class="page-hero__lead reveal" data-delay="160">
-        A hand-picked shelf of YouTube meditations — mantra, healing frequencies, chakra music,
-        sleep drones and silent ambient. Press a cover to play it here, or open it on YouTube.
+        Sounds of Isha chants and stotrams, plus a hand-picked shelf of YouTube meditations —
+        mantra, healing frequencies, chakra music, sleep drones and ambient.
+        Press a cover to play it here, or open it on YouTube to support the creator.
       </p>
     </div>
     <div class="page-hero__aside">
-      <div class="stat-pill reveal" data-delay="220"><span>Hand-picked tracks</span><b>${VIDEOS.length}</b></div>
-      <div class="stat-pill reveal" data-delay="300"><span>Categories</span><b>6</b></div>
+      <div class="stat-pill reveal" data-delay="220"><span>Tracks</span><b>${SHELF.length + ISHA_LIST.length + OTHER_LIST.length}</b></div>
+      <div class="stat-pill reveal" data-delay="300"><span>Categories</span><b>${CATS.length - 1}</b></div>
       <div class="stat-pill reveal" data-delay="380"><span>Playback</span><b>YouTube</b></div>
     </div>
   </section>
 
   <nav class="subnav" aria-label="Music sections">
-    <a href="#shelf" class="is-current">The shelf</a>
+    <a href="#isha" class="is-current">Sounds of Isha</a>
+    <a href="#shelf">The shelf</a>
+    <a href="#devotional">Other devotional</a>
     <a href="#also">Also on Sōma</a>
   </nav>
+
+  <section class="section" id="isha">
+    <div class="section__head">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Featured channel</p>
+      <h2 class="section__title reveal">Sounds of <em>Isha</em></h2>
+      <p class="section__lead reveal">
+        The chant and stotram collection from Isha, including the one-hour versions.
+        Press a cover to play it here, or open it on YouTube to support the channel directly.
+      </p>
+    </div>
+
+    <div class="isha-grid">
+${ISHA_LIST.map(ishaCard).join('\n')}
+    </div>
+
+    <div class="isha-credit reveal">
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-music"></use></svg>
+      <p>
+        All music in this section is by
+        <a href="https://www.youtube.com/@soundsofisha" target="_blank" rel="noopener noreferrer">Sounds of Isha</a>
+        and plays through YouTube's own player, so views and credit go to them.
+        We host none of these audio files.
+      </p>
+    </div>
+  </section>
 
   <section class="section" id="shelf">
     <div class="section__head">
@@ -180,10 +369,38 @@ const body = `
     </div>
 
     <div class="track-grid" id="trackGrid">
-${VIDEOS.map(card).join('\n')}
+${SHELF.map(card).join('\n')}
     </div>
 
     <p class="track-empty" id="trackEmpty" hidden>No tracks in this category yet.</p>
+  </section>
+
+  <section class="section" id="devotional">
+    <div class="section__head">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> From elsewhere on YouTube</p>
+      <h2 class="section__title reveal">Other <em>devotional</em></h2>
+      <p class="section__lead reveal">Chants and shlokas from other channels, kept separate so each creator gets their own credit.</p>
+    </div>
+
+    <div class="isha-grid">
+${OTHER_LIST.map((v, i) => `
+      <article class="isha-card reveal" data-song="${v.id}" data-delay="${(i % 3) * 70}"
+        style="--ic1:${v.c1};--ic2:${v.c2}">
+        <button class="isha-card__thumb" data-video="${v.id}"
+          data-title="${v.title.replace(/"/g, '')}" data-author="${v.hours.replace(/<[^>]+>/g, '')}"
+          aria-label="Play ${v.title.replace(/"/g, '')}">
+          <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="isha-card__len">${v.hours}</span>
+        </button>
+        <div class="isha-card__meta">
+          <span class="isha-card__tag">${v.tag}</span>
+          <h3>${v.title}</h3>
+          <p>${v.note}</p>
+          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        </div>
+      </article>`).join('\n')}
+    </div>
   </section>
 
   <section class="section" id="also">
