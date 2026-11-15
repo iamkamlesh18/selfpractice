@@ -1,0 +1,77 @@
+name: Deploy Sōma to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Allow the workflow to publish to Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy at a time; don't cancel a run that is already publishing
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Assemble site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate pages
+        run: node _build/build.js
+
+      - name: Verify links, assets and script wiring
+        run: |
+          node _build/check-links.js
+          node _build/check-scripts.js
+
+      - name: Check JavaScript syntax
+        run: |
+          for f in assets/js/*.js; do
+            echo "checking $f"
+            node --check "$f"
+          done
+
+      - name: Assemble public directory
+        run: |
+          mkdir -p _site
+          cp index.html breathing.html yoga.html frequencies.html chakras.html music.html styles.css _site/
+          cp -r assets _site/assets
+          # Keep build tooling, templates and local helpers out of the published site
+          rm -rf _site/assets/partials _site/assets/css || true
+          rm -f _site/_serve.js || true
+          touch _site/.nojekyll
+          echo "Files published:"
+          find _site -type f | sort
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

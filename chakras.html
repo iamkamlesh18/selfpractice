@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0713" />
+<title>Chakra Meditation — Sōma</title>
+<meta name="description" content="Meditate on the seven chakras with their true colours, yantra art and frequencies (396–963 Hz), plus a per-chakra timer you set from 2 to 30 minutes." />
+<meta property="og:title" content="Chakra Meditation — Sōma" />
+<meta property="og:description" content="Meditate on the seven chakras with their true colours, yantra art and frequencies (396–963 Hz), plus a per-chakra timer you set from 2 to 30 minutes." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%230d0a1a'/%3E%3Cpath d='M24 8c4 5 6 10 6 14.5S28 31 24 34.5c-4-3.5-6-7.5-6-12S20 13 24 8Z' fill='%2379f2dc'/%3E%3Cpath d='M24 36c-3-4-7-7-12-9 1 7 5 11 12 13 7-2 11-6 12-13-5 2-9 5-12 9Z' fill='%238b7bf7'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="chakras">
+
+<!-- ===================== SVG SPRITE (shared) ===================== -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Brand mark: lotus / breath -->
+    <symbol id="logo-mark" viewBox="0 0 48 48">
+      <path d="M24 6c4.2 5.1 6.3 10.3 6.3 15.6 0 5.4-2.1 10.1-6.3 14.1-4.2-4-6.3-8.7-6.3-14.1C17.7 16.3 19.8 11.1 24 6Z" fill="url(#lg-a)"/>
+      <path d="M24 35.7C20.9 31 16 26.9 9.5 24.6c1.6 8.9 6.4 14.6 14.5 17.1Z" fill="url(#lg-b)" opacity=".95"/>
+      <path d="M24 35.7c3.1-4.7 8-8.8 14.5-11.1-1.6 8.9-6.4 14.6-14.5 17.1Z" fill="url(#lg-b)" opacity=".95"/>
+      <circle cx="24" cy="41" r="1.7" fill="#f6f1e6"/>
+      <linearGradient id="lg-a" x1="17" y1="6" x2="31" y2="36" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#f7e8c4"/><stop offset=".5" stop-color="#79f2dc"/><stop offset="1" stop-color="#8b7bf7"/>
+      </linearGradient>
+      <linearGradient id="lg-b" x1="9" y1="40" x2="39" y2="24" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#8b7bf7"/><stop offset="1" stop-color="#79f2dc" stop-opacity=".4"/>
+      </linearGradient>
+    </symbol>
+
+    <!-- UI icons -->
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6c0 .8.9 1.3 1.6.9l10.4-6.8a1 1 0 0 0 0-1.7L9.6 4.3C8.9 3.9 8 4.4 8 5.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="4.5" width="3.6" height="15" rx="1.6" fill="currentColor"/><rect x="13.9" y="4.5" width="3.6" height="15" rx="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M12 4.5a7.5 7.5 0 1 0 7.44 8.45" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 1.8v5.4l3.6-2.7Z" fill="currentColor"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3 8.5h9.5a3 3 0 1 0-3-3M3 13h13a3 3 0 1 1-3 3M3 17.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="M0 15c8-8 16-8 25 0s17 8 25 0 17-8 25 0 17 8 25 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C11 4 5 8 5 15a5 5 0 0 0 5 5c7 0 10-6 10-16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 20c2.5-5 6-8.5 11-10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 2.6c.7 4.7 2.4 6.4 7.1 7.1-4.7.7-6.4 2.4-7.1 7.1-.7-4.7-2.4-6.4-7.1-7.1 4.7-.7 6.4-2.4 7.1-7.1Z" fill="currentColor"/><path d="M18.5 15.2c.3 2 1 2.7 3 3-2 .3-2.7 1-3 3-.3-2-1-2.7-3-3 2-.3 2.7-1 3-3Z" fill="currentColor" opacity=".7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.6 9.6 17 19 7.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9.5 5.5C5.9 6.6 4 9 4 12.6V18h6.2v-6.2H7.3c.1-2 .9-3.3 2.2-3.9V5.5Zm10 0C15.9 6.6 14 9 14 12.6V18h6.2v-6.2h-2.9c.1-2 .9-3.3 2.2-3.9V5.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2.8 20h18.4L12 4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-lotus" viewBox="0 0 24 24"><path d="M12 3.5c2 2.5 3 5 3 7.4 0 2.5-1 4.7-3 6.6-2-1.9-3-4.1-3-6.6 0-2.4 1-4.9 3-7.4Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 17.5C10 14.6 7 12.4 3.2 11c.8 4.6 3.3 7.6 7.7 9M12 17.5c2-2.9 5-5.1 8.8-6.5-.8 4.6-3.3 7.6-7.7 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c3 3.6 6 6.6 6 10.4A6 6 0 0 1 6 13.4C6 9.6 9 6.6 12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 19.5a2.6 0 0 0 2.6-2.6c0-1.6-1.2-2.9-2.6-4.6-1.4 1.7-2.6 3-2.6 4.6A2.6 2.6 0 0 0 12 19.5Z" fill="currentColor" opacity=".85"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 4.5A3 3 0 0 0 6.5 7.5 3 3 0 0 0 5 13a3 3 0 0 0 1.6 3.9A2.8 2.8 0 0 0 9.5 20h0V4.5Zm5 0A3 3 0 0 1 17.5 7.5 3 3 0 0 1 19 13a3 3 0 0 1-1.6 3.9A2.8 0 0 1 14.5 20h0V4.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 4.5v15.5M9.5 9H7M9.5 13H6.8M14.5 9H17M14.5 13h2.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.4-7.5-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.5 2.6C19.5 15.6 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9.5h3l4-3.2v11.4l-4-3.2H4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 9a4 4 0 0 1 0 6M17.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.4" fill="currentColor"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 17.5V6.4l9-2.1v10.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.6" cy="17.6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15.6" cy="15.4" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===================== BACKDROP ===================== -->
+<div class="backdrop" aria-hidden="true">
+  <div class="aurora aurora--1"></div>
+  <div class="aurora aurora--2"></div>
+  <div class="aurora aurora--3"></div>
+  <div class="grain"></div>
+  <canvas id="stars"></canvas>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand" aria-label="Sōma home">
+      <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#logo-mark"/></svg></span>
+      <span class="brand__word">Sōma</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="breathing.html">Breathing</a>
+      <a href="yoga.html">Yoga</a>
+      <a href="frequencies.html">Frequencies</a>
+      <a href="chakras.html" class="is-current" aria-current="page">Chakras</a>
+      <a href="music.html">Music</a>
+    </nav>
+    <a href="breathing.html" class="btn btn--ghost nav__cta">
+      <span>Begin</span><svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg>
+    </a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<script>window.SOMA_CHAKRAS = [{"key":"root","n":1,"name":"Muladhara","en":"Root Chakra","color":"#ef4b4b","dark":"#7d1d1d","petals":4,"element":"Earth","sense":"Smell","freq":396,"note":"C","seed":"लं","body":"The base of the spine. Safety, survival, belonging and the feeling of being held by the ground.","imbalance":"Fear, scarcity, restlessness","balanced":"Grounded, secure, steady","glyph":"Lam","region":"Base of spine"},{"key":"sacral","n":2,"name":"Svadhisthana","en":"Sacral Chakra","color":"#f29a3d","dark":"#8a4b0c","petals":6,"element":"Water","sense":"Taste","freq":417,"note":"D","seed":"वं","body":"Just below the navel. Pleasure, creativity, emotion and the freedom to feel and to flow.","imbalance":"Numbness, guilt, rigidity","balanced":"Creative, sensual, at ease","glyph":"Vam","region":"Below the navel"},{"key":"solar","n":3,"name":"Manipura","en":"Solar Plexus","color":"#f5d34a","dark":"#8a6f0c","petals":10,"element":"Fire","sense":"Sight","freq":528,"note":"E","seed":"रं","body":"Above the navel. Willpower, confidence, digestion of food and of life itself.","imbalance":"Shame, people-pleasing, burnout","balanced":"Confident, purposeful, warm","glyph":"Ram","region":"Upper abdomen"},{"key":"heart","n":4,"name":"Anahata","en":"Heart Chakra","color":"#66c96b","dark":"#2a6e2e","petals":12,"element":"Air","sense":"Touch","freq":639,"note":"F","seed":"यं","body":"The centre of the chest. Love, compassion, connection — the bridge between the lower and upper centres.","imbalance":"Grief, jealousy, walls","balanced":"Loving, forgiving, open","glyph":"Yam","region":"Heart"},{"key":"throat","n":5,"name":"Vishuddha","en":"Throat Chakra","color":"#4aa3f0","dark":"#1b5285","petals":16,"element":"Ether","sense":"Hearing","freq":741,"note":"G","seed":"हं","body":"The throat. Truth, expression, speaking what is real and listening with the same care.","imbalance":"Silence, lies, fear of speaking","balanced":"Honest, articulate, listened to","glyph":"Ham","region":"Throat"},{"key":"thirdEye","n":6,"name":"Ajna","en":"Third Eye","color":"#7d6bf0","dark":"#332a8f","petals":2,"element":"Light","sense":"Intuition","freq":852,"note":"A","seed":"ॐ","body":"Between the eyebrows. Insight, imagination, the quiet knowing that arrives before thinking does.","imbalance":"Overthinking, fog, denial","balanced":"Clear, intuitive, imaginative","glyph":"Om","region":"Brow"},{"key":"crown","n":7,"name":"Sahasrara","en":"Crown Chakra","color":"#b978f2","dark":"#5a2a8f","petals":1000,"element":"Thought","sense":"Unity","freq":963,"note":"B","seed":"ॐ","body":"Above the crown of the head. Oneness, connection to something larger, pure consciousness.","imbalance":"Disconnection, spiritual bypassing","balanced":"Peaceful, expansive, connected","glyph":"Silence","region":"Crown of head"}];</script>
+
+  <section class="page-hero" style="--cc:#ef4b4b">
+    <div>
+      <p class="breadcrumb reveal"><a href="index.html">Home</a><span>/</span>Chakras</p>
+      <h1 class="page-hero__title reveal" data-delay="80">Seven centres,<br /><em>seven colours.</em></h1>
+      <p class="page-hero__lead reveal" data-delay="160">
+        Choose a chakra, feel its colour, hear its frequency and set a timer for as long as
+        you like. Each centre has its own tone and its own quality of attention.
+      </p>
+    </div>
+    <div class="page-hero__aside">
+      <div class="stat-pill reveal" data-delay="220"><span>Centres</span><b>7</b></div>
+      <div class="stat-pill reveal" data-delay="300"><span>Frequency range</span><b>396–963 Hz</b></div>
+      <div class="stat-pill reveal" data-delay="380"><span>Timer</span><b>1–30 min</b></div>
+    </div>
+  </section>
+
+  <nav class="subnav" aria-label="Chakra sections">
+    <a href="#meditate" class="is-current">Chakra meditation</a>
+    <a href="#map">Colour map</a>
+    <a href="#how">How to practise</a>
+    <a href="frequencies.html">All frequencies →</a>
+  </nav>
+
+  <section class="section" id="meditate">
+    <div class="section__head">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Chakra meditation</p>
+      <h2 class="section__title reveal">Sit with a <em>colour</em></h2>
+      <p class="section__lead reveal">Pick a centre on the left. Set your minutes, press begin — the tone and the timer run together.</p>
+    </div>
+
+    <div class="chakra-layout">
+      <div class="chakra-list reveal" role="tablist" aria-label="Chakras">
+
+          <button class="chakra-item is-active" role="tab" aria-selected="true"
+            data-chakra="root" style="--cc:#ef4b4b">
+            <span class="chakra-item__swatch"><svg viewBox="0 0 24 24"><use href="#i-lotus"/></svg></span>
+            <span class="chakra-item__text">
+              <b>Root Chakra</b>
+              <small>1 · Muladhara</small>
+            </span>
+            <span class="chakra-item__hz">396<small>Hz</small></span>
+          </button>
+
+          <button class="chakra-item" role="tab" aria-selected="false"
+            data-chakra="sacral" style="--cc:#f29a3d">
+            <span class="chakra-item__swatch"><svg viewBox="0 0 24 24"><use href="#i-lotus"/></svg></span>
+            <span class="chakra-item__text">
+              <b>Sacral Chakra</b>
+              <small>2 · Svadhisthana</small>
+            </span>
+            <span class="chakra-item__hz">417<small>Hz</small></span>
+          </button>
+
+          <button class="chakra-item" role="tab" aria-selected="false"
+            data-chakra="solar" style="--cc:#f5d34a">
+            <span class="chakra-item__swatch"><svg viewBox="0 0 24 24"><use href="#i-lotus"/></svg></span>
+            <span class="chakra-item__text">
+              <b>Solar Plexus</b>
+              <small>3 · Manipura</small>
+            </span>
+            <span class="chakra-item__hz">528<small>Hz</small></span>
+          </button>
+
+          <button class="chakra-item" role="tab" aria-selected="false"
+            data-chakra="heart" style="--cc:#66c96b">
+            <span class="chakra-item__swatch"><svg viewBox="0 0 24 24"><use href="#i-lotus"/></svg></span>
+            <span class="chakra-item__text">
+              <b>Heart Chakra</b>
+              <small>4 · Anahata</small>
+            </span>
+            <span class="chakra-item__hz">639<small>Hz</small></span>
+          </button>
+
+          <button class="chakra-item" role="tab" aria-selected="false"
+            data-chakra="throat" style="--cc:#4aa3f0">
+            <span class="chakra-item__swatch"><svg viewBox="0 0 24 24"><use href="#i-lotus"/></svg></span>
+            <span class="chakra-item__text">
+              <b>Throat Chakra</b>
+              <small>5 · Vishuddha</small>
+            </span>
+            <span class="chakra-item__hz">741<small>Hz</small></span>
+          </button>
+
+          <button class="chakra-item" role="tab" aria-selected="false"
+            data-chakra="thirdEye" style="--cc:#7d6bf0">
+            <span class="chakra-item__swatch"><svg viewBox="0 0 24 24"><use href="#i-lotus"/></svg></span>
+            <span class="chakra-item__text">
+              <b>Third Eye</b>
+              <small>6 · Ajna</small>
+            </span>
+            <span class="chakra-item__hz">852<small>Hz</small></span>
+          </button>
+
+          <button class="chakra-item" role="tab" aria-selected="false"
+            data-chakra="crown" style="--cc:#b978f2">
+            <span class="chakra-item__swatch"><svg viewBox="0 0 24 24"><use href="#i-lotus"/></svg></span>
+            <span class="chakra-item__text">
+              <b>Crown Chakra</b>
+              <small>7 · Sahasrara</small>
+            </span>
+            <span class="chakra-item__hz">963<small>Hz</small></span>
+          </button>
+        <div class="chakra-spectrum" aria-hidden="true">
+          <i style="background:#ef4b4b"></i><i style="background:#f29a3d"></i><i style="background:#f5d34a"></i><i style="background:#66c96b"></i><i style="background:#4aa3f0"></i><i style="background:#7d6bf0"></i><i style="background:#b978f2"></i>
+        </div>
+      </div>
+
+      <div class="chakra-stage reveal" id="chakraStage" data-delay="120" style="--cc:#ef4b4b">
+        <div class="chakra-stage__head">
+          <div>
+            <span class="chakra-stage__sk" id="ckSk">Mūlādhāra · 1</span>
+            <h3 class="chakra-stage__title" id="ckTitle">Root <em>Chakra</em></h3>
+          </div>
+          <span class="tag" id="ckElement" style="color:#ef4b4b;border-color:#ef4b4b55;background:#ef4b4b1a">Earth</span>
+        </div>
+
+        <div class="chakra-stage__body">
+          <div class="chakra-art" id="ckArt" aria-hidden="true">
+            <div class="chakra-art__halo"></div>
+            <div class="chakra-art__rings"></div>
+            <svg viewBox="0 0 200 200" role="img" aria-label="Root Chakra yantra">
+    <circle class="petal" cx="100" cy="100" r="86" fill="none" opacity=".35"/>
+    <ellipse class="petal" cx="158.00" cy="100.00" rx="11" ry="20"
+      transform="rotate(90.0 158.00 100.00)"/><ellipse class="petal" cx="100.00" cy="158.00" rx="11" ry="20"
+      transform="rotate(180.0 100.00 158.00)"/><ellipse class="petal" cx="42.00" cy="100.00" rx="11" ry="20"
+      transform="rotate(270.0 42.00 100.00)"/><ellipse class="petal" cx="100.00" cy="42.00" rx="11" ry="20"
+      transform="rotate(360.0 100.00 42.00)"/>
+    <circle class="petal" cx="100" cy="100" r="36" fill="none"/>
+    <path class="petal" d="M100 62 118 132 82 132Z" fill="none"/>
+    <path class="petal" d="M100 138 82 68 118 68Z" fill="none" opacity=".6"/>
+    <circle class="core" cx="100" cy="100" r="26"/>
+    <text x="100" y="110" text-anchor="middle" class="glyph-text" >लं</text>
+  </svg>
+          </div>
+
+          <div class="chakra-facts">
+            <p id="ckBody">The base of the spine. Safety, survival, belonging and the feeling of being held by the ground.</p>
+            <div class="chakra-rows">
+              <div class="chakra-row"><span>Frequency</span><b class="hz" id="ckHz">396 Hz</b></div>
+              <div class="chakra-row"><span>Note · Seed</span><b id="ckNote">C · Lam</b></div>
+              <div class="chakra-row"><span>Location</span><b id="ckRegion">Base of spine</b></div>
+              <div class="chakra-row"><span>Balanced</span><b id="ckBalanced">Grounded, secure, steady</b></div>
+              <div class="chakra-row"><span>Out of balance</span><b id="ckImbalance" style="opacity:.75">Fear, scarcity, restlessness</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chakra-timer">
+          <div class="chakra-timer__ring">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle class="trk" cx="32" cy="32" r="27"/>
+              <circle class="prg" id="ckRing" cx="32" cy="32" r="27"/>
+            </svg>
+          </div>
+          <div>
+            <div class="chakra-timer__time" id="ckTime">05:00</div>
+          </div>
+          <div class="chakra-timer__chips" role="group" aria-label="Timer length">
+            <button class="chip" data-min="2">2</button>
+            <button class="chip is-active" data-min="5">5</button>
+            <button class="chip" data-min="10">10</button>
+            <button class="chip" data-min="15">15</button>
+            <button class="chip" data-min="20">20</button>
+            <button class="chip" data-min="30">30</button>
+          </div>
+          <button class="chakra-timer__go" id="ckGo">
+            <svg viewBox="0 0 24 24" class="ico" id="ckGoIcon"><use href="#i-play"/></svg>
+            <span id="ckGoLabel">Begin</span>
+          </button>
+        </div>
+
+        <div class="chakra-note" id="ckNoteLive">
+          <span class="dot-live"></span>
+          <span id="ckLive">Tone off · timer idle</span>
+          <button class="btn btn--text" id="ckTone" style="margin-left:auto">Play tone only</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="map">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> The map</p>
+      <h2 class="section__title reveal">Colour <em>map</em></h2>
+      <p class="section__lead reveal">From earth at the base to light at the crown. The classic seven-colour system, top to bottom.</p>
+    </div>
+
+    <div class="chakra-layout" style="grid-template-columns:1fr">
+      <div class="ritual__steps" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        
+        <div class="step reveal" data-delay="0" style="border-color:#b978f244;background:linear-gradient(175deg,#b978f218,#b978f206)">
+          <div class="step__num" style="color:#b978f2;opacity:.5">7</div>
+          <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff9,transparent 46%),#b978f2;box-shadow:0 0 24px -2px #b978f2;margin-bottom:18px"></div>
+          <h3 style="font-size:1.35rem">Crown Chakra</h3>
+          <p style="color:#b978f2;font-family:var(--font-display);font-style:italic;margin-bottom:6px">Sahasrara</p>
+          <p><b style="font-weight:400">963 Hz</b> · B · Thought</p>
+        </div>
+        <div class="step reveal" data-delay="70" style="border-color:#7d6bf044;background:linear-gradient(175deg,#7d6bf018,#7d6bf006)">
+          <div class="step__num" style="color:#7d6bf0;opacity:.5">6</div>
+          <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff9,transparent 46%),#7d6bf0;box-shadow:0 0 24px -2px #7d6bf0;margin-bottom:18px"></div>
+          <h3 style="font-size:1.35rem">Third Eye</h3>
+          <p style="color:#7d6bf0;font-family:var(--font-display);font-style:italic;margin-bottom:6px">Ajna</p>
+          <p><b style="font-weight:400">852 Hz</b> · A · Light</p>
+        </div>
+        <div class="step reveal" data-delay="140" style="border-color:#4aa3f044;background:linear-gradient(175deg,#4aa3f018,#4aa3f006)">
+          <div class="step__num" style="color:#4aa3f0;opacity:.5">5</div>
+          <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff9,transparent 46%),#4aa3f0;box-shadow:0 0 24px -2px #4aa3f0;margin-bottom:18px"></div>
+          <h3 style="font-size:1.35rem">Throat Chakra</h3>
+          <p style="color:#4aa3f0;font-family:var(--font-display);font-style:italic;margin-bottom:6px">Vishuddha</p>
+          <p><b style="font-weight:400">741 Hz</b> · G · Ether</p>
+        </div>
+        <div class="step reveal" data-delay="210" style="border-color:#66c96b44;background:linear-gradient(175deg,#66c96b18,#66c96b06)">
+          <div class="step__num" style="color:#66c96b;opacity:.5">4</div>
+          <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff9,transparent 46%),#66c96b;box-shadow:0 0 24px -2px #66c96b;margin-bottom:18px"></div>
+          <h3 style="font-size:1.35rem">Heart Chakra</h3>
+          <p style="color:#66c96b;font-family:var(--font-display);font-style:italic;margin-bottom:6px">Anahata</p>
+          <p><b style="font-weight:400">639 Hz</b> · F · Air</p>
+        </div>
+        <div class="step reveal" data-delay="280" style="border-color:#f5d34a44;background:linear-gradient(175deg,#f5d34a18,#f5d34a06)">
+          <div class="step__num" style="color:#f5d34a;opacity:.5">3</div>
+          <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff9,transparent 46%),#f5d34a;box-shadow:0 0 24px -2px #f5d34a;margin-bottom:18px"></div>
+          <h3 style="font-size:1.35rem">Solar Plexus</h3>
+          <p style="color:#f5d34a;font-family:var(--font-display);font-style:italic;margin-bottom:6px">Manipura</p>
+          <p><b style="font-weight:400">528 Hz</b> · E · Fire</p>
+        </div>
+        <div class="step reveal" data-delay="350" style="border-color:#f29a3d44;background:linear-gradient(175deg,#f29a3d18,#f29a3d06)">
+          <div class="step__num" style="color:#f29a3d;opacity:.5">2</div>
+          <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff9,transparent 46%),#f29a3d;box-shadow:0 0 24px -2px #f29a3d;margin-bottom:18px"></div>
+          <h3 style="font-size:1.35rem">Sacral Chakra</h3>
+          <p style="color:#f29a3d;font-family:var(--font-display);font-style:italic;margin-bottom:6px">Svadhisthana</p>
+          <p><b style="font-weight:400">417 Hz</b> · D · Water</p>
+        </div>
+        <div class="step reveal" data-delay="420" style="border-color:#ef4b4b44;background:linear-gradient(175deg,#ef4b4b18,#ef4b4b06)">
+          <div class="step__num" style="color:#ef4b4b;opacity:.5">1</div>
+          <div style="width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#fff9,transparent 46%),#ef4b4b;box-shadow:0 0 24px -2px #ef4b4b;margin-bottom:18px"></div>
+          <h3 style="font-size:1.35rem">Root Chakra</h3>
+          <p style="color:#ef4b4b;font-family:var(--font-display);font-style:italic;margin-bottom:6px">Muladhara</p>
+          <p><b style="font-weight:400">396 Hz</b> · C · Earth</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> The practice</p>
+      <h2 class="section__title reveal">How to <em>practise</em></h2>
+      <p class="section__lead reveal">Simple, unhurried, repeatable. Five minutes is a complete practice.</p>
+    </div>
+
+    <div class="ritual__steps">
+      <div class="step reveal">
+        <div class="step__num">01</div>
+        <h3>Choose</h3>
+        <p>Pick the centre that feels tight or tired — root when anxious, throat before speaking, heart when hurt.</p>
+      </div>
+      <div class="step reveal" data-delay="120">
+        <div class="step__num">02</div>
+        <h3>Sit &amp; see</h3>
+        <p>Sit tall. Let the colour fill the screen. Breathe slowly in through the nose, out through the mouth.</p>
+      </div>
+      <div class="step reveal" data-delay="240">
+        <div class="step__num">03</div>
+        <h3>Listen</h3>
+        <p>Play the tone and set the timer. Imagine the colour and the sound gathering at that centre.</p>
+      </div>
+      <div class="step reveal" data-delay="360">
+        <div class="step__num">04</div>
+        <h3>Release</h3>
+        <p>When the bell rings, let it go. Notice what feels different before you open your eyes.</p>
+      </div>
+    </div>
+
+    <div class="caution reveal">
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-alert"/></svg>
+      <p><strong style="font-weight:500">A note.</strong> Chakra work is a contemplative tradition, not a medical treatment. If you carry significant trauma, practise gently or with a teacher you trust.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__ring" aria-hidden="true"></div>
+    <div class="cta__inner reveal">
+      <svg viewBox="0 0 48 48" class="cta__mark"><use href="#logo-mark"/></svg>
+      <h2>End with a <em>sun salutation</em>.</h2>
+      <p>Movement before stillness — twelve poses to wake the body before you sit.</p>
+      <a href="yoga.html#surya-namaskar" class="btn btn--primary">
+        <span>Open Surya Namaskar</span><span class="btn__ripple"></span>
+        <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="index.html" class="brand">
+        <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#logo-mark"/></svg></span>
+        <span class="brand__word">Sōma</span>
+      </a>
+      <p>Made slowly, for people who are tired of being rushed.</p>
+    </div>
+    <nav class="footer__cols" aria-label="Footer">
+      <div>
+        <h4>Practice</h4>
+        <a href="breathing.html">Breathing</a>
+        <a href="yoga.html">Yoga</a>
+        <a href="breathing.html#pranayama">Pranayama</a>
+        <a href="chakras.html">Chakra meditation</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="frequencies.html">Frequencies</a>
+        <a href="yoga.html#surya-namaskar">Surya Namaskar</a>
+        <a href="music.html">Music</a>
+        <a href="breathing.html#sounds">Soundscapes</a>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#voices">Voices</a>
+        <a href="index.html#about">About</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer__base">
+    <span>© <span id="year"></span> Sōma — breathe well.</span>
+    <span>Made with breath · no trackers, no noise</span>
+  </div>
+</footer>
+
+<script src="assets/js/chakra.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

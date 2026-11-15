@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0713" />
+<title>Music — Sōma</title>
+<meta name="description" content="Hand-picked YouTube meditations: Om chanting, healing frequencies, chakra music, sleep drones and ambient focus music, plus live tones and soundscapes made on Sōma." />
+<meta property="og:title" content="Music — Sōma" />
+<meta property="og:description" content="Hand-picked YouTube meditations: Om chanting, healing frequencies, chakra music, sleep drones and ambient focus music, plus live tones and soundscapes made on Sōma." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%230d0a1a'/%3E%3Cpath d='M24 8c4 5 6 10 6 14.5S28 31 24 34.5c-4-3.5-6-7.5-6-12S20 13 24 8Z' fill='%2379f2dc'/%3E%3Cpath d='M24 36c-3-4-7-7-12-9 1 7 5 11 12 13 7-2 11-6 12-13-5 2-9 5-12 9Z' fill='%238b7bf7'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="music">
+
+<!-- ===================== SVG SPRITE (shared) ===================== -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Brand mark: lotus / breath -->
+    <symbol id="logo-mark" viewBox="0 0 48 48">
+      <path d="M24 6c4.2 5.1 6.3 10.3 6.3 15.6 0 5.4-2.1 10.1-6.3 14.1-4.2-4-6.3-8.7-6.3-14.1C17.7 16.3 19.8 11.1 24 6Z" fill="url(#lg-a)"/>
+      <path d="M24 35.7C20.9 31 16 26.9 9.5 24.6c1.6 8.9 6.4 14.6 14.5 17.1Z" fill="url(#lg-b)" opacity=".95"/>
+      <path d="M24 35.7c3.1-4.7 8-8.8 14.5-11.1-1.6 8.9-6.4 14.6-14.5 17.1Z" fill="url(#lg-b)" opacity=".95"/>
+      <circle cx="24" cy="41" r="1.7" fill="#f6f1e6"/>
+      <linearGradient id="lg-a" x1="17" y1="6" x2="31" y2="36" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#f7e8c4"/><stop offset=".5" stop-color="#79f2dc"/><stop offset="1" stop-color="#8b7bf7"/>
+      </linearGradient>
+      <linearGradient id="lg-b" x1="9" y1="40" x2="39" y2="24" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#8b7bf7"/><stop offset="1" stop-color="#79f2dc" stop-opacity=".4"/>
+      </linearGradient>
+    </symbol>
+
+    <!-- UI icons -->
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6c0 .8.9 1.3 1.6.9l10.4-6.8a1 1 0 0 0 0-1.7L9.6 4.3C8.9 3.9 8 4.4 8 5.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="4.5" width="3.6" height="15" rx="1.6" fill="currentColor"/><rect x="13.9" y="4.5" width="3.6" height="15" rx="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M12 4.5a7.5 7.5 0 1 0 7.44 8.45" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 1.8v5.4l3.6-2.7Z" fill="currentColor"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3 8.5h9.5a3 3 0 1 0-3-3M3 13h13a3 3 0 1 1-3 3M3 17.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="M0 15c8-8 16-8 25 0s17 8 25 0 17-8 25 0 17 8 25 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C11 4 5 8 5 15a5 5 0 0 0 5 5c7 0 10-6 10-16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 20c2.5-5 6-8.5 11-10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 2.6c.7 4.7 2.4 6.4 7.1 7.1-4.7.7-6.4 2.4-7.1 7.1-.7-4.7-2.4-6.4-7.1-7.1 4.7-.7 6.4-2.4 7.1-7.1Z" fill="currentColor"/><path d="M18.5 15.2c.3 2 1 2.7 3 3-2 .3-2.7 1-3 3-.3-2-1-2.7-3-3 2-.3 2.7-1 3-3Z" fill="currentColor" opacity=".7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.6 9.6 17 19 7.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9.5 5.5C5.9 6.6 4 9 4 12.6V18h6.2v-6.2H7.3c.1-2 .9-3.3 2.2-3.9V5.5Zm10 0C15.9 6.6 14 9 14 12.6V18h6.2v-6.2h-2.9c.1-2 .9-3.3 2.2-3.9V5.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2.8 20h18.4L12 4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-lotus" viewBox="0 0 24 24"><path d="M12 3.5c2 2.5 3 5 3 7.4 0 2.5-1 4.7-3 6.6-2-1.9-3-4.1-3-6.6 0-2.4 1-4.9 3-7.4Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 17.5C10 14.6 7 12.4 3.2 11c.8 4.6 3.3 7.6 7.7 9M12 17.5c2-2.9 5-5.1 8.8-6.5-.8 4.6-3.3 7.6-7.7 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c3 3.6 6 6.6 6 10.4A6 6 0 0 1 6 13.4C6 9.6 9 6.6 12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 19.5a2.6 0 0 0 2.6-2.6c0-1.6-1.2-2.9-2.6-4.6-1.4 1.7-2.6 3-2.6 4.6A2.6 2.6 0 0 0 12 19.5Z" fill="currentColor" opacity=".85"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 4.5A3 3 0 0 0 6.5 7.5 3 3 0 0 0 5 13a3 3 0 0 0 1.6 3.9A2.8 2.8 0 0 0 9.5 20h0V4.5Zm5 0A3 3 0 0 1 17.5 7.5 3 3 0 0 1 19 13a3 3 0 0 1-1.6 3.9A2.8 0 0 1 14.5 20h0V4.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 4.5v15.5M9.5 9H7M9.5 13H6.8M14.5 9H17M14.5 13h2.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.4-7.5-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.5 2.6C19.5 15.6 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9.5h3l4-3.2v11.4l-4-3.2H4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 9a4 4 0 0 1 0 6M17.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.4" fill="currentColor"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 17.5V6.4l9-2.1v10.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.6" cy="17.6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15.6" cy="15.4" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===================== BACKDROP ===================== -->
+<div class="backdrop" aria-hidden="true">
+  <div class="aurora aurora--1"></div>
+  <div class="aurora aurora--2"></div>
+  <div class="aurora aurora--3"></div>
+  <div class="grain"></div>
+  <canvas id="stars"></canvas>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand" aria-label="Sōma home">
+      <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#logo-mark"/></svg></span>
+      <span class="brand__word">Sōma</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="breathing.html">Breathing</a>
+      <a href="yoga.html">Yoga</a>
+      <a href="frequencies.html">Frequencies</a>
+      <a href="chakras.html">Chakras</a>
+      <a href="music.html" class="is-current" aria-current="page">Music</a>
+    </nav>
+    <a href="breathing.html" class="btn btn--ghost nav__cta">
+      <span>Begin</span><svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg>
+    </a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="page-hero">
+    <div>
+      <p class="breadcrumb reveal"><a href="index.html">Home</a><span>/</span>Music</p>
+      <h1 class="page-hero__title reveal" data-delay="80">Music to <em>sit in</em>.</h1>
+      <p class="page-hero__lead reveal" data-delay="160">
+        A hand-picked shelf of YouTube meditations — mantra, healing frequencies, chakra music,
+        sleep drones and silent ambient. Press a cover to play it here, or open it on YouTube.
+      </p>
+    </div>
+    <div class="page-hero__aside">
+      <div class="stat-pill reveal" data-delay="220"><span>Hand-picked tracks</span><b>20</b></div>
+      <div class="stat-pill reveal" data-delay="300"><span>Categories</span><b>6</b></div>
+      <div class="stat-pill reveal" data-delay="380"><span>Playback</span><b>YouTube</b></div>
+    </div>
+  </section>
+
+  <nav class="subnav" aria-label="Music sections">
+    <a href="#shelf" class="is-current">The shelf</a>
+    <a href="#also">Also on Sōma</a>
+  </nav>
+
+  <section class="section" id="shelf">
+    <div class="section__head">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> The collection</p>
+      <h2 class="section__title reveal">Pick a <em>mood</em></h2>
+      <p class="section__lead reveal">Everything here plays from YouTube, so the audio quality and length are the original creator's. Support them if something helps.</p>
+    </div>
+
+    <div class="track-filters reveal" role="group" aria-label="Filter music">
+      <button class="chip is-active" data-filter="all">All</button>
+      <button class="chip" data-filter="mantra">Mantra &amp; chant</button>
+      <button class="chip" data-filter="frequency">Frequencies</button>
+      <button class="chip" data-filter="chakra">Chakras</button>
+      <button class="chip" data-filter="sleep">Sleep &amp; rest</button>
+      <button class="chip" data-filter="practice">Practice</button>
+      <button class="chip" data-filter="focus">Ambient &amp; focus</button>
+    </div>
+
+    <div class="track-grid" id="trackGrid">
+
+      <article class="track reveal" data-cat="mantra" data-delay="0"
+        style="--c1:#d8c48a;--c2:#8a6d2f">
+        <button class="track__thumb" data-video="pnkFJ0NQrkM" data-title="The Deepest Om — 108 times" data-author="Meditative Mind"
+          aria-label="Play The Deepest Om — 108 times by Meditative Mind">
+          <img src="https://i.ytimg.com/vi/pnkFJ0NQrkM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">30 min</span>
+        </button>
+        <div class="track__meta">
+          <h3>The Deepest Om — 108 times</h3>
+          <p class="track__by">Meditative Mind</p>
+          <p class="track__note">Om chanted 108 times — the classical mala count. Good for japa, or just for the back of a long practice.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="mantra" data-delay="70"
+        style="--c1:#e0cfa0;--c2:#8d6b2c">
+        <button class="track__thumb" data-video="vH11undyI2o" data-title="Om Mantra Meditation — 11 minutes" data-author="Meditative Mind"
+          aria-label="Play Om Mantra Meditation — 11 minutes by Meditative Mind">
+          <img src="https://i.ytimg.com/vi/vH11undyI2o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">11 min</span>
+        </button>
+        <div class="track__meta">
+          <h3>Om Mantra Meditation — 11 minutes</h3>
+          <p class="track__by">Meditative Mind</p>
+          <p class="track__note">A short, complete practice. Eleven minutes fits into a morning before anyone else is awake.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="mantra" data-delay="140"
+        style="--c1:#c9b2e8;--c2:#5b3f8f">
+        <button class="track__thumb" data-video="05c7SkvFY_o" data-title="Om Namah Shivaya — 108 times" data-author="Anandmurti Gurumaa"
+          aria-label="Play Om Namah Shivaya — 108 times by Anandmurti Gurumaa">
+          <img src="https://i.ytimg.com/vi/05c7SkvFY_o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">chanting</span>
+        </button>
+        <div class="track__meta">
+          <h3>Om Namah Shivaya — 108 times</h3>
+          <p class="track__by">Anandmurti Gurumaa</p>
+          <p class="track__note">A devotional chant to Shiva, in the traditional 108 repetitions. Slow, low and steadying.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="mantra" data-delay="0"
+        style="--c1:#e8cfa8;--c2:#8a6231">
+        <button class="track__thumb" data-video="J11VChbAboA" data-title="Om Chanting 100 times" data-author="DhyaanGuru Dr. Nipun Aggarwal"
+          aria-label="Play Om Chanting 100 times by DhyaanGuru Dr. Nipun Aggarwal">
+          <img src="https://i.ytimg.com/vi/J11VChbAboA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">guided</span>
+        </button>
+        <div class="track__meta">
+          <h3>Om Chanting 100 times</h3>
+          <p class="track__by">DhyaanGuru Dr. Nipun Aggarwal</p>
+          <p class="track__note">Guided om chanting with a clear, simple count — helpful if you have never chanted before.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="mantra" data-delay="70"
+        style="--c1:#c2cfe0;--c2:#4a5f7a">
+        <button class="track__thumb" data-video="0D4V5awe-PA" data-title="Tibetan monks chanting Om" data-author="Tibetan Singing Bells Monks"
+          aria-label="Play Tibetan monks chanting Om by Tibetan Singing Bells Monks">
+          <img src="https://i.ytimg.com/vi/0D4V5awe-PA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">long</span>
+        </button>
+        <div class="track__meta">
+          <h3>Tibetan monks chanting Om</h3>
+          <p class="track__by">Tibetan Singing Bells Monks</p>
+          <p class="track__note">Field recording style chanting from a monastic setting. Deep, textured and very still.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="frequency" data-delay="140"
+        style="--c1:#c9a4f7;--c2:#5a2a8f">
+        <button class="track__thumb" data-video="UuidkAboVQw" data-title="Gate to Oneness — 963 Hz" data-author="Inner Lotus Music"
+          aria-label="Play Gate to Oneness — 963 Hz by Inner Lotus Music">
+          <img src="https://i.ytimg.com/vi/UuidkAboVQw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">crown chakra</span>
+        </button>
+        <div class="track__meta">
+          <h3>Gate to Oneness — 963 Hz</h3>
+          <p class="track__by">Inner Lotus Music</p>
+          <p class="track__note">The crown chakra Solfeggio tone. Pair with the chakra page timer if you are working through all seven.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="frequency" data-delay="0"
+        style="--c1:#8ee4d6;--c2:#2f7d74">
+        <button class="track__thumb" data-video="C9hMaqQFKXk" data-title="Inner Balance — 432 Hz + 111 Hz" data-author="Inner Lotus Music"
+          aria-label="Play Inner Balance — 432 Hz + 111 Hz by Inner Lotus Music">
+          <img src="https://i.ytimg.com/vi/C9hMaqQFKXk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">long ambient</span>
+        </button>
+        <div class="track__meta">
+          <h3>Inner Balance — 432 Hz + 111 Hz</h3>
+          <p class="track__by">Inner Lotus Music</p>
+          <p class="track__note">Natural tuning blended with a low 111 Hz bed. The most "easy listening" track in the collection.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="frequency" data-delay="70"
+        style="--c1:#a8c9e8;--c2:#3f5f8f">
+        <button class="track__thumb" data-video="PFsGsmtPz24" data-title="Tibetan healing sounds" data-author="Positive Energy Meditation Music"
+          aria-label="Play Tibetan healing sounds by Positive Energy Meditation Music">
+          <img src="https://i.ytimg.com/vi/PFsGsmtPz24/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">ambient</span>
+        </button>
+        <div class="track__meta">
+          <h3>Tibetan healing sounds</h3>
+          <p class="track__by">Positive Energy Meditation Music</p>
+          <p class="track__note">Bowl and bell textures rather than a single drone — good when a pure sine tone feels too clinical.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="chakra" data-delay="140"
+        style="--c1:#f7a9c9;--c2:#8f3a63">
+        <button class="track__thumb" data-video="NF35xujl23c" data-title="All 7 chakras — healing music" data-author="Tibetan Meditation Music"
+          aria-label="Play All 7 chakras — healing music by Tibetan Meditation Music">
+          <img src="https://i.ytimg.com/vi/NF35xujl23c/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">3 h</span>
+        </button>
+        <div class="track__meta">
+          <h3>All 7 chakras — healing music</h3>
+          <p class="track__by">Tibetan Meditation Music</p>
+          <p class="track__note">A long continuous piece cycling the seven chakra tones. Leave it on and let it carry you.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="chakra" data-delay="0"
+        style="--c1:#f29a3d;--c2:#8a4b0c">
+        <button class="track__thumb" data-video="WZ6hDuI23qU" data-title="Sacral chakra awakening — 303 Hz" data-author="Meditative Mind"
+          aria-label="Play Sacral chakra awakening — 303 Hz by Meditative Mind">
+          <img src="https://i.ytimg.com/vi/WZ6hDuI23qU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">focused</span>
+        </button>
+        <div class="track__meta">
+          <h3>Sacral chakra awakening — 303 Hz</h3>
+          <p class="track__by">Meditative Mind</p>
+          <p class="track__note">A single-centre track. Sit with orange for the whole length, then switch to your next centre.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="sleep" data-delay="70"
+        style="--c1:#8b98c7;--c2:#2f3864">
+        <button class="track__thumb" data-video="Jyy0ra2WcQQ" data-title="Sleep meditation — restore your mind" data-author="Guided meditation"
+          aria-label="Play Sleep meditation — restore your mind by Guided meditation">
+          <img src="https://i.ytimg.com/vi/Jyy0ra2WcQQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">long</span>
+        </button>
+        <div class="track__meta">
+          <h3>Sleep meditation — restore your mind</h3>
+          <p class="track__by">Guided meditation</p>
+          <p class="track__note">A guided voice to fall asleep to. Use headphones, low volume, and expect not to hear the end.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="sleep" data-delay="140"
+        style="--c1:#7f8ee0;--c2:#2c356e">
+        <button class="track__thumb" data-video="N4qCFFBrrgk" data-title="Deep sleep — meditation music" data-author="Sleep music"
+          aria-label="Play Deep sleep — meditation music by Sleep music">
+          <img src="https://i.ytimg.com/vi/N4qCFFBrrgk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">all night</span>
+        </button>
+        <div class="track__meta">
+          <h3>Deep sleep — meditation music</h3>
+          <p class="track__by">Sleep music</p>
+          <p class="track__note">Drone-led sleep music with no sudden changes. Keep the volume just under audible.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="sleep" data-delay="0"
+        style="--c1:#9aa8d8;--c2:#39406e">
+        <button class="track__thumb" data-video="Tqx0l2YaKlE" data-title="Healing frequency — deep rest" data-author="Meditation music"
+          aria-label="Play Healing frequency — deep rest by Meditation music">
+          <img src="https://i.ytimg.com/vi/Tqx0l2YaKlE/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">long</span>
+        </button>
+        <div class="track__meta">
+          <h3>Healing frequency — deep rest</h3>
+          <p class="track__by">Meditation music</p>
+          <p class="track__note">A slow, warm drone for the end of the day or a nap.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="practice" data-delay="70"
+        style="--c1:#f7e8c4;--c2:#8a6c25">
+        <button class="track__thumb" data-video="IKzkc3FWx7g" data-title="Surya Namaskar — step by step" data-author="The Art of Living"
+          aria-label="Play Surya Namaskar — step by step by The Art of Living">
+          <img src="https://i.ytimg.com/vi/IKzkc3FWx7g/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">tutorial</span>
+        </button>
+        <div class="track__meta">
+          <h3>Surya Namaskar — step by step</h3>
+          <p class="track__by">The Art of Living</p>
+          <p class="track__note">The sun salutation walkthrough used on the yoga page. Watch it once, then practise along.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="practice" data-delay="140"
+        style="--c1:#f0d9a0;--c2:#8a6c25">
+        <button class="track__thumb" data-video="Ho68X9QKxfc" data-title="Sun salutation mantras" data-author="The Art of Living"
+          aria-label="Play Sun salutation mantras by The Art of Living">
+          <img src="https://i.ytimg.com/vi/Ho68X9QKxfc/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">chanting</span>
+        </button>
+        <div class="track__meta">
+          <h3>Sun salutation mantras</h3>
+          <p class="track__by">The Art of Living</p>
+          <p class="track__note">The twelve mantras chanted slowly — the audio companion to the mantra list on the yoga page.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="practice" data-delay="0"
+        style="--c1:#9fd6f5;--c2:#3f82b8">
+        <button class="track__thumb" data-video="eWLVBP3VrO4" data-title="Bhramari — humming bee breath" data-author="Breath practice"
+          aria-label="Play Bhramari — humming bee breath by Breath practice">
+          <img src="https://i.ytimg.com/vi/eWLVBP3VrO4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">technique</span>
+        </button>
+        <div class="track__meta">
+          <h3>Bhramari — humming bee breath</h3>
+          <p class="track__by">Breath practice</p>
+          <p class="track__note">How bhramari actually sounds. Follow along after reading the steps on the breathing page.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="practice" data-delay="70"
+        style="--c1:#79f2dc;--c2:#2a7d70">
+        <button class="track__thumb" data-video="A0X61Cukxg0" data-title="Guided breathing session" data-author="Breathwork"
+          aria-label="Play Guided breathing session by Breathwork">
+          <img src="https://i.ytimg.com/vi/A0X61Cukxg0/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">guided</span>
+        </button>
+        <div class="track__meta">
+          <h3>Guided breathing session</h3>
+          <p class="track__by">Breathwork</p>
+          <p class="track__note">A spoken breath count to follow. Nice when you would rather listen than watch an orb.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="focus" data-delay="140"
+        style="--c1:#a5b8d8;--c2:#3a4a6b">
+        <button class="track__thumb" data-video="N5hFNoRcMVU" data-title="Deep focus ambient" data-author="Ambient meditation"
+          aria-label="Play Deep focus ambient by Ambient meditation">
+          <img src="https://i.ytimg.com/vi/N5hFNoRcMVU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">long</span>
+        </button>
+        <div class="track__meta">
+          <h3>Deep focus ambient</h3>
+          <p class="track__by">Ambient meditation</p>
+          <p class="track__note">No lyrics, no rhythm to lock onto — good for reading or slow work.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="focus" data-delay="0"
+        style="--c1:#9ecfb8;--c2:#356b52">
+        <button class="track__thumb" data-video="DulNz2CkoHI" data-title="Calm ambient — rain and drones" data-author="Ambient meditation"
+          aria-label="Play Calm ambient — rain and drones by Ambient meditation">
+          <img src="https://i.ytimg.com/vi/DulNz2CkoHI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">long</span>
+        </button>
+        <div class="track__meta">
+          <h3>Calm ambient — rain and drones</h3>
+          <p class="track__by">Ambient meditation</p>
+          <p class="track__note">A softer alternative to the live soundscapes, for when you want one long unbroken bed.</p>
+        </div>
+      </article>
+
+      <article class="track reveal" data-cat="focus" data-delay="70"
+        style="--c1:#e8b28a;--c2:#8a4b2c">
+        <button class="track__thumb" data-video="wlN_3cu7Xe4" data-title="Candlelight ambient" data-author="Meditation music"
+          aria-label="Play Candlelight ambient by Meditation music">
+          <img src="https://i.ytimg.com/vi/wlN_3cu7Xe4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+          <span class="track__len">evening</span>
+        </button>
+        <div class="track__meta">
+          <h3>Candlelight ambient</h3>
+          <p class="track__by">Meditation music</p>
+          <p class="track__note">Warm, low and slow. Suits an evening practice or dimming the room early.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="track-empty" id="trackEmpty" hidden>No tracks in this category yet.</p>
+  </section>
+
+  <section class="section" id="also">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Meanwhile</p>
+      <h2 class="section__title reveal">Made on <em>this site</em></h2>
+      <p class="section__lead reveal">Everything that isn't YouTube is generated live in your browser — no files, no streaming, no ads.</p>
+    </div>
+
+    <div class="paths">
+      <a href="frequencies.html" class="path-card reveal" style="--pc:rgba(139,123,247,.32); --pc-h:rgba(139,123,247,.9); --pcfg:#b4a6ff">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-wave"></use></svg></span>
+        <h3>Pure tones</h3>
+        <p>Every Solfeggio frequency from 174 to 963 Hz as a clean sine tone you can leave running.</p>
+        <span class="path-card__more">Open frequencies <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg></span>
+      </a>
+
+      <a href="breathing.html#sounds" class="path-card reveal" data-delay="90" style="--pc:rgba(121,242,220,.3); --pc-h:rgba(121,242,220,.85); --pcfg:#79f2dc">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-wind"></use></svg></span>
+        <h3>Soundscapes</h3>
+        <p>Rain, ocean, forest and singing bowl — layered live, so they never loop or repeat.</p>
+        <span class="path-card__more">Open soundscapes <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg></span>
+      </a>
+
+      <a href="chakras.html" class="path-card reveal" data-delay="180" style="--pc:rgba(247,169,201,.28); --pc-h:rgba(247,169,201,.85); --pcfg:#f7a9c9">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-flame"></use></svg></span>
+        <h3>Chakra tones</h3>
+        <p>The same seven frequencies, matched to their colours, each with a timer you set.</p>
+        <span class="path-card__more">Open chakras <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta__ring" aria-hidden="true"></div>
+    <div class="cta__inner reveal">
+      <svg viewBox="0 0 48 48" class="cta__mark"><use href="#logo-mark"></use></svg>
+      <h2>Sound is easier<br /><em>with a breath.</em></h2>
+      <p>Put a pattern on underneath and let the orb keep time for you.</p>
+      <a href="breathing.html" class="btn btn--primary">
+        <span>Start breathing</span><span class="btn__ripple"></span>
+        <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<div class="vplayer" id="vplayer" role="dialog" aria-modal="true" aria-labelledby="vplayerTitle" hidden>
+  <div class="vplayer__backdrop" data-close></div>
+  <div class="vplayer__panel">
+    <div class="vplayer__frame">
+      <iframe id="vplayerFrame" title="Meditation video player" src="about:blank"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="vplayer__bar">
+      <div class="vplayer__info">
+        <b id="vplayerTitle">—</b>
+        <span id="vplayerBy">—</span>
+      </div>
+      <a class="btn btn--ghost" id="vplayerYT" href="#" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+      <button class="btn btn--icon" data-close aria-label="Close player">
+        <svg viewBox="0 0 24 24" class="ico"><use href="#i-close"></use></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="index.html" class="brand">
+        <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#logo-mark"/></svg></span>
+        <span class="brand__word">Sōma</span>
+      </a>
+      <p>Made slowly, for people who are tired of being rushed.</p>
+    </div>
+    <nav class="footer__cols" aria-label="Footer">
+      <div>
+        <h4>Practice</h4>
+        <a href="breathing.html">Breathing</a>
+        <a href="yoga.html">Yoga</a>
+        <a href="breathing.html#pranayama">Pranayama</a>
+        <a href="chakras.html">Chakra meditation</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="frequencies.html">Frequencies</a>
+        <a href="yoga.html#surya-namaskar">Surya Namaskar</a>
+        <a href="music.html">Music</a>
+        <a href="breathing.html#sounds">Soundscapes</a>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#voices">Voices</a>
+        <a href="index.html#about">About</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer__base">
+    <span>© <span id="year"></span> Sōma — breathe well.</span>
+    <span>Made with breath · no trackers, no noise</span>
+  </div>
+</footer>
+
+<script src="assets/js/music.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

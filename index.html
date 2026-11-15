@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0713" />
+<title>Sōma — Find Your Stillness</title>
+<meta name="description" content="A mindful breathing, yoga and chakra sanctuary. Guided breathwork, Surya Namaskar, healing frequencies and chakra meditation with gentle timers." />
+<meta property="og:title" content="Sōma — Find Your Stillness" />
+<meta property="og:description" content="A mindful breathing, yoga and chakra sanctuary. Guided breathwork, Surya Namaskar, healing frequencies and chakra meditation with gentle timers." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%230d0a1a'/%3E%3Cpath d='M24 8c4 5 6 10 6 14.5S28 31 24 34.5c-4-3.5-6-7.5-6-12S20 13 24 8Z' fill='%2379f2dc'/%3E%3Cpath d='M24 36c-3-4-7-7-12-9 1 7 5 11 12 13 7-2 11-6 12-13-5 2-9 5-12 9Z' fill='%238b7bf7'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="home">
+
+<!-- ===================== SVG SPRITE (shared) ===================== -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Brand mark: lotus / breath -->
+    <symbol id="logo-mark" viewBox="0 0 48 48">
+      <path d="M24 6c4.2 5.1 6.3 10.3 6.3 15.6 0 5.4-2.1 10.1-6.3 14.1-4.2-4-6.3-8.7-6.3-14.1C17.7 16.3 19.8 11.1 24 6Z" fill="url(#lg-a)"/>
+      <path d="M24 35.7C20.9 31 16 26.9 9.5 24.6c1.6 8.9 6.4 14.6 14.5 17.1Z" fill="url(#lg-b)" opacity=".95"/>
+      <path d="M24 35.7c3.1-4.7 8-8.8 14.5-11.1-1.6 8.9-6.4 14.6-14.5 17.1Z" fill="url(#lg-b)" opacity=".95"/>
+      <circle cx="24" cy="41" r="1.7" fill="#f6f1e6"/>
+      <linearGradient id="lg-a" x1="17" y1="6" x2="31" y2="36" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#f7e8c4"/><stop offset=".5" stop-color="#79f2dc"/><stop offset="1" stop-color="#8b7bf7"/>
+      </linearGradient>
+      <linearGradient id="lg-b" x1="9" y1="40" x2="39" y2="24" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#8b7bf7"/><stop offset="1" stop-color="#79f2dc" stop-opacity=".4"/>
+      </linearGradient>
+    </symbol>
+
+    <!-- UI icons -->
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6c0 .8.9 1.3 1.6.9l10.4-6.8a1 1 0 0 0 0-1.7L9.6 4.3C8.9 3.9 8 4.4 8 5.2Z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6.5" y="4.5" width="3.6" height="15" rx="1.6" fill="currentColor"/><rect x="13.9" y="4.5" width="3.6" height="15" rx="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M12 4.5a7.5 7.5 0 1 0 7.44 8.45" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 1.8v5.4l3.6-2.7Z" fill="currentColor"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3 8.5h9.5a3 3 0 1 0-3-3M3 13h13a3 3 0 1 1-3 3M3 17.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="M0 15c8-8 16-8 25 0s17 8 25 0 17-8 25 0 17 8 25 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C11 4 5 8 5 15a5 5 0 0 0 5 5c7 0 10-6 10-16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 20c2.5-5 6-8.5 11-10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 2.6c.7 4.7 2.4 6.4 7.1 7.1-4.7.7-6.4 2.4-7.1 7.1-.7-4.7-2.4-6.4-7.1-7.1 4.7-.7 6.4-2.4 7.1-7.1Z" fill="currentColor"/><path d="M18.5 15.2c.3 2 1 2.7 3 3-2 .3-2.7 1-3 3-.3-2-1-2.7-3-3 2-.3 2.7-1 3-3Z" fill="currentColor" opacity=".7"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5l5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.6 9.6 17 19 7.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9.5 5.5C5.9 6.6 4 9 4 12.6V18h6.2v-6.2H7.3c.1-2 .9-3.3 2.2-3.9V5.5Zm10 0C15.9 6.6 14 9 14 12.6V18h6.2v-6.2h-2.9c.1-2 .9-3.3 2.2-3.9V5.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2.8 20h18.4L12 4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-lotus" viewBox="0 0 24 24"><path d="M12 3.5c2 2.5 3 5 3 7.4 0 2.5-1 4.7-3 6.6-2-1.9-3-4.1-3-6.6 0-2.4 1-4.9 3-7.4Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 17.5C10 14.6 7 12.4 3.2 11c.8 4.6 3.3 7.6 7.7 9M12 17.5c2-2.9 5-5.1 8.8-6.5-.8 4.6-3.3 7.6-7.7 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c3 3.6 6 6.6 6 10.4A6 6 0 0 1 6 13.4C6 9.6 9 6.6 12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 19.5a2.6 0 0 0 2.6-2.6c0-1.6-1.2-2.9-2.6-4.6-1.4 1.7-2.6 3-2.6 4.6A2.6 2.6 0 0 0 12 19.5Z" fill="currentColor" opacity=".85"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 4.5A3 3 0 0 0 6.5 7.5 3 3 0 0 0 5 13a3 3 0 0 0 1.6 3.9A2.8 2.8 0 0 0 9.5 20h0V4.5Zm5 0A3 3 0 0 1 17.5 7.5 3 3 0 0 1 19 13a3 3 0 0 1-1.6 3.9A2.8 0 0 1 14.5 20h0V4.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 4.5v15.5M9.5 9H7M9.5 13H6.8M14.5 9H17M14.5 13h2.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.4-7.5-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.5 2.6C19.5 15.6 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9.5h3l4-3.2v11.4l-4-3.2H4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 9a4 4 0 0 1 0 6M17.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.4" fill="currentColor"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 17.5V6.4l9-2.1v10.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.6" cy="17.6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15.6" cy="15.4" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===================== BACKDROP ===================== -->
+<div class="backdrop" aria-hidden="true">
+  <div class="aurora aurora--1"></div>
+  <div class="aurora aurora--2"></div>
+  <div class="aurora aurora--3"></div>
+  <div class="grain"></div>
+  <canvas id="stars"></canvas>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand" aria-label="Sōma home">
+      <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#logo-mark"/></svg></span>
+      <span class="brand__word">Sōma</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html" class="is-current" aria-current="page">Home</a>
+      <a href="breathing.html">Breathing</a>
+      <a href="yoga.html">Yoga</a>
+      <a href="frequencies.html">Frequencies</a>
+      <a href="chakras.html">Chakras</a>
+      <a href="music.html">Music</a>
+    </nav>
+    <a href="breathing.html" class="btn btn--ghost nav__cta">
+      <span>Begin</span><svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg>
+    </a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow reveal">
+        <span class="eyebrow__dot"></span> A sanctuary for your nervous system
+      </p>
+
+      <h1 class="hero__title">
+        <span class="line"><span class="reveal-mask"><span>Inhale.</span></span></span>
+        <span class="line"><span class="reveal-mask"><span>Exhale.</span></span></span>
+        <span class="line accent"><span class="reveal-mask"><span>Arrive.</span></span></span>
+      </h1>
+
+      <p class="hero__sub reveal" data-delay="260">
+        Sōma turns your breath into a door. Guided breathwork, sun salutations,
+        healing frequencies and chakra meditation — one quiet place for all of it.
+      </p>
+
+      <div class="hero__actions reveal" data-delay="380">
+        <a href="breathing.html" class="btn btn--primary">
+          <span>Start breathing</span>
+          <span class="btn__ripple"></span>
+          <svg viewBox="0 0 24 24" class="ico"><use href="#i-play"/></svg>
+        </a>
+        <a href="#paths" class="btn btn--glass">
+          <svg viewBox="0 0 24 24" class="ico"><use href="#i-lotus"/></svg>
+          <span>Explore the site</span>
+        </a>
+      </div>
+
+      <div class="hero__meta reveal" data-delay="520">
+        <div class="meta__item"><strong data-count="124000" data-suffix="+">0</strong><span>breathers</span></div>
+        <div class="meta__divider"></div>
+        <div class="meta__item"><strong data-count="7" data-suffix="">0</strong><span>chakras</span></div>
+        <div class="meta__divider"></div>
+        <div class="meta__item"><strong data-count="12" data-suffix="">0</strong><span>surya poses</span></div>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="orbit">
+        <div class="orbit__ring orbit__ring--1"></div>
+        <div class="orbit__ring orbit__ring--2"></div>
+        <div class="orbit__ring orbit__ring--3"></div>
+        <div class="orbit__dot orbit__dot--1"></div>
+        <div class="orbit__dot orbit__dot--2"></div>
+        <div class="orbit__dot orbit__dot--3"></div>
+      </div>
+      <div class="orb">
+        <div class="orb__glow"></div>
+        <div class="orb__core"></div>
+        <div class="orb__ring"></div>
+        <svg class="orb__mark" viewBox="0 0 48 48"><use href="#logo-mark"/></svg>
+      </div>
+      <div class="float-chip float-chip--a">
+        <svg viewBox="0 0 24 24" class="ico"><use href="#i-wind"/></svg>
+        <div><b>4–7–8</b><small>Dr. Weil ritual</small></div>
+      </div>
+      <div class="float-chip float-chip--b">
+        <svg viewBox="0 0 24 24" class="ico"><use href="#i-sun"/></svg>
+        <div><b>Surya Namaskar</b><small>12 steps</small></div>
+      </div>
+      <div class="float-chip float-chip--c">
+        <svg viewBox="0 0 24 24" class="ico"><use href="#i-flame"/></svg>
+        <div><b>7 chakras</b><small>with timers</small></div>
+      </div>
+    </div>
+
+    <a href="#paths" class="scroll-hint" aria-label="Scroll to explore">
+      <span class="scroll-hint__line"></span><span>scroll</span>
+    </a>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>box breathing</span><i>✦</i><span>4–7–8</span><i>✦</i><span>4 : 6</span><i>✦</i><span>surya namaskar</span><i>✦</i><span>kapalbhati</span><i>✦</i><span>bhramari</span><i>✦</i><span>bhastrika</span><i>✦</i><span>528 hz</span><i>✦</i><span>chakras</span><i>✦</i>
+      <span>box breathing</span><i>✦</i><span>4–7–8</span><i>✦</i><span>4 : 6</span><i>✦</i><span>surya namaskar</span><i>✦</i><span>kapalbhati</span><i>✦</i><span>bhramari</span><i>✦</i><span>bhastrika</span><i>✦</i><span>528 hz</span><i>✦</i><span>chakras</span><i>✦</i>
+    </div>
+  </div>
+
+  <section class="section" id="paths">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Five doors in</p>
+      <h2 class="section__title reveal">Where would you like to <em>begin</em>?</h2>
+      <p class="section__lead reveal">Every practice has its own room. Choose the one your body is asking for today.</p>
+    </div>
+
+    <div class="paths">
+      <a href="breathing.html" class="path-card reveal" style="--pc:rgba(121,242,220,.3); --pc-h:rgba(121,242,220,.85); --pcfg:#79f2dc">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-wind"/></svg></span>
+        <h3>Breathing</h3>
+        <p>Simple 4–4, box 4·4·4·4, 4–7–8 and the 4:6 sleep breath, plus kapalbhati, bhramari and bhastrika.</p>
+        <span class="path-card__more">Enter the studio <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a href="yoga.html" class="path-card reveal" data-delay="90" style="--pc:rgba(247,232,196,.28); --pc-h:rgba(247,232,196,.8); --pcfg:#f7e8c4">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-sun"/></svg></span>
+        <h3>Yoga</h3>
+        <p>Surya Namaskar — all twelve steps with their Sanskrit names, breathing cues and mantras, plus a guided video.</p>
+        <span class="path-card__more">Explore the practice <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a href="frequencies.html" class="path-card reveal" data-delay="180" style="--pc:rgba(139,123,247,.32); --pc-h:rgba(139,123,247,.9); --pcfg:#b4a6ff">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-wave"/></svg></span>
+        <h3>Frequencies</h3>
+        <p>Every Solfeggio tone and healing frequency from 174 Hz to 963 Hz, generated live in your browser — just press play.</p>
+        <span class="path-card__more">Tune in <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a href="chakras.html" class="path-card reveal" data-delay="270" style="--pc:rgba(247,169,201,.28); --pc-h:rgba(247,169,201,.85); --pcfg:#f7a9c9">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-flame"/></svg></span>
+        <h3>Chakras</h3>
+        <p>Seven centres, seven colours, seven frequencies — each with its own tone and a meditation timer you set yourself.</p>
+        <span class="path-card__more">Open the chakras <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg></span>
+      </a>
+
+      <a href="music.html" class="path-card reveal" data-delay="0" style="--pc:rgba(196,168,247,.3); --pc-h:rgba(196,168,247,.9); --pcfg:#d3c4ff">
+        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-music"/></svg></span>
+        <h3>Music</h3>
+        <p>Hand-picked YouTube meditations — mantras, healing frequencies, chakra music and long ambient spaces to sit in.</p>
+        <span class="path-card__more">Press play <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+
+    <div class="chakra-spectrum" aria-hidden="true">
+      <i style="background:#ef4b4b"></i><i style="background:#f29a3d"></i><i style="background:#f5d34a"></i>
+      <i style="background:#66c96b"></i><i style="background:#4aa3f0"></i><i style="background:#7d6bf0"></i><i style="background:#b978f2"></i>
+    </div>
+  </section>
+
+  <section class="section voices" id="voices">
+    <div class="section__head">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Voices</p>
+      <h2 class="section__title reveal">Quiet words from the <em>community</em></h2>
+    </div>
+
+    <div class="voices__grid">
+      <figure class="quote reveal">
+        <svg viewBox="0 0 24 24" class="quote__mark"><use href="#i-quote"/></svg>
+        <blockquote>I used to lie awake rehearsing tomorrow. Now I do four rounds of 4–7–8 and I'm simply… asleep. It feels like a small miracle.</blockquote>
+        <figcaption><span class="avatar a1">M</span><div><b>Maya R.</b><small>Nightshift nurse</small></div></figcaption>
+      </figure>
+      <figure class="quote reveal" data-delay="100">
+        <svg viewBox="0 0 24 24" class="quote__mark"><use href="#i-quote"/></svg>
+        <blockquote>Surya Namaskar with the mantras changed my mornings. Twelve steps, ten minutes, and the whole day lands differently.</blockquote>
+        <figcaption><span class="avatar a2">J</span><div><b>Jonah K.</b><small>Yoga teacher</small></div></figcaption>
+      </figure>
+      <figure class="quote reveal" data-delay="200">
+        <svg viewBox="0 0 24 24" class="quote__mark"><use href="#i-quote"/></svg>
+        <blockquote>No streaks, no notifications, no guilt. I play 528 Hz while I work and my jaw is no longer clenched by noon.</blockquote>
+        <figcaption><span class="avatar a3">A</span><div><b>Amara O.</b><small>Product designer</small></div></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="cta" id="about">
+    <div class="cta__ring" aria-hidden="true"></div>
+    <div class="cta__inner reveal">
+      <svg viewBox="0 0 48 48" class="cta__mark"><use href="#logo-mark"/></svg>
+      <h2>Your next breath<br /><em>can be a softer one.</em></h2>
+      <p>Free, ad-free, and always here. One inhale is all it takes to begin.</p>
+      <a href="breathing.html" class="btn btn--primary">
+        <span>Begin now</span><span class="btn__ripple"></span>
+        <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="index.html" class="brand">
+        <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#logo-mark"/></svg></span>
+        <span class="brand__word">Sōma</span>
+      </a>
+      <p>Made slowly, for people who are tired of being rushed.</p>
+    </div>
+    <nav class="footer__cols" aria-label="Footer">
+      <div>
+        <h4>Practice</h4>
+        <a href="breathing.html">Breathing</a>
+        <a href="yoga.html">Yoga</a>
+        <a href="breathing.html#pranayama">Pranayama</a>
+        <a href="chakras.html">Chakra meditation</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="frequencies.html">Frequencies</a>
+        <a href="yoga.html#surya-namaskar">Surya Namaskar</a>
+        <a href="music.html">Music</a>
+        <a href="breathing.html#sounds">Soundscapes</a>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#voices">Voices</a>
+        <a href="index.html#about">About</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer__base">
+    <span>© <span id="year"></span> Sōma — breathe well.</span>
+    <span>Made with breath · no trackers, no noise</span>
+  </div>
+</footer>
+
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
