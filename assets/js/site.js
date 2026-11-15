@@ -92,6 +92,14 @@
   /* ---------- Scroll reveals ---------- */
   function initReveals() {
     const items = $$('.reveal');
+
+    // Only hide content if we can definitively show it again.
+    if (!('IntersectionObserver' in window) || !items.length) {
+      items.forEach((el) => el.classList.add('is-in'));
+      return;
+    }
+    document.documentElement.classList.add('js-reveal');
+
     items.forEach((el) => {
       if (el.dataset.delay) el.style.setProperty('--d', el.dataset.delay);
     });
@@ -101,21 +109,28 @@
     });
     $$('.hero__title, .page-hero').forEach((t) => t.classList.add('is-in'));
 
-    if (!('IntersectionObserver' in window)) {
-      items.forEach((el) => el.classList.add('is-in'));
-      return;
-    }
+    const show = (el) => {
+      el.classList.add('is-in');
+      io.unobserve(el);
+    };
 
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) show(entry.target);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
     items.forEach((el) => io.observe(el));
+
+    // Backstop: anything already on screen after load must never stay hidden,
+    // even if the observer never fires for it (very tall sections, zoomed text).
+    window.setTimeout(() => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      items.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < vh && r.bottom > 0) show(el);
+      });
+    }, 900);
   }
 
   /* ---------- Nav ---------- */

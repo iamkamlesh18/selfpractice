@@ -137,8 +137,9 @@ ${body.trim()}
 </main>
 ${modals ? PLAYER : ''}
 ${footer()}
-${scripts.map((s) => `<script src="${s}"></script>`).join('\n')}
+{/* site.js defines window.Soma — every page bundle depends on it, so it must come FIRST */}
 <script src="assets/js/site.js"></script>
+${scripts.map((s) => `<script src="${s}"></script>`).join('\n')}
 </body>
 </html>
 `;

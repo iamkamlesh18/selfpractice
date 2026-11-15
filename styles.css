@@ -273,7 +273,10 @@ ul { list-style: none; }
 .btn--text:hover { color: var(--blush); border-bottom-color: rgba(247,169,201,.5); }
 
 /* ---------- Reveal animations ---------- */
-.reveal {
+/* Content is only hidden once JS has confirmed it can reveal it again.
+   Without the .js-reveal class on <html> everything stays visible, so a
+   failed or blocked script can never leave the page blank or unclickable. */
+.js-reveal .reveal {
   opacity: 0;
   transform: translateY(26px);
   transition:
@@ -283,7 +286,7 @@ ul { list-style: none; }
 .reveal.is-in { opacity: 1; transform: none; }
 
 .reveal-mask { display: block; overflow: hidden; }
-.reveal-mask > span {
+.js-reveal .reveal-mask > span {
   display: block;
   transform: translateY(110%) rotate(2deg);
   transition: transform 1.15s var(--ease) var(--d, 0ms);
