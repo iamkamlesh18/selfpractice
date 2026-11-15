@@ -3383,3 +3383,12 @@ body.has-dock { padding-bottom: 96px; }
 @media (max-width: 560px) {
   .isha-grid { grid-template-columns: 1fr; }
 }
+
+/* artist / singer line on devotional cards */
+.isha-card__by {
+  font-size: .74rem !important;
+  letter-spacing: .05em;
+  color: var(--ic1, #e8c88a) !important;
+  flex: initial !important;
+  margin-top: -3px;
+}

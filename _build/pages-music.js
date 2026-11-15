@@ -74,11 +74,7 @@ const VIDEOS = [
     author: 'Sleep music', len: 'all night', c1: '#7f8ee0', c2: '#2c356e',
     note: 'Drone-led sleep music with no sudden changes. Keep the volume just under audible.'
   },
-  {
-    id: 'Tqx0l2YaKlE', cat: 'sleep', title: 'Healing frequency — deep rest',
-    author: 'Meditation music', len: 'long', c1: '#9aa8d8', c2: '#39406e',
-    note: 'A slow, warm drone for the end of the day or a nap.'
-  },
+
 
   // -------- Studies & practice --------
   {
@@ -230,6 +226,168 @@ const ISHA = [
   }
 ];
 
+/* ---------- More instrumental & chant from Sounds of Isha ---------- */
+const ISHA_MORE = [
+  {
+    id: '4ZtihFRxK28', title: 'Bloom — Yoga Padhi', hours: 'instrumental', tag: 'Yoga Padhi',
+    note: 'Meditative instrumental for practice \u2014 no vocals.', c1: '#b8e0c8', c2: '#2f6b4a'
+  },
+  {
+    id: '5XJF56WrFoM', title: 'Desh — Yoga Padhi', hours: 'instrumental', tag: 'Yoga Padhi',
+    note: 'The Desh raga as a long meditative instrumental.', c1: '#c8dcb0', c2: '#4a6b2a'
+  },
+  {
+    id: 'wPxyhivAWNU', title: 'Wholeness — Bansuri', hours: 'instrumental', tag: 'Bansuri',
+    note: 'Bansuri flute by Sameer Rao with Sounds of Isha.', c1: '#a8d8e0', c2: '#2f6675'
+  },
+  {
+    id: 'z1QDVL_IxI8', title: 'Damaru Wala', hours: 'live', tag: 'Guru',
+    note: 'Nihar Shembekar with Sounds of Isha, live at Mahashivratri 2025.', c1: '#e8c0a0', c2: '#8a4f24'
+  },
+  {
+    id: 'TH8Y7DhLPOA', title: 'Ek Nazar Dekha Tujhe', hours: 'Guru Purnima', tag: 'Guru',
+    note: 'A tribute to Sadhguru on Guru Purnima.', c1: '#e0cfa8', c2: '#7a6228'
+  },
+  {
+    id: 'vI9st5RjkBw', title: 'Sadhguru Raya', hours: 'live', tag: 'Guru',
+    note: 'Ram Miriyala and Parthiv Gohil with Sounds of Isha, live at Guru Purnima 2025.', c1: '#d8b0e0', c2: '#6a3f83'
+  },
+  {
+    id: 'w3IMkVKh5lU', title: 'Sadhguru Raya — high quality audio', hours: 'HQ audio', tag: 'Guru',
+    note: 'The high-quality audio version from Guru Purnima 2024.', c1: '#c9b0e8', c2: '#573f83'
+  },
+  {
+    id: '4JcquT3A78o', title: 'Sadhgurum tam Namami', hours: 'HQ audio', tag: 'Guru',
+    note: 'Devotional chant from Guru Purnima 2024, high-quality audio.', c1: '#b0c4e8', c2: '#3a5480'
+  },
+  {
+    id: 'xAG4mZmoH1o', title: 'Payoji Maine', hours: 'live', tag: 'Devotional',
+    note: 'Swagat Rathod with Sounds of Isha, live at Guru Purnima 2025.', c1: '#e8d0a8', c2: '#8a6a2a'
+  },
+  {
+    id: 'US9FsAA9U0Q', title: 'The Adiyogi Song — Adiguruve', hours: 'ode', tag: 'Adiyogi',
+    note: 'An ode to Adiyogi \u2014 the first yogi.', c1: '#a9c9e8', c2: '#35597f'
+  },
+  {
+    id: 'mUcAkCi8Dtw', title: 'Ekam Nityam', hours: 'live', tag: 'Devotional',
+    note: 'Live at Guru Purnima 2025.', c1: '#c8d8b0', c2: '#4a6b30'
+  },
+  {
+    id: '_PBzu_-_ul4', title: 'Gauranga', hours: 'Damaru', tag: 'Adiyogi Chants',
+    note: 'Adiyogi Chants from the Damaru collection.', c1: '#f0c8a8', c2: '#8a5a2a'
+  },
+  {
+    id: 'e-w7BuYOYKY', title: 'In Is The Only Way Out', hours: 'fusion', tag: 'Musical',
+    note: 'An Indian\u2013Western musical fusion on the journey of the self.', c1: '#b8c8e8', c2: '#3f5283'
+  },
+  {
+    id: 'LVojRjzUJLE', title: 'Patanjali Yoga Sutras — musical rendition', hours: 'Sadhguru', tag: 'Yoga Sutras',
+    note: 'A musical rendition of Patanjali\u2019s Yoga Sutras, for International Day of Yoga.', c1: '#d8c4a0', c2: '#7f6329'
+  }
+];
+
+/* ---------- Marathi & devotional from other artists ---------- */
+const DEVOTIONAL_MORE = [
+  {
+    id: 'haGL4d2qCRY', title: 'Anand Potat — Guru Darshan', hours: 'Marathi', by: 'Nihar Shembekar', tag: 'Marathi',
+    note: 'A Marathi devotional song by Nihar Shembekar.', c1: '#f0b8c0', c2: '#8a3f4a'
+  },
+  {
+    id: 'oHM4zm8OdGU', title: 'Yei Ho Vitthale — Vitthal Aarti', hours: 'aarti', by: 'Nihar Shembekar', tag: 'Vitthal',
+    note: 'A Vitthal aarti, sung by Nihar Shembekar.', c1: '#e8b8a8', c2: '#8a4a35'
+  },
+
+  {
+    id: 'BlEXTDMsBII', title: 'Adi Tuch Anti Tuch Swami', hours: 'Marathi', by: 'Abhay Jodhpurkar', tag: 'Marathi',
+    note: 'Sung by Abhay Jodhpurkar.', c1: '#d8b8c8', c2: '#7a3f5a'
+  },
+  {
+    id: 'sHVUlXAvCd0', title: 'Deh Vitthal', hours: 'WARI 2024', by: 'Avadhoot Gandhi', tag: 'Marathi',
+    note: 'From the Wari pilgrimage film, sung by Avadhoot Gandhi.', c1: '#e0c0a0', c2: '#8a5a2a'
+  },
+  {
+    id: 'xaUvx0IILW4', title: 'Jagnyache Deva', hours: 'Marathi', by: 'Swapnil Bandodkar', tag: 'Marathi',
+    note: 'A Marathi devotional song by Swapnil Bandodkar.', c1: '#c8b8d8', c2: '#5f4a7a'
+  },
+  {
+    id: 'Y8QyyACKa70', title: 'Majhi Pandharichi Maay', hours: 'film · Mauli', by: 'Ajay-Atul', tag: 'Vitthal',
+    note: 'From the film Mauli, composed by Ajay-Atul.', c1: '#e8c8b0', c2: '#8a5230'
+  },
+  {
+    id: 'ycEI-_NXvEo', title: 'Malharvari', hours: 'Marathi', by: 'Shahir Sable', tag: 'Marathi',
+    note: 'A traditional Marathi devotional sung by Shahir Sable.', c1: '#c8d0b0', c2: '#536b30'
+  },
+  {
+    id: '1QjDwNpQy88', title: 'Ude Ga Ambe Ude — Gondhal', hours: 'Navratri', by: 'Gondhal song', tag: 'Devi',
+    note: 'A gondhal song for Navratri.', c1: '#e8b0b0', c2: '#8a3030'
+  },
+  {
+    id: '8H0HEZDvYVw', title: 'Durge Durgat Bhari', hours: 'Devi aarti', by: 'Ajay-Atul', tag: 'Devi',
+    note: 'The Devi aarti, composed by Ajay-Atul.', c1: '#e0a8b8', c2: '#8a3050'
+  },
+  {
+    id: '2pVK0kxgfE4', title: 'Gondhal — Jaundya Na Balasaheb', hours: 'film song', by: 'Ajay-Atul', tag: 'Devi',
+    note: 'A gondhal from the film, composed by Ajay-Atul.', c1: '#d8a8c8', c2: '#7a305f'
+  },
+
+  {
+    id: 'zEGD7ZDcHMo', title: 'Om Namah Shivaya', hours: 'kirtan', by: 'Krishna Das', tag: 'Kirtan',
+    note: 'Krishna Das \u2014 long-form kirtan on the five-syllable mantra.', c1: '#a8b8e8', c2: '#35458f'
+  },
+  {
+    id: '3WrImrl2dmI', title: '4AM Chalisa', hours: 'live', by: 'Krishna Das', tag: 'Kirtan',
+    note: 'Krishna Das live, with lyrics.', c1: '#b0c0e0', c2: '#3a4a7f'
+  },
+  {
+    id: '-x9Ly8ZjA18', title: "Bernie's Chalisa", hours: 'chalisa', by: 'Krishna Das', tag: 'Kirtan',
+    note: 'A chalisa in the Krishna Das repertoire.', c1: '#a8b8d8', c2: '#354563'
+  },
+  {
+    id: 'uV5zVWTz-Dk', title: 'Hare Krishna Krishna Kirtan', hours: 'kirtan', by: 'Hari Om Sharan', tag: 'Kirtan',
+    note: 'A Hare Krishna kirtan by Hari Om Sharan.', c1: '#c8b8e0', c2: '#5f3f83'
+  },
+  {
+    id: 'i4BGIBsTWS4', title: 'Prasanna Vadanam Mantra', hours: 'slowed', by: 'slowed + reverb', tag: 'Mantra',
+    note: 'The Prasanna Vadanam shloka, slowed and reverbed.', c1: '#f0b8d0', c2: '#8a3f61'
+  },
+  {
+    id: 'nRJD6kldukQ', title: 'Raghupathi Raghava Rajaram', hours: 'with lyrics', by: 'Rama mantra', tag: 'Ram',
+    note: 'The Rama mantra with original lyrics.', c1: '#e8c8a8', c2: '#8a5a24'
+  },
+  {
+    id: 'gsuskHo4Bqk', title: 'Radhe Radhe Shyamal Pyari', hours: 'bhajan', by: 'Hari Om Sharan', tag: 'Radha-Krishna',
+    note: 'A Radha\u2013Krishna bhajan by Hari Om Sharan and Nandini Sharan.', c1: '#f0b8c8', c2: '#8a3f50'
+  },
+  {
+    id: 'tZKHQD6oC2s', title: 'Ram Ram Jai Raja Ram', hours: 'Ram dhun', by: 'Shankar Mahadevan', tag: 'Ram',
+    note: 'The Shri Ram dhun, sung by Shankar Mahadevan.', c1: '#e8c0a0', c2: '#8a4f24'
+  },
+  {
+    id: 'CH8sA9Pd6Gc', title: 'Raghunandana', hours: 'film · HanuMan', by: 'GowraHari & ensemble', tag: 'Hanuman',
+    note: 'From the film HanuMan, for Hanuman Jayanti.', c1: '#f0c8a0', c2: '#8a5520'
+  },
+  {
+    id: 'VJ-o8y8JqCQ', title: 'Jai Shri Ram', hours: 'film · Adipurush', by: 'Ajay-Atul', tag: 'Ram',
+    note: 'From Adipurush, composed by Ajay-Atul.', c1: '#e0b898', c2: '#8a5024'
+  },
+  {
+    id: '2aJJ28mIrco', title: 'Gangadhara Shankara', hours: 'film · Akhanda 2', by: 'Thaman S', tag: 'Shiva',
+    note: 'A Shiva song from the film Akhanda 2, by Thaman S.', c1: '#a8c8e0', c2: '#33587f'
+  },
+  {
+    id: 'MvNyxxK07H4', title: 'Kalbhairavastakam', hours: 'ashtakam', by: 'Shankar Mahadevan', tag: 'Shiva',
+    note: 'The Kalabhairava Ashtakam, sung by Shankar Mahadevan.', c1: '#b8c8d8', c2: '#3f5872'
+  },
+  {
+    id: 'PaoeGgJs3Ac', title: 'Har Har Gange', hours: 'with lyrics', by: 'Arijit Singh', tag: 'Ganga',
+    note: 'A Ganga devotional sung by Arijit Singh.', c1: '#a8c8d8', c2: '#2f5a75'
+  },
+  {
+    id: 'kJkaEOaNM4A', title: 'Slow yoga practice video', hours: 'slow practice', by: 'Craig Prues', tag: 'Practice',
+    note: 'A slow, meditative yoga practice film — good to follow along with or keep in the background while you sit.', c1: '#b8d8c8', c2: '#2f6b52'
+  }
+].filter((v) => !v.skip);
+
 /* Same list, but from other channels \u2014 kept separate so attribution is honest */
 const OTHER_DEVOTIONAL = [
   {
@@ -263,8 +421,8 @@ function uniqueById(list) {
     return true;
   });
 }
-const ISHA_LIST = uniqueById(ISHA);
-const OTHER_LIST = uniqueById(OTHER_DEVOTIONAL);
+const ISHA_LIST = uniqueById([...ISHA, ...ISHA_MORE]);
+const OTHER_LIST = uniqueById([...OTHER_DEVOTIONAL, ...DEVOTIONAL_MORE]);
 
 /* The main shelf must not repeat anything already featured above. */
 const FEATURED_IDS = new Set([...ISHA_LIST, ...OTHER_LIST].map((v) => v.id));
@@ -277,8 +435,8 @@ const ishaCard = (v, i) => `
       <article class="isha-card reveal" data-song="${v.id}" data-delay="${(i % 3) * 70}"
         style="--ic1:${v.c1};--ic2:${v.c2}">
         <button class="isha-card__thumb" data-video="${v.id}"
-          data-title="${v.title.replace(/"/g, '')}" data-author="Sounds of Isha"
-          aria-label="Play ${v.title.replace(/"/g, '')} by Sounds of Isha">
+          data-title="${v.title.replace(/"/g, '')}" data-author="${v.by || 'Sounds of Isha'}"
+          aria-label="Play ${v.title.replace(/"/g, '')} by ${v.by || 'Sounds of Isha'}">
           <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
           <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
           <span class="isha-card__len">${v.hours}</span>
@@ -286,6 +444,7 @@ const ishaCard = (v, i) => `
         <div class="isha-card__meta">
           <span class="isha-card__tag">${v.tag}</span>
           <h3>${v.title}</h3>
+          ${v.by ? `<p class="isha-card__by">${v.by}</p>` : ''}
           <p>${v.note}</p>
           <a class="isha-card__yt" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
         </div>
@@ -387,7 +546,7 @@ ${OTHER_LIST.map((v, i) => `
       <article class="isha-card reveal" data-song="${v.id}" data-delay="${(i % 3) * 70}"
         style="--ic1:${v.c1};--ic2:${v.c2}">
         <button class="isha-card__thumb" data-video="${v.id}"
-          data-title="${v.title.replace(/"/g, '')}" data-author="${v.hours.replace(/<[^>]+>/g, '')}"
+          data-title="${v.title.replace(/"/g, '')}" data-author="${(v.by || v.hours).replace(/<[^>]+>/g, '')}"
           aria-label="Play ${v.title.replace(/"/g, '')}">
           <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
           <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
@@ -396,6 +555,7 @@ ${OTHER_LIST.map((v, i) => `
         <div class="isha-card__meta">
           <span class="isha-card__tag">${v.tag}</span>
           <h3>${v.title}</h3>
+          ${v.by ? `<p class="isha-card__by">${v.by}</p>` : ''}
           <p>${v.note}</p>
           <a class="isha-card__yt" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
         </div>
