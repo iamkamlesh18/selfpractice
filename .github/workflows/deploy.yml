@@ -52,6 +52,8 @@ jobs:
           cp -r assets _site/assets
           # Keep build tooling and templates out of the published site
           rm -rf _site/assets/partials || true
+          # Fail loudly if the licensed audio track is missing
+          test -f _site/assets/audio/spiritual-ambient.ogg
           touch _site/.nojekyll
           echo "Files published:"
           find _site -type f | sort

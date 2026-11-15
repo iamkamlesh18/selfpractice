@@ -142,9 +142,18 @@ const card = (f, i) => `
         <div class="freq__wave" aria-hidden="true">${wave(i + 1)}</div>
         <div class="freq__foot">
           <span class="freq__use">${f.use}</span>
-          <button class="freq__play" aria-label="Play ${f.hz} hertz ${f.name}">
-            <svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg> Play
-          </button>
+          <div class="freq__controls">
+            <div class="freq__vol">
+              <button class="freq__volbtn" type="button" aria-label="Volume for ${f.hz} hertz ${f.name}" aria-expanded="false">
+                <svg viewBox="0 0 24 24" class="ico"><use href="#i-volume"></use></svg>
+              </button>
+              <input class="freq__volrange" type="range" min="0" max="100" value="35"
+                aria-label="Volume for ${f.hz} hertz" data-hz="${f.hz}" />
+            </div>
+            <button class="freq__play" aria-label="Play ${f.hz} hertz ${f.name}" aria-pressed="false">
+              <svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg> <span>Play</span>
+            </button>
+          </div>
         </div>
       </article>`;
 
@@ -177,7 +186,7 @@ const body = `
     <div class="section__head">
       <p class="eyebrow reveal"><span class="eyebrow__dot"></span> The collection</p>
       <h2 class="section__title reveal">Tune <em>yourself</em></h2>
-      <p class="section__lead reveal">Play one at a time — stacking very different frequencies at once is rarely pleasant. Volume lives in the player below.</p>
+      <p class="section__lead reveal">Play one at a time — stacking very different frequencies at once is rarely pleasant. Hover any card for its own volume slider; whatever is playing follows you around the site.</p>
     </div>
 
     <div class="freq-toolbar reveal">
@@ -190,18 +199,6 @@ const body = `
 
     <div class="freq-grid" id="freqGrid">
 ${LIST.map(card).join('\n')}
-    </div>
-
-    <div class="freq-player reveal" id="freqPlayer" hidden>
-      <svg viewBox="0 0 24 24" class="ico" style="width:22px;height:22px;color:var(--mint)"><use href="#i-volume"/></svg>
-      <div class="freq-player__info">
-        <b id="playerName">—</b>
-        <span id="playerHz">—</span>
-      </div>
-      <input type="range" id="playerVol" min="0" max="100" value="35" aria-label="Volume" />
-      <button class="btn btn--icon" id="playerStop" aria-label="Stop frequency" title="Stop">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-stop"/></svg>
-      </button>
     </div>
 
     <div class="caution reveal">

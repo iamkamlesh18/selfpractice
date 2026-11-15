@@ -2916,3 +2916,319 @@ body.is-locked { overflow: hidden; }
   .vplayer__speed select { padding: 7px 22px 7px 10px; }
   .vplayer__volume { display: none; }
 }
+
+/* =========================================================
+   FREQUENCY CARD — inline volume control
+   Volume lives on the card. It reveals on hover/focus, and can be
+   pinned open by the speaker button (touch + keyboard users).
+   ========================================================= */
+.freq__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.freq__vol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.freq__volbtn {
+  width: 32px; height: 32px;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.05);
+  color: var(--text-dim);
+  transition: all .3s var(--ease);
+}
+.freq__volbtn .ico { width: 15px; height: 15px; }
+.freq__volbtn:hover,
+.freq.is-vol-open .freq__volbtn {
+  color: var(--c1, var(--mint));
+  border-color: color-mix(in srgb, var(--c1, #79f2dc) 60%, transparent);
+  background: rgba(255,255,255,.09);
+}
+
+/* the slider: collapsed until the card is hovered / focused / pinned */
+.freq__volrange {
+  width: 0;
+  min-width: 0;
+  height: 4px;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--c1, #79f2dc), var(--c2, #8b7bf7));
+  cursor: pointer;
+  transition: width .35s var(--ease), opacity .25s, margin .35s var(--ease);
+  pointer-events: none;
+}
+.freq:hover .freq__volrange,
+.freq:focus-within .freq__volrange,
+.freq.is-vol-open .freq__volrange {
+  width: 74px;
+  opacity: 1;
+  margin-right: 2px;
+  pointer-events: auto;
+}
+.freq__volrange::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,.55);
+  cursor: pointer;
+}
+.freq__volrange::-moz-range-thumb {
+  width: 12px; height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.freq__volrange:focus-visible { outline: 2px solid var(--c1, #79f2dc); outline-offset: 3px; }
+
+.freq__play { white-space: nowrap; }
+
+@media (max-width: 560px) {
+  .freq:hover .freq__volrange { width: 56px; }
+  .freq__volrange { transition: none; }
+}
+
+/* =========================================================
+   PERSISTENT AUDIO DOCK
+   ========================================================= */
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%) translateY(0);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 10px 12px 10px 10px;
+  width: min(calc(100% - 28px), 520px);
+  border-radius: 999px;
+  border: 1px solid var(--stroke-strong);
+  background: rgba(16, 12, 30, .82);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.04) inset;
+  animation: dockIn .5s var(--ease);
+}
+.dock[hidden] { display: none; }
+@keyframes dockIn { from { opacity: 0; transform: translateX(-50%) translateY(18px); } }
+
+.dock.is-flash { animation: dockIn .5s var(--ease), dockFlash 1.6s ease .2s; }
+@keyframes dockFlash {
+  0%, 100% { box-shadow: 0 24px 60px -24px rgba(0,0,0,.9); }
+  30% { box-shadow: 0 0 0 2px rgba(121,242,220,.55), 0 24px 60px -24px rgba(0,0,0,.9); }
+}
+
+.dock__art {
+  position: relative;
+  width: 42px; height: 42px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255,255,255,.5), transparent 48%),
+    radial-gradient(circle, var(--dc, rgba(121,242,220,.35)), transparent 70%),
+    conic-gradient(from 140deg, #4fd7c4, #6f5cf0, #a184f8, #ef9abd, #4fd7c4);
+  box-shadow: 0 0 22px -4px rgba(121,242,220,.65);
+  animation: spin 22s linear infinite;
+}
+.dock__art svg { width: 22px; height: 22px; }
+.dock.is-paused .dock__art { animation-play-state: paused; filter: saturate(.45) brightness(.8); }
+
+.dock__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.2;
+}
+.dock__body b {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dock__body span {
+  font-size: .68rem;
+  color: var(--text-faint);
+  letter-spacing: .05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* animated equaliser while playing */
+.dock__eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+  margin-top: 3px;
+}
+.dock__eq i {
+  width: 2px;
+  height: 30%;
+  border-radius: 2px;
+  background: linear-gradient(var(--mint), var(--lilac));
+  animation: dockEq .9s ease-in-out infinite alternate;
+}
+.dock__eq i:nth-child(2) { animation-delay: -.3s; }
+.dock__eq i:nth-child(3) { animation-delay: -.55s; }
+.dock__eq i:nth-child(4) { animation-delay: -.15s; }
+.dock.is-paused .dock__eq i { animation-play-state: paused; height: 30%; opacity: .4; }
+@keyframes dockEq { from { height: 20%; } to { height: 100%; } }
+
+.dock__vol { display: flex; align-items: center; gap: 6px; flex: none; }
+.dock__range {
+  width: 76px;
+  accent-color: var(--mint);
+  cursor: pointer;
+}
+
+.dock__btn {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.05);
+  color: var(--text-dim);
+  transition: all .3s var(--ease);
+}
+.dock__btn .ico { width: 17px; height: 17px; }
+.dock__btn:hover { color: var(--text); background: rgba(255,255,255,.11); border-color: var(--stroke-strong); }
+
+.dock__btn--main {
+  width: 46px; height: 46px;
+  color: #07060d;
+  background: var(--grad-btn);
+  border-color: transparent;
+  box-shadow: 0 10px 28px -10px rgba(139,123,247,.95);
+}
+.dock__btn--main .ico { width: 19px; height: 19px; }
+.dock__btn--main:hover { transform: scale(1.05); background: var(--grad-btn); }
+
+.dock__btn--close { width: 30px; height: 30px; border-color: transparent; background: transparent; }
+.dock__btn--close .ico { width: 15px; height: 15px; }
+.dock__btn--close:hover { background: rgba(247,169,201,.14); color: var(--blush); }
+
+@media (max-width: 620px) {
+  .dock { gap: 9px; padding: 8px 10px 8px 8px; bottom: 14px; }
+  .dock__art { width: 36px; height: 36px; }
+  .dock__art svg { width: 18px; height: 18px; }
+  .dock__range { width: 54px; }
+  .dock__btn { width: 32px; height: 32px; }
+  .dock__btn--main { width: 42px; height: 42px; }
+}
+@media (max-width: 440px) {
+  .dock__vol { display: none; }
+  .dock__body b { font-size: .92rem; }
+}
+
+/* keep content clear of the dock */
+body.has-dock { padding-bottom: 96px; }
+
+/* =========================================================
+   AMBIENT PROMPT (first visit nudge)
+   ========================================================= */
+.ambient-prompt {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 140;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px 8px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(121,242,220,.22);
+  background: rgba(16, 12, 30, .88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 22px 55px -26px rgba(0,0,0,.9);
+  animation: dockIn .55s var(--ease) .1s both;
+}
+.ambient-prompt[hidden] { display: none; }
+.ambient-prompt__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px 9px 14px;
+  border-radius: 999px;
+  background: var(--grad-btn);
+  color: #07060d;
+  font-weight: 500;
+  font-size: .84rem;
+  transition: transform .35s var(--ease), box-shadow .35s;
+}
+.ambient-prompt__btn .ico { width: 16px; height: 16px; }
+.ambient-prompt__btn small {
+  font-weight: 400;
+  font-size: .64rem;
+  opacity: .72;
+  padding-left: 9px;
+  margin-left: 2px;
+  border-left: 1px solid rgba(7,6,13,.25);
+  letter-spacing: .03em;
+}
+.ambient-prompt__btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px -14px rgba(121,242,220,.9);
+}
+.ambient-prompt__no {
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: .74rem;
+  color: var(--text-faint);
+}
+.ambient-prompt__no:hover { color: var(--text-dim); background: rgba(255,255,255,.06); }
+
+@media (max-width: 480px) {
+  .ambient-prompt { flex-direction: column; align-items: stretch; width: calc(100% - 28px); border-radius: 20px; bottom: 14px; }
+  .ambient-prompt__btn { justify-content: center; }
+  .ambient-prompt__no { text-align: center; }
+}
+
+/* =========================================================
+   FOOTER — audio credits
+   ========================================================= */
+.footer__credits {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-top: 22px;
+  font-size: .72rem;
+  line-height: 1.7;
+  color: var(--text-faint);
+  border-top: 1px solid var(--stroke);
+}
+.footer__credits a {
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--stroke-strong);
+  transition: color .3s, border-color .3s;
+}
+.footer__credits a:hover { color: var(--mint); border-color: var(--mint); }
+.footer__credits + .footer__base { border-top: 0; padding-top: 14px; }

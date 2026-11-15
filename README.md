@@ -23,12 +23,15 @@ audio files or trackers. Fonts come from Google Fonts, with a graceful system fa
 index.html  breathing.html  yoga.html  frequencies.html  chakras.html
 styles.css                     ← one stylesheet for the whole site
 assets/
-  js/site.js                   ← shared: nav, reveals, stars, counters, audio kit
-  js/breath.js  sounds.js      ← breathing page (incl. pranayama previews via yoga.js below)
-  js/yoga.js                   ← yoga page + pranayama sound previews
-  js/frequencies.js            ← frequencies page
+  js/site.js                   ← shared: nav, reveals, stars, counters
+  js/ambient.js                ← shared audio engine + floating dock (all pages)
+  js/breath.js  sounds.js      ← breathing page
+  js/pranayama.js              ← pranayama sound previews
+  js/yoga.js                   ← yoga page sub-nav
+  js/frequencies.js            ← frequencies page filters
   js/chakra.js                 ← chakra page
   js/music.js                  ← music page (filters + YouTube player)
+  audio/spiritual-ambient.ogg  ← CC BY 4.0 track (see credits below)
   partials/sprite.svg          ← shared icon/logo sprite (inlined at build time)
 _build/
   shell.js                     ← shared head / nav / footer template
@@ -60,3 +63,15 @@ After that, every push to `main` deploys automatically.
 
 > Sound and frequency practices here are educational and contemplative, not medical treatment.
 > Skip forceful breathwork during pregnancy or with cardiovascular conditions.
+
+## Credits
+
+Ambient track: “Spiritual Ambient” by
+[MusicLFiles](https://commons.wikimedia.org/wiki/Category:Files_by_MusicLFiles),
+licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spiritual_Ambient_by_MusicLFiles.ogg).
+Changes: looped and volume-adjusted for background listening.
+
+The CC BY licence requires this attribution to stay visible wherever the track is
+used — it appears on every page footer and must not be removed without also
+removing the audio file.

@@ -15,6 +15,7 @@ const REQUIRES = {
   'assets/js/frequencies.js': ['#freqGrid', '.freq'],
   'assets/js/chakra.js': ['#chakraStage', '.chakra-item', '#ckGo'],
   'assets/js/music.js': ['#trackGrid', '.track'],
+  'assets/js/ambient.js': ['#dock', '#dockToggle', '#dockClose'],
   'assets/js/site.js': ['#nav']
 };
 

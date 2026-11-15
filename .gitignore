@@ -7,6 +7,9 @@ qa-*.png
 .DS_Store
 Thumbs.db
 
+# never ignore the licensed audio track
+!assets/audio/*.ogg
+
 # build output
 _site/
 node_modules/
