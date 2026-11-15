@@ -29,6 +29,22 @@ function hasSelector(html, sel) {
   return html.includes(sel);
 }
 
+/* Every element a script looks up by id at load time must exist on its page.
+   (A typo here silently disables a button, which is exactly how bugs hide.) */
+function checkIds(p, html, src) {
+  const code = fs.readFileSync(path.join(ROOT, src), 'utf8');
+  const ids = [...code.matchAll(/\$\('#([A-Za-z0-9_-]+)'\)/g)].map((m) => m[1]);
+  for (const id of new Set(ids)) {
+    // ids the script itself injects into the DOM are not in the static HTML
+    const generated = new RegExp(`id="\\$?\{?${id}`).test(code) || code.includes(`id="${id}"`);
+    if (generated) continue;
+    if (!new RegExp(`id="${id}"`).test(html)) {
+      console.log(`  MISSING #id     ${p}: ${src} looks up #${id}`);
+      problems++;
+    }
+  }
+}
+
 let problems = 0;
 for (const p of pages) {
   const html = fs.readFileSync(path.join(ROOT, p), 'utf8');
@@ -40,6 +56,7 @@ for (const p of pages) {
       problems++;
       continue;
     }
+    checkIds(p, html, src);
     for (const sel of REQUIRES[src] || []) {
       const ok = hasSelector(html, sel);
       if (!ok) {

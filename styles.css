@@ -2689,32 +2689,74 @@ body.is-locked { overflow: hidden; }
 .vplayer__panel {
   position: relative;
   width: min(100%, 1000px);
+  max-height: calc(100svh - 2 * clamp(14px, 4vw, 48px));
+  display: flex;
+  flex-direction: column;
   border-radius: var(--r-lg);
   border: 1px solid var(--stroke-strong);
   background: #0b0817;
   box-shadow: 0 50px 120px -40px rgba(0,0,0,.95);
   overflow: hidden;
   animation: panelIn .45s var(--ease);
+  transition: width .4s var(--ease), max-width .4s var(--ease);
 }
 @keyframes panelIn { from { opacity: 0; transform: translateY(18px) scale(.985); } }
+.vplayer__panel:fullscreen {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  border: 0;
+  background: #000;
+}
+
+/* video area — grows with theatre mode */
+.vplayer__stage { flex: 1 1 auto; min-height: 0; display: flex; justify-content: center; }
+.vplayer__panel.is-theatre { width: min(100%, 1240px); }
 
 .vplayer__frame {
   position: relative;
+  width: 100%;
   aspect-ratio: 16 / 9;
   background: #000;
 }
-.vplayer__frame iframe {
+.vplayer__frame iframe,
+.vplayer__frame > iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
 }
+#vplayerTarget { position: absolute; inset: 0; }
+
+.vplayer__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: .84rem;
+  color: var(--text-dim);
+  background: rgba(8,6,15,.86);
+  z-index: 2;
+}
+.vplayer__loading[hidden] { display: none; }
+.spinner {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.18);
+  border-top-color: var(--mint);
+  animation: spin .8s linear infinite;
+}
+
+/* title row */
 .vplayer__bar {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-top: 1px solid var(--stroke);
 }
 .vplayer__info { flex: 1; min-width: 0; }
@@ -2728,9 +2770,149 @@ body.is-locked { overflow: hidden; }
   text-overflow: ellipsis;
 }
 .vplayer__info span { font-size: .76rem; color: var(--text-faint); }
-.vplayer .btn--icon { width: 44px; height: 44px; }
+.vplayer__quick { display: flex; gap: 8px; }
+.vplayer .btn--icon { width: 42px; height: 42px; }
 
-@media (max-width: 560px) {
-  .vplayer__bar { flex-wrap: wrap; }
-  .vplayer__info { flex-basis: 100%; }
+/* transport controls */
+.vplayer__transport {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px 14px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.02);
+}
+.vbtn {
+  width: 38px; height: 38px;
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.04);
+  color: var(--text-dim);
+  transition: all .3s var(--ease);
+}
+.vbtn .ico { width: 18px; height: 18px; }
+.vbtn:hover { color: var(--text); border-color: var(--stroke-strong); background: rgba(255,255,255,.09); transform: translateY(-1px); }
+.vbtn:active { transform: translateY(0) scale(.96); }
+.vbtn.is-on {
+  color: #07060d;
+  background: linear-gradient(120deg, #79f2dc, #8b7bf7);
+  border-color: transparent;
+  box-shadow: 0 6px 20px -8px rgba(121,242,220,.9);
+}
+#vpPlay {
+  width: 46px; height: 46px;
+  color: #07060d;
+  background: var(--grad-btn);
+  border-color: transparent;
+  box-shadow: 0 8px 24px -10px rgba(139,123,247,.95);
+}
+#vpPlay .ico { width: 20px; height: 20px; }
+
+.vplayer__time {
+  font-size: .76rem;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+  padding: 0 2px;
+  min-width: 92px;
+  text-align: center;
+  flex: none;
+}
+
+/* range inputs */
+.vplayer__seek {
+  flex: 1 1 160px;
+  min-width: 110px;
+  height: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--mint), var(--lilac)) no-repeat, rgba(255,255,255,.14);
+  background-size: 0% 100%, 100% 100%;
+  cursor: pointer;
+}
+.vplayer__seek::-webkit-slider-thumb {
+  appearance: none;
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(121,242,220,.9);
+  cursor: pointer;
+}
+.vplayer__seek::-moz-range-thumb {
+  width: 13px; height: 13px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.vplayer__volume { display: flex; align-items: center; gap: 6px; flex: none; }
+.vplayer__vol {
+  width: 74px;
+  accent-color: var(--mint);
+  cursor: pointer;
+}
+
+.vplayer__speed { flex: none; }
+.vplayer__speed select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 8px 26px 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.04);
+  color: var(--text-dim);
+  font-size: .76rem;
+  font-family: inherit;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2379f2dc' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+.vplayer__speed select:hover { border-color: var(--stroke-strong); color: var(--text); }
+.vplayer__speed select option { background: #12101f; color: #f3eefc; }
+
+/* footer links row */
+.vplayer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px 14px;
+}
+.vlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.03);
+  font-size: .77rem;
+  font-family: inherit;
+  color: var(--text-dim);
+  transition: all .3s var(--ease);
+}
+.vlink .ico { width: 14px; height: 14px; }
+.vlink:hover { color: var(--text); border-color: var(--stroke-strong); background: rgba(255,255,255,.07); }
+.vlink__yt { color: #ff3d3d; font-size: .72rem; line-height: 1; }
+
+@media (max-width: 700px) {
+  .vplayer__transport { gap: 6px; padding: 10px 12px 12px; }
+  .vplayer__seek { flex-basis: 100%; order: -1; }
+  .vplayer__time { min-width: 84px; }
+  .vplayer__vol { width: 54px; }
+  .vbtn { width: 34px; height: 34px; }
+  #vpPlay { width: 42px; height: 42px; }
+  .vplayer__links { padding: 0 12px 12px; }
+  .vlink { font-size: .72rem; padding: 7px 12px; }
+}
+@media (max-width: 420px) {
+  .vplayer__speed select { padding: 7px 22px 7px 10px; }
+  .vplayer__volume { display: none; }
 }
