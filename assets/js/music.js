@@ -1,80 +1,63 @@
 /* =========================================================
-   SŌMA — music page
-   Category filter + in-page YouTube theatre.
+   SŌMA — music page, YouTube-style
 
-   Playback rules (deliberate):
-     · NEVER pauses because the tab is hidden, minimized or switched.
-     · Never pauses because the theatre is closed — use minimise
-       (dock) or close-and-stop explicitly.
-     · YouTube's own player supplies every transport control, so the
-       toolbar here only holds what YouTube cannot: picture-in-picture,
-       minimise, close and a real "watch on YouTube" link.
+   · One persistent player, mounted in-page; selecting another track
+     swaps the video in the SAME iframe (no second audio source).
+   · Never pauses on tab switch / minimize / scroll.
+   · YouTube's own controls do all the transport work.
+   · Search filters every card and row live.
+   · Queue in the right rail; mini player appears when you scroll past.
    ========================================================= */
 (() => {
   'use strict';
 
   const { $, $$ } = window.Soma;
 
-  const grid = $('#trackGrid');
-  if (!grid) return;
+  const root = $('.yt-shell');
+  if (!root) return;
 
   const API_SRC = 'https://www.youtube.com/iframe_api';
 
-  /* =========================================================
-     1. Category filtering
-     ========================================================= */
-  const chips = $$('.track-filters .chip');
-  const tracks = $$('.track');
-  const empty = $('#trackEmpty');
-
-  chips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      chips.forEach((c) => c.classList.remove('is-active'));
-      chip.classList.add('is-active');
-      const f = chip.dataset.filter;
-
-      // "Sounds of Isha" has its own section rather than cards in this grid
-      if (f === 'isha') {
-        document.getElementById('isha')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        return;
-      }
-
-      let shown = 0;
-      tracks.forEach((t) => {
-        const match = f === 'all' || t.dataset.cat === f;
-        t.hidden = !match;
-        if (match) shown++;
-      });
-      if (empty) empty.hidden = shown !== 0;
-    });
-  });
-
-  /* =========================================================
-     2. Elements
-     ========================================================= */
-  const player = $('#vplayer');
+  /* ---------- elements ---------- */
+  const playerEl = $('#ytPlayer');
+  const idleEl = $('#ytIdle');
+  const stageEl = $('#ytStage');
   const target = $('#vplayerTarget');
-  const loading = $('#vplayerLoading');
+  const errEl = $('#vplayerError');
   const titleEl = $('#vplayerTitle');
   const byEl = $('#vplayerBy');
   const ytLink = $('#vplayerYT');
-  const btnPip = $('#vpPip');
-  const btnMin = $('#vpMin');
+  const queueBtn = $('#vpQueue');
+  const queueList = $('#ytQueueList');
+  const queueEmpty = $('#ytQueueEmpty');
+  const mini = $('#ytMini');
+  const miniArt = $('#ytMiniArt');
+  const miniTitle = $('#ytMiniTitle');
+  const miniBy = $('#ytMiniBy');
+  const searchInput = $('#ytSearchInput');
+  const searchClear = $('#ytSearchClear');
+  const emptyMsg = $('#ytEmpty');
+  const rail = $('#ytRail');
 
-  let yt = null;              // YT.Player instance
+  let yt = null;
   let ready = false;
-  let lastFocus = null;
   let apiPromise = null;
-  let currentId = null;       // track currently loaded, so we can restore it
-  let wasPlaying = false;     // last known state, for re-opening
+  let current = null;          // { id, title, author }
+  let wasPlaying = false;
+  let userStopped = false;
+
+  const queue = [];            // [{ id, title, author }]
+  const queueIds = new Set();
+
+  const allCards = () => $$('.vcard, .vrow');
 
   /* =========================================================
-     3. Load the IFrame API once, lazily
+     1. IFrame API
      ========================================================= */
   function loadApi() {
     if (apiPromise) return apiPromise;
     apiPromise = new Promise((resolve, reject) => {
-      if (window.YT && window.YT.Player) { resolve(); return; }
+      if (window.YT && window.YT.Player) return resolve();
 
       const prev = window.onYouTubeIframeAPIReady;
       window.onYouTubeIframeAPIReady = () => {
@@ -86,170 +69,268 @@
         const s = document.createElement('script');
         s.src = API_SRC;
         s.async = true;
-        s.onerror = () => reject(new Error('Could not load the YouTube player'));
+        s.onerror = () => reject(new Error('api'));
         document.head.appendChild(s);
       }
-
       setTimeout(() => {
         if (window.YT && window.YT.Player) resolve();
-        else reject(new Error('YouTube player did not initialise'));
+        else reject(new Error('timeout'));
       }, 12000);
     });
     return apiPromise;
   }
 
   /* =========================================================
-     4. Create / re-target the player
+     2. Player
      ========================================================= */
-  function createPlayer(id) {
+  function buildPlayer(id) {
     if (yt && ready) {
-      // we only get the src once, so clear it to be sure autoplay starts
+      // same instance, new video — this is what prevents double audio
       yt.loadVideoById(id);
       return;
     }
 
-    // Build the mount fresh each time the theatre is re-opened so the iframe
-    // is re-attached and YouTube autoplays without a second click.
-    target.innerHTML = '<div id="vpYtMount"></div>';
-    const mount = $('#vpYtMount');
-
-    yt = new window.YT.Player(mount, {
+    target.innerHTML = '<div id="ytMount"></div>';
+    yt = new window.YT.Player($('#ytMount'), {
       videoId: id,
       playerVars: {
         autoplay: 1,
         rel: 0,
         modestbranding: 1,
         playsinline: 1,
-        fs: 1,                 // YouTube's own fullscreen button
+        fs: 1,
         origin: window.location.origin
       },
       events: {
         onReady: () => {
           ready = true;
-          loading.hidden = true;
-          currentId = id;
-          // continue where the last session left off
-          if (wasPlaying) yt.playVideo();
-        },
-        onStateChange: (e) => {
-          const S = window.YT.PlayerState;
-          if (e.data === S.PLAYING) {
-            wasPlaying = true;
-            loading.hidden = true;
-            document.body.classList.add('is-playing-media');
-          }
-          if (e.data === S.PAUSED) {
-            wasPlaying = false;
-            document.body.classList.remove('is-playing-media');
-          }
-          if (e.data === S.ENDED) {
-            wasPlaying = false;
-            document.body.classList.remove('is-playing-media');
-          }
-          if (e.data === S.BUFFERING) loading.hidden = false;
+          errEl.hidden = true;
         },
         onError: () => {
-          loading.hidden = true;
-          titleEl.textContent = 'This video cannot be played here';
-          byEl.textContent = 'Use “Watch on YouTube” \u2014 the creator may have disabled embedding.';
+          errEl.hidden = false;
+          errEl.textContent = 'This video cannot be played here. Use “Watch on YouTube”.';
         }
       }
     });
   }
 
-  /* =========================================================
-     5. Open / minimise / close
-     ========================================================= */
-  function open(id, title, author) {
-    lastFocus = document.activeElement;
-    titleEl.textContent = title;
-    byEl.textContent = author;
-    currentId = id;
-    ytLink.href = 'https://www.youtube.com/watch?v=' + id;
+  function playTrack(id, title, author) {
+    if (!id) return;
+    errEl.hidden = true;
 
-    player.hidden = false;
-    document.body.classList.add('is-locked');
-    loading.hidden = false;
+    const same = current && current.id === id && ready;
+    current = { id, title, author };
+    wasPlaying = true;
+    userStopped = false;
+
+    titleEl.textContent = title || 'Now playing';
+    byEl.textContent = author || '';
+    ytLink.href = 'https://www.youtube.com/watch?v=' + id;
+    miniArt.src = `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+    miniTitle.textContent = title || '';
+    miniBy.textContent = author || '';
+
+    playerEl.hidden = false;
+    idleEl.hidden = true;
+
+    markPlaying();
+    addToQueue({ id, title, author });
+
+    if (same) {
+      yt.playVideo();
+      return;
+    }
 
     loadApi()
-      .then(() => createPlayer(id))
+      .then(() => buildPlayer(id))
       .catch(() => {
-        loading.hidden = true;
-        titleEl.textContent = 'Player unavailable';
-        byEl.textContent = 'Watch this track on YouTube instead.';
+        errEl.hidden = false;
+        errEl.textContent = 'The player could not load. Use “Watch on YouTube”.';
       });
-
-    $('#vpMin')?.focus();
   }
 
-  /* Minimise: hide the theatre but keep playing. While minimised the video
-     stays in the DOM (off-screen), so audio continues exactly as before. */
-  function minimise() {
-    if (player.hidden) return;
-    player.classList.add('is-minimised');
-    document.body.classList.remove('is-locked');
-    player.classList.remove('is-hidden-media');
-    lastFocus?.focus();
-  }
-
-  /* Close: hide the theatre AND stop the audio. */
-  function close() {
-    if (player.hidden) return;
-    if (ready && typeof yt.stopVideo === 'function') yt.stopVideo();
+  function stopAll() {
+    userStopped = true;
     wasPlaying = false;
-    player.hidden = true;
-    player.classList.remove('is-minimised');
-    document.body.classList.remove('is-locked');
-    document.body.classList.remove('is-playing-media');
-    if (document.fullscreenElement) document.exitFullscreen?.();
-    lastFocus?.focus();
+    if (ready && yt && typeof yt.stopVideo === 'function') yt.stopVideo();
+    playerEl.hidden = true;
+    idleEl.hidden = false;
+    mini.hidden = true;
+    current = null;
+    markPlaying();
+  }
+
+  /* highlight the card / row that is playing */
+  function markPlaying() {
+    const id = current && current.id;
+    allCards().forEach((el) => {
+      el.classList.toggle('is-playing', !!id && el.dataset.song === id);
+    });
+    $$('#ytQueueList li').forEach((li) => {
+      li.classList.toggle('is-current', !!id && li.dataset.song === id);
+    });
   }
 
   /* =========================================================
-     6. Wiring
+     3. Queue
      ========================================================= */
-  $$('.track__thumb, .isha-card__thumb').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      open(btn.dataset.video, btn.dataset.title, btn.dataset.author);
+  function addToQueue(track) {
+    if (!track || !track.id || queueIds.has(track.id)) return;
+    queueIds.add(track.id);
+    queue.push(track);
+    renderQueue();
+  }
+
+  function renderQueue() {
+    if (!queueList) return;
+    queueList.innerHTML = queue.map((t) => `
+      <li data-song="${t.id}" data-title="${t.title.replace(/"/g, '')}" data-author="${(t.author || '').replace(/"/g, '')}">
+        <img src="https://i.ytimg.com/vi/${t.id}/mqdefault.jpg" alt="" loading="lazy" />
+        <span class="ytq__text">
+          <b>${t.title}</b>
+          <small>${t.author || ''}</small>
+        </span>
+      </li>`).join('');
+    if (queueEmpty) queueEmpty.hidden = queue.length > 0;
+    markPlaying();
+  }
+
+  queueList?.addEventListener('click', (e) => {
+    const li = e.target.closest('li');
+    if (!li) return;
+    playTrack(li.dataset.song, li.dataset.title, li.dataset.author);
+    playerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  $('#ytQueueClear')?.addEventListener('click', () => {
+    queue.length = 0;
+    queueIds.clear();
+    renderQueue();
+  });
+
+  queueBtn?.addEventListener('click', () => {
+    const on = queueBtn.getAttribute('aria-pressed') !== 'true';
+    queueBtn.setAttribute('aria-pressed', String(on));
+    $('#ytQueue').style.display = on ? '' : 'none';
+  });
+
+  /* =========================================================
+     4. Cards → play
+     ========================================================= */
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-video]');
+    if (btn) {
+      const cardEl = btn.closest('[data-song]');
+      const title = cardEl ? cardEl.dataset.title : '';
+      const author = cardEl ? cardEl.dataset.author : '';
+      playTrack(btn.dataset.video, title, author);
+      return;
+    }
+
+    // clicking the title area of a card also plays it
+    const cardEl = e.target.closest('.vcard__meta, .vrow__meta');
+    if (cardEl) {
+      const parent = cardEl.closest('[data-song]');
+      if (parent) playTrack(parent.dataset.song, parent.dataset.title, parent.dataset.author);
+    }
+  });
+
+  $('#vpStop')?.addEventListener('click', stopAll);
+  $('#ytMiniStop')?.addEventListener('click', stopAll);
+
+  /* =========================================================
+     5. Minimise / picture-in-picture / mini bar
+     ========================================================= */
+  $('#vpMin')?.addEventListener('click', () => {
+    // scroll the player out of the way; the mini bar keeps it reachable
+    window.scrollTo({ top: playerEl.offsetTop + playerEl.offsetHeight, behavior: 'smooth' });
+  });
+
+  $('#vpPip')?.addEventListener('click', async () => {
+    try {
+      const frame = target.querySelector('iframe');
+      if (frame && document.pictureInPictureEnabled && frame.requestPictureInPicture) {
+        await frame.requestPictureInPicture();
+      }
+    } catch (err) { /* not every browser allows this */ }
+  });
+
+  $('#ytMiniFocus')?.addEventListener('click', () => {
+    playerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  $('#ytMiniStart')?.addEventListener('click', () => {
+    playerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* show the mini bar once the real player is scrolled above the fold */
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(([entry]) => {
+      mini.hidden = entry.isIntersecting || playerEl.hidden || !current;
+    }, { rootMargin: '-70px 0px 0px 0px' });
+    io.observe(playerEl);
+  }
+
+  /* =========================================================
+     6. Search
+     ========================================================= */
+  function applySearch(q) {
+    const needle = q.trim().toLowerCase();
+    let shown = 0;
+
+    $$('.yt-section').forEach((sec) => {
+      let visibleInSection = 0;
+      $$('.vcard, .vrow', sec).forEach((item) => {
+        const hay = (item.dataset.title + ' ' + item.dataset.author + ' ' + item.textContent).toLowerCase();
+        const match = !needle || hay.includes(needle);
+        item.hidden = !match;
+        if (match) visibleInSection++;
+      });
+      sec.hidden = visibleInSection === 0;
+      shown += visibleInSection;
+    });
+
+    if (emptyMsg) emptyMsg.hidden = shown !== 0;
+    if (searchClear) searchClear.hidden = !needle;
+  }
+
+  searchInput?.addEventListener('input', () => applySearch(searchInput.value));
+  searchClear?.addEventListener('click', () => {
+    searchInput.value = '';
+    applySearch('');
+    searchInput.focus();
+  });
+  $('#ytSearch')?.addEventListener('submit', (e) => e.preventDefault());
+
+  /* =========================================================
+     7. Left rail: active state + drawer toggle
+     ========================================================= */
+  $('#ytBurger')?.addEventListener('click', () => {
+    const open = root.classList.toggle('is-rail-open');
+    $('#ytBurger').setAttribute('aria-expanded', String(open));
+  });
+
+  $$('.ytrail__item[data-cat]').forEach((a) => {
+    a.addEventListener('click', () => {
+      $$('.ytrail__item').forEach((x) => x.classList.remove('is-active'));
+      a.classList.add('is-active');
+      root.classList.remove('is-rail-open');
     });
   });
 
-  $$('[data-close]', player).forEach((el) => el.addEventListener('click', close));
-  btnMin?.addEventListener('click', minimise);
-
-  /* Picture-in-picture, when the browser exposes it via the iframe */
-  btnPip?.addEventListener('click', async () => {
-    try {
-      const frame = target.querySelector('iframe');
-      if (!frame) return;
-      // same-origin restrictions mean the inner video element is not reachable;
-      // fall back to the player's own PiP affordance if present
-      if (document.pictureInPictureEnabled && frame.requestPictureInPicture) {
-        await frame.requestPictureInPicture();
-      }
-    } catch (e) {
-      /* PiP is not guaranteed — silently ignore */
-    }
-  });
-
-  /* reopen a minimised theatre by clicking the title bar it leaves behind */
-  player.addEventListener('click', (e) => {
-    if (player.classList.contains('is-minimised') && e.target.closest('.vplayer__panel')) {
-      player.classList.remove('is-minimised');
-      document.body.classList.add('is-locked');
-    }
-  });
-
-  /* Esc closes while the theatre is open */
+  /* =========================================================
+     8. Small polish
+     ========================================================= */
+  // Esc clears a search that is running
   document.addEventListener('keydown', (e) => {
-    if (player.hidden) return;
-    if (e.key === 'Escape') {
-      if (player.classList.contains('is-minimised')) close();
-      else close();
+    if (e.key === 'Escape' && searchInput && document.activeElement === searchInput) {
+      searchInput.value = '';
+      applySearch('');
+      searchInput.blur();
     }
   });
 
-  /* IMPORTANT: playback is never paused on visibilitychange.
-     Nothing here listens for the tab going away, so music keeps playing when
-     the tab is hidden, minimized or switched. */
+  // never pause on visibility change — music keeps playing.
+  // (Nothing is registered here, deliberately.)
+
+  renderQueue();
 })();

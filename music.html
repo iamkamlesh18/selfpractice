@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#0a0713" />
-<title>Music — Sōma</title>
-<meta name="description" content="Hand-picked YouTube meditations: Om chanting, healing frequencies, chakra music, sleep drones and ambient focus music, plus live tones and soundscapes made on Sōma." />
-<meta property="og:title" content="Music — Sōma" />
-<meta property="og:description" content="Hand-picked YouTube meditations: Om chanting, healing frequencies, chakra music, sleep drones and ambient focus music, plus live tones and soundscapes made on Sōma." />
+<title>Music — YouTube-style — Sōma</title>
+<meta name="description" content="Every Sounds of Isha chant, devotional, bhajan and meditation track on one page — a full YouTube-style layout with categories, search, queue and an in-page player that never leaves the page." />
+<meta property="og:title" content="Music — YouTube-style — Sōma" />
+<meta property="og:description" content="Every Sounds of Isha chant, devotional, bhajan and meditation track on one page — a full YouTube-style layout with categories, search, queue and an in-page player that never leaves the page." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,6 +55,8 @@
     <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9.5h3l4-3.2v11.4l-4-3.2H4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M15 9a4 4 0 0 1 0 6M17.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.4" fill="currentColor"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15.6 15.6 4.2 4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="i-minimize" viewBox="0 0 24 24"><path d="M5 19h14M5 14.5h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
     <symbol id="i-pip" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="8.5" y="12" width="10" height="7" rx="1.6" fill="currentColor" opacity=".9"/></symbol>
     <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 17.5V6.4l9-2.1v10.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.6" cy="17.6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15.6" cy="15.4" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
@@ -102,2138 +104,1613 @@
 </header>
 
 <main id="top">
-<section class="page-hero">
-    <div>
-      <p class="breadcrumb reveal"><a href="index.html">Home</a><span>/</span>Music</p>
-      <h1 class="page-hero__title reveal" data-delay="80">Music to <em>sit in</em>.</h1>
-      <p class="page-hero__lead reveal" data-delay="160">
-        Sounds of Isha chants and stotrams, plus a hand-picked shelf of YouTube meditations —
-        mantra, healing frequencies, chakra music, sleep drones and ambient.
-        Playback is YouTube's own player, so it never stops when you switch tabs or minimise —
-        and every view goes to the original creator.
-      </p>
-    </div>
-    <div class="page-hero__aside">
-      <div class="stat-pill reveal" data-delay="220"><span>Tracks</span><b>108</b></div>
-      <div class="stat-pill reveal" data-delay="300"><span>Categories</span><b>7</b></div>
-      <div class="stat-pill reveal" data-delay="380"><span>Playback</span><b>YouTube</b></div>
-    </div>
-  </section>
+<!-- top bar -->
+<a id="musicTop"></a>
+<header class="ytbar">
+  <button class="ytbar__burger" id="ytBurger" aria-label="Open menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" class="ico"><use href="#i-menu"></use></svg>
+  </button>
+  <a class="ytbar__brand" href="music.html">
+    <span class="ytbar__mark"><svg viewBox="0 0 48 48"><use href="#logo-mark"></use></svg></span>
+    <span>Sōma<span class="ytbar__sub">Music</span></span>
+  </a>
+  <form class="ytbar__search" id="ytSearch" role="search" onsubmit="return false">
+    <svg viewBox="0 0 24 24" class="ico"><use href="#i-search"></use></svg>
+    <input id="ytSearchInput" type="search" placeholder="Search chants, artists, stotrams…" aria-label="Search music" autocomplete="off" />
+    <button type="button" id="ytSearchClear" aria-label="Clear search" hidden>
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-close"></use></svg>
+    </button>
+  </form>
+  <a class="ytbar__link" href="index.html">Back to Sōma</a>
+</header>
 
-  <nav class="subnav" aria-label="Music sections">
-    <a href="#isha" class="is-current">Sounds of Isha</a>
-    <a href="#shelf">The shelf</a>
-    <a href="#devotional">Other devotional</a>
-    <a href="#also">Also on Sōma</a>
+<div class="yt-shell">
+  <!-- left rail -->
+  <nav class="ytrail" id="ytRail" aria-label="Music categories">
+    <a class="ytrail__item is-active" href="#musicTop" data-cat="home">
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-sun"></use></svg><span>Home</span>
+    </a>
+
+    <a class="ytrail__item" href="#isha" data-cat="isha">
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-lotus"></use></svg><span>Sounds of Isha</span>
+      <small>61</small>
+    </a>
+    <a class="ytrail__item" href="#devotional" data-cat="devotional">
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-flame"></use></svg><span>Devotional</span>
+      <small>28</small>
+    </a>
+    <a class="ytrail__item" href="#shelf" data-cat="shelf">
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-leaf"></use></svg><span>Meditation shelf</span>
+      <small>19</small>
+    </a>
+    <div class="ytrail__divider"></div>
+    <a class="ytrail__item" href="breathing.html">
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-wind"></use></svg><span>Breathing</span>
+    </a>
+    <a class="ytrail__item" href="journey.html">
+      <svg viewBox="0 0 24 24" class="ico"><use href="#i-heart"></use></svg><span>Your journey</span>
+    </a>
+    <div class="ytrail__foot">108 tracks · all playable here</div>
   </nav>
 
-  <section class="section" id="isha">
-    <div class="section__head">
-      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Featured channel</p>
-      <h2 class="section__title reveal">Sounds of <em>Isha</em></h2>
-      <p class="section__lead reveal">
-        The chant and stotram collection from Isha, including the one-hour versions.
-        Press a cover to play it here, or open it on YouTube to support the channel directly.
-      </p>
-    </div>
+  <!-- main -->
+  <div class="ytmain" id="ytMain">
+    <!-- sticky player -->
+    <section class="ytplayer" id="ytPlayer" hidden>
+      <div class="ytplayer__stage" id="ytStage">
+        <div class="ytplayer__target" id="vplayerTarget"></div>
+        <p class="ytplayer__error" id="vplayerError" hidden></p>
+      </div>
+      <div class="ytplayer__info">
+        <h2 id="vplayerTitle">—</h2>
+        <div class="ytplayer__byrow">
+          <span id="vplayerBy">—</span>
+          <button class="ytchip" id="vpQueue" aria-pressed="true">Add to queue</button>
+        </div>
+        <div class="ytplayer__row">
+          <a class="ytlink" id="vplayerYT" href="#" target="_blank" rel="noopener noreferrer">
+            <span class="ytlink__mark" aria-hidden="true">▶</span> Watch on YouTube
+          </a>
+          <button class="ytbtn" id="vpPip">
+            <svg viewBox="0 0 24 24" class="ico"><use href="#i-pip"></use></svg><span>Picture in picture</span>
+          </button>
+          <button class="ytbtn" id="vpMin">
+            <svg viewBox="0 0 24 24" class="ico"><use href="#i-minimize"></use></svg><span>Minimize</span>
+          </button>
+          <button class="ytbtn ytbtn--danger" id="vpStop">
+            <svg viewBox="0 0 24 24" class="ico"><use href="#i-stop"></use></svg><span>Stop</span>
+          </button>
+        </div>
+      </div>
+    </section>
 
-    <div class="isha-grid">
+    <!-- nothing playing yet -->
+    <section class="ytidle" id="ytIdle">
+      <div class="ytidle__art"><svg viewBox="0 0 48 48"><use href="#logo-mark"></use></svg></div>
+      <div>
+        <h1>Listen, and let the noise settle.</h1>
+        <p>Press any track below to play it right here. Every chant, stotram and bhajan on this page is available — nothing is hidden behind a “show more”.</p>
+      </div>
+    </section>
 
-      <article class="isha-card reveal" data-song="lacf-Wa4o_A" data-delay="0"
-        style="--ic1:#e8c88a;--ic2:#8a5f1f">
-        <button class="isha-card__thumb" data-video="lacf-Wa4o_A"
-          data-title="Guru Paduka Stotram" data-author="Sounds of Isha"
-          aria-label="Play Guru Paduka Stotram by Sounds of Isha">
+    <!-- sections -->
+    <div id="ytSections">
+
+    <section class="yt-section" id="isha" data-title="Sounds of Isha">
+      <div class="yt-section__head">
+        <h2>Sounds of Isha</h2>
+        <p>Chants, stotrams and instrumental music from the Isha channel — plays in YouTube’s own player, so views go to them.</p>
+      </div>
+      <div class="yt-rows">
+
+      <article class="vrow" data-song="lacf-Wa4o_A"
+        data-title="Guru Paduka Stotram" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="lacf-Wa4o_A" aria-label="Play Guru Paduka Stotram">
           <img src="https://i.ytimg.com/vi/lacf-Wa4o_A/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">1 hour</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Guru</span>
-          <h3>Guru Paduka Stotram</h3>
-          
-          <p>The verses in praise of the guru’s sandals, extended to an unbroken hour.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=lacf-Wa4o_A" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Guru Paduka Stotram</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">1 hour</span>
       </article>
 
-      <article class="isha-card reveal" data-song="Z1DP7MKH9Rc" data-delay="70"
-        style="--ic1:#b9a9e8;--ic2:#4a3a8f">
-        <button class="isha-card__thumb" data-video="Z1DP7MKH9Rc"
-          data-title="Nirvana Shatakam" data-author="Sounds of Isha"
-          aria-label="Play Nirvana Shatakam by Sounds of Isha">
+      <article class="vrow" data-song="Z1DP7MKH9Rc"
+        data-title="Nirvana Shatakam" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="Z1DP7MKH9Rc" aria-label="Play Nirvana Shatakam">
           <img src="https://i.ytimg.com/vi/Z1DP7MKH9Rc/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">1 hour</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vairagya</span>
-          <h3>Nirvana Shatakam</h3>
-          
-          <p>Adi Shankara’s six verses of disidentification. Long, spacious, very still.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=Z1DP7MKH9Rc" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Nirvana Shatakam</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">1 hour</span>
       </article>
 
-      <article class="isha-card reveal" data-song="_Sbm7DSPddk" data-delay="140"
-        style="--ic1:#9fd0e8;--ic2:#2f6383">
-        <button class="isha-card__thumb" data-video="_Sbm7DSPddk"
-          data-title="Brahmananda Swaroopa" data-author="Sounds of Isha"
-          aria-label="Play Brahmananda Swaroopa by Sounds of Isha">
+      <article class="vrow" data-song="_Sbm7DSPddk"
+        data-title="Brahmananda Swaroopa" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="_Sbm7DSPddk" aria-label="Play Brahmananda Swaroopa">
           <img src="https://i.ytimg.com/vi/_Sbm7DSPddk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">1 hour</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vairagya</span>
-          <h3>Brahmananda Swaroopa</h3>
-          
-          <p>A chant of the bliss of the infinite. One of the most-used Sounds of Isha pieces.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=_Sbm7DSPddk" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Brahmananda Swaroopa</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">1 hour</span>
       </article>
 
-      <article class="isha-card reveal" data-song="DjD4WXMt4No" data-delay="0"
-        style="--ic1:#e8a87a;--ic2:#8f4a1f">
-        <button class="isha-card__thumb" data-video="DjD4WXMt4No"
-          data-title="Shambho — by Sadhguru" data-author="Sounds of Isha"
-          aria-label="Play Shambho — by Sadhguru by Sounds of Isha">
+      <article class="vrow" data-song="DjD4WXMt4No"
+        data-title="Shambho — by Sadhguru" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="DjD4WXMt4No" aria-label="Play Shambho — by Sadhguru">
           <img src="https://i.ytimg.com/vi/DjD4WXMt4No/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">1 hour</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Shambho — by Sadhguru</h3>
-          
-          <p>The Shambho invocation sung by Sadhguru with Sounds of Isha.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=DjD4WXMt4No" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Shambho — by Sadhguru</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">1 hour</span>
       </article>
 
-      <article class="isha-card reveal" data-song="ijpTQkFCjW8" data-delay="70"
-        style="--ic1:#c9b0e8;--ic2:#573f83">
-        <button class="isha-card__thumb" data-video="ijpTQkFCjW8"
-          data-title="Yoga Yoga Yogeshwaraya" data-author="Sounds of Isha"
-          aria-label="Play Yoga Yoga Yogeshwaraya by Sounds of Isha">
+      <article class="vrow" data-song="ijpTQkFCjW8"
+        data-title="Yoga Yoga Yogeshwaraya" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="ijpTQkFCjW8" aria-label="Play Yoga Yoga Yogeshwaraya">
           <img src="https://i.ytimg.com/vi/ijpTQkFCjW8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">1 hour</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Adiyogi</span>
-          <h3>Yoga Yoga Yogeshwaraya</h3>
-          
-          <p>The Adiyogi chant, one full hour — a staple of Satsang and practice.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=ijpTQkFCjW8" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Yoga Yoga Yogeshwaraya</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">1 hour</span>
       </article>
 
-      <article class="isha-card reveal" data-song="dJON7OZYHcY" data-delay="140"
-        style="--ic1:#a9c9e8;--ic2:#35597f">
-        <button class="isha-card__thumb" data-video="dJON7OZYHcY"
-          data-title="Na Hi Shiva Sneha" data-author="Sounds of Isha"
-          aria-label="Play Na Hi Shiva Sneha by Sounds of Isha">
+      <article class="vrow" data-song="dJON7OZYHcY"
+        data-title="Na Hi Shiva Sneha" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="dJON7OZYHcY" aria-label="Play Na Hi Shiva Sneha">
           <img src="https://i.ytimg.com/vi/dJON7OZYHcY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Damaru</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Adiyogi Chants</span>
-          <h3>Na Hi Shiva Sneha</h3>
-          
-          <p>From the Damaru / Adiyogi chants collection.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=dJON7OZYHcY" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Na Hi Shiva Sneha</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Damaru</span>
       </article>
 
-      <article class="isha-card reveal" data-song="pv7ZiedzncE" data-delay="0"
-        style="--ic1:#e8cfa0;--ic2:#8a6524">
-        <button class="isha-card__thumb" data-video="pv7ZiedzncE"
-          data-title="Guru Ashtakam" data-author="Sounds of Isha"
-          aria-label="Play Guru Ashtakam by Sounds of Isha">
+      <article class="vrow" data-song="pv7ZiedzncE"
+        data-title="Guru Ashtakam" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="pv7ZiedzncE" aria-label="Play Guru Ashtakam">
           <img src="https://i.ytimg.com/vi/pv7ZiedzncE/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Damaru</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Adiyogi Chants</span>
-          <h3>Guru Ashtakam</h3>
-          
-          <p>Eight verses in praise of the guru, from the Adiyogi chant series.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=pv7ZiedzncE" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Guru Ashtakam</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Damaru</span>
       </article>
 
-      <article class="isha-card reveal" data-song="GemW0xWAi6c" data-delay="70"
-        style="--ic1:#b0c4e8;--ic2:#3a5480">
-        <button class="isha-card__thumb" data-video="GemW0xWAi6c"
-          data-title="Adiyoginam Pranamamyaham" data-author="Sounds of Isha"
-          aria-label="Play Adiyoginam Pranamamyaham by Sounds of Isha">
+      <article class="vrow" data-song="GemW0xWAi6c"
+        data-title="Adiyoginam Pranamamyaham" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="GemW0xWAi6c" aria-label="Play Adiyoginam Pranamamyaham">
           <img src="https://i.ytimg.com/vi/GemW0xWAi6c/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Damaru</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Adiyogi Chants</span>
-          <h3>Adiyoginam Pranamamyaham</h3>
-          
-          <p>The first of the Adiyogi chants — bowing to the first yogi.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=GemW0xWAi6c" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Adiyoginam Pranamamyaham</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Damaru</span>
       </article>
 
-      <article class="isha-card reveal" data-song="iUrjWDnyFCM" data-delay="140"
-        style="--ic1:#d8b8e8;--ic2:#6a3f83">
-        <button class="isha-card__thumb" data-video="iUrjWDnyFCM"
-          data-title="Yogeshwaraya Mahadevaya" data-author="Sounds of Isha"
-          aria-label="Play Yogeshwaraya Mahadevaya by Sounds of Isha">
+      <article class="vrow" data-song="iUrjWDnyFCM"
+        data-title="Yogeshwaraya Mahadevaya" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="iUrjWDnyFCM" aria-label="Play Yogeshwaraya Mahadevaya">
           <img src="https://i.ytimg.com/vi/iUrjWDnyFCM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">stotram</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Yogeshwaraya Mahadevaya</h3>
-          
-          <p>Sadhguru and Sounds of Isha — a Shiva stotram.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=iUrjWDnyFCM" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Yogeshwaraya Mahadevaya</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">stotram</span>
       </article>
 
-      <article class="isha-card reveal" data-song="VECfX823mxU" data-delay="0"
-        style="--ic1:#a8c8e0;--ic2:#33587f">
-        <button class="isha-card__thumb" data-video="VECfX823mxU"
-          data-title="Chandrashekhara Ashtakam" data-author="Sounds of Isha"
-          aria-label="Play Chandrashekhara Ashtakam by Sounds of Isha">
+      <article class="vrow" data-song="VECfX823mxU"
+        data-title="Chandrashekhara Ashtakam" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="VECfX823mxU" aria-label="Play Chandrashekhara Ashtakam">
           <img src="https://i.ytimg.com/vi/VECfX823mxU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Damaru</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Adiyogi Chants</span>
-          <h3>Chandrashekhara Ashtakam</h3>
-          
-          <p>Eight verses to Chandrashekhara (Shiva crowned with the moon).</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=VECfX823mxU" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Chandrashekhara Ashtakam</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Damaru</span>
       </article>
 
-      <article class="isha-card reveal" data-song="sfdQwmgaS1M" data-delay="70"
-        style="--ic1:#d9a8a8;--ic2:#7a3232">
-        <button class="isha-card__thumb" data-video="sfdQwmgaS1M"
-          data-title="Kalabhairavashtakam" data-author="Sounds of Isha"
-          aria-label="Play Kalabhairavashtakam by Sounds of Isha">
+      <article class="vrow" data-song="sfdQwmgaS1M"
+        data-title="Kalabhairavashtakam" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="sfdQwmgaS1M" aria-label="Play Kalabhairavashtakam">
           <img src="https://i.ytimg.com/vi/sfdQwmgaS1M/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Trigun</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Trigun</span>
-          <h3>Kalabhairavashtakam</h3>
-          
-          <p>The Ashtakam to Kala Bhairava, from the Trigun collection.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=sfdQwmgaS1M" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Kalabhairavashtakam</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Trigun</span>
       </article>
 
-      <article class="isha-card reveal" data-song="6rJExE8HGVg" data-delay="140"
-        style="--ic1:#c2d9a8;--ic2:#46692f">
-        <button class="isha-card__thumb" data-video="6rJExE8HGVg"
-          data-title="Bilvashtakam" data-author="Sounds of Isha"
-          aria-label="Play Bilvashtakam by Sounds of Isha">
+      <article class="vrow" data-song="6rJExE8HGVg"
+        data-title="Bilvashtakam" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="6rJExE8HGVg" aria-label="Play Bilvashtakam">
           <img src="https://i.ytimg.com/vi/6rJExE8HGVg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Trigun</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Trigun</span>
-          <h3>Bilvashtakam</h3>
-          
-          <p>The eight verses offered with bilva leaves, from Trigun.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=6rJExE8HGVg" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Bilvashtakam</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Trigun</span>
       </article>
 
-      <article class="isha-card reveal" data-song="FEGlQt11p4E" data-delay="0"
-        style="--ic1:#e0b8c8;--ic2:#83405a">
-        <button class="isha-card__thumb" data-video="FEGlQt11p4E"
-          data-title="Bhairavi Jaya Bhairavi" data-author="Sounds of Isha"
-          aria-label="Play Bhairavi Jaya Bhairavi by Sounds of Isha">
+      <article class="vrow" data-song="FEGlQt11p4E"
+        data-title="Bhairavi Jaya Bhairavi" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="FEGlQt11p4E" aria-label="Play Bhairavi Jaya Bhairavi">
           <img src="https://i.ytimg.com/vi/FEGlQt11p4E/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">kirtan</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devotional</span>
-          <h3>Bhairavi Jaya Bhairavi</h3>
-          
-          <p>A flowing homage to Bhairavi.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=FEGlQt11p4E" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Bhairavi Jaya Bhairavi</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">kirtan</span>
       </article>
 
-      <article class="isha-card reveal" data-song="41cn42LltI4" data-delay="70"
-        style="--ic1:#c8b8a8;--ic2:#6b5340">
-        <button class="isha-card__thumb" data-video="41cn42LltI4"
-          data-title="Kya Karun" data-author="Sounds of Isha"
-          aria-label="Play Kya Karun by Sounds of Isha">
+      <article class="vrow" data-song="41cn42LltI4"
+        data-title="Kya Karun" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="41cn42LltI4" aria-label="Play Kya Karun">
           <img src="https://i.ytimg.com/vi/41cn42LltI4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Chandrajeevan</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devotional</span>
-          <h3>Kya Karun</h3>
-          
-          <p>A quieter, reflective piece with Chandrajeevan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=41cn42LltI4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Kya Karun</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Chandrajeevan</span>
       </article>
 
-      <article class="isha-card reveal" data-song="luwe3NKvxos" data-delay="140"
-        style="--ic1:#b8c8d8;--ic2:#3f5872">
-        <button class="isha-card__thumb" data-video="luwe3NKvxos"
-          data-title="Alakh Niranjan" data-author="Sounds of Isha"
-          aria-label="Play Alakh Niranjan by Sounds of Isha">
+      <article class="vrow" data-song="luwe3NKvxos"
+        data-title="Alakh Niranjan" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="luwe3NKvxos" aria-label="Play Alakh Niranjan">
           <img src="https://i.ytimg.com/vi/luwe3NKvxos/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">bhajan</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devotional</span>
-          <h3>Alakh Niranjan</h3>
-          
-          <p>A traditional chant of the formless one, with Ram Miriyala.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=luwe3NKvxos" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Alakh Niranjan</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">bhajan</span>
       </article>
 
-      <article class="isha-card reveal" data-song="yh1uxjP7nYI" data-delay="0"
-        style="--ic1:#a8b8e8;--ic2:#35458f">
-        <button class="isha-card__thumb" data-video="yh1uxjP7nYI"
-          data-title="Aum Namah Shivaya" data-author="Sounds of Isha"
-          aria-label="Play Aum Namah Shivaya by Sounds of Isha">
+      <article class="vrow" data-song="yh1uxjP7nYI"
+        data-title="Aum Namah Shivaya" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="yh1uxjP7nYI" aria-label="Play Aum Namah Shivaya">
           <img src="https://i.ytimg.com/vi/yh1uxjP7nYI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Vairagya</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Aum Namah Shivaya</h3>
-          
-          <p>The five-syllable mantra to Shiva.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=yh1uxjP7nYI" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Aum Namah Shivaya</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Vairagya</span>
       </article>
 
-      <article class="isha-card reveal" data-song="Fh53p0Tnnxg" data-delay="70"
-        style="--ic1:#b8d9c8;--ic2:#2f6b52">
-        <button class="isha-card__thumb" data-video="Fh53p0Tnnxg"
-          data-title="Amla — Yoga Padhi" data-author="Sounds of Isha"
-          aria-label="Play Amla — Yoga Padhi by Sounds of Isha">
+      <article class="vrow" data-song="Fh53p0Tnnxg"
+        data-title="Amla — Yoga Padhi" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="Fh53p0Tnnxg" aria-label="Play Amla — Yoga Padhi">
           <img src="https://i.ytimg.com/vi/Fh53p0Tnnxg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">instrumental</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Instrumental</span>
-          <h3>Amla — Yoga Padhi</h3>
-          
-          <p>Meditative instrumental music — no vocals, good for practice.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=Fh53p0Tnnxg" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Amla — Yoga Padhi</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">instrumental</span>
       </article>
 
-      <article class="isha-card reveal" data-song="4smH2362ulU" data-delay="140"
-        style="--ic1:#e8d4a8;--ic2:#8a6a2a">
-        <button class="isha-card__thumb" data-video="4smH2362ulU"
-          data-title="Guru Paduka Stotram" data-author="Sounds of Isha"
-          aria-label="Play Guru Paduka Stotram by Sounds of Isha">
+      <article class="vrow" data-song="4smH2362ulU"
+        data-title="Guru Paduka Stotram" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="4smH2362ulU" aria-label="Play Guru Paduka Stotram">
           <img src="https://i.ytimg.com/vi/4smH2362ulU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">short</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Guru</span>
-          <h3>Guru Paduka Stotram</h3>
-          
-          <p>A shorter recording of the same stotram — use it to learn the melody.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=4smH2362ulU" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Guru Paduka Stotram</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">short</span>
       </article>
 
-      <article class="isha-card reveal" data-song="4ZtihFRxK28" data-delay="0"
-        style="--ic1:#b8e0c8;--ic2:#2f6b4a">
-        <button class="isha-card__thumb" data-video="4ZtihFRxK28"
-          data-title="Bloom — Yoga Padhi" data-author="Sounds of Isha"
-          aria-label="Play Bloom — Yoga Padhi by Sounds of Isha">
+      <article class="vrow" data-song="4ZtihFRxK28"
+        data-title="Bloom — Yoga Padhi" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="4ZtihFRxK28" aria-label="Play Bloom — Yoga Padhi">
           <img src="https://i.ytimg.com/vi/4ZtihFRxK28/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">instrumental</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Yoga Padhi</span>
-          <h3>Bloom — Yoga Padhi</h3>
-          
-          <p>Meditative instrumental for practice — no vocals.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=4ZtihFRxK28" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Bloom — Yoga Padhi</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">instrumental</span>
       </article>
 
-      <article class="isha-card reveal" data-song="5XJF56WrFoM" data-delay="70"
-        style="--ic1:#c8dcb0;--ic2:#4a6b2a">
-        <button class="isha-card__thumb" data-video="5XJF56WrFoM"
-          data-title="Desh — Yoga Padhi" data-author="Sounds of Isha"
-          aria-label="Play Desh — Yoga Padhi by Sounds of Isha">
+      <article class="vrow" data-song="5XJF56WrFoM"
+        data-title="Desh — Yoga Padhi" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="5XJF56WrFoM" aria-label="Play Desh — Yoga Padhi">
           <img src="https://i.ytimg.com/vi/5XJF56WrFoM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">instrumental</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Yoga Padhi</span>
-          <h3>Desh — Yoga Padhi</h3>
-          
-          <p>The Desh raga as a long meditative instrumental.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=5XJF56WrFoM" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Desh — Yoga Padhi</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">instrumental</span>
       </article>
 
-      <article class="isha-card reveal" data-song="wPxyhivAWNU" data-delay="140"
-        style="--ic1:#a8d8e0;--ic2:#2f6675">
-        <button class="isha-card__thumb" data-video="wPxyhivAWNU"
-          data-title="Wholeness — Bansuri" data-author="Sounds of Isha"
-          aria-label="Play Wholeness — Bansuri by Sounds of Isha">
+      <article class="vrow" data-song="wPxyhivAWNU"
+        data-title="Wholeness — Bansuri" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="wPxyhivAWNU" aria-label="Play Wholeness — Bansuri">
           <img src="https://i.ytimg.com/vi/wPxyhivAWNU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">instrumental</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Bansuri</span>
-          <h3>Wholeness — Bansuri</h3>
-          
-          <p>Bansuri flute by Sameer Rao with Sounds of Isha.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=wPxyhivAWNU" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Wholeness — Bansuri</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">instrumental</span>
       </article>
 
-      <article class="isha-card reveal" data-song="z1QDVL_IxI8" data-delay="0"
-        style="--ic1:#e8c0a0;--ic2:#8a4f24">
-        <button class="isha-card__thumb" data-video="z1QDVL_IxI8"
-          data-title="Damaru Wala" data-author="Sounds of Isha"
-          aria-label="Play Damaru Wala by Sounds of Isha">
+      <article class="vrow" data-song="z1QDVL_IxI8"
+        data-title="Damaru Wala" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="z1QDVL_IxI8" aria-label="Play Damaru Wala">
           <img src="https://i.ytimg.com/vi/z1QDVL_IxI8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">live</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Guru</span>
-          <h3>Damaru Wala</h3>
-          
-          <p>Nihar Shembekar with Sounds of Isha, live at Mahashivratri 2025.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=z1QDVL_IxI8" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Damaru Wala</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">live</span>
       </article>
 
-      <article class="isha-card reveal" data-song="TH8Y7DhLPOA" data-delay="70"
-        style="--ic1:#e0cfa8;--ic2:#7a6228">
-        <button class="isha-card__thumb" data-video="TH8Y7DhLPOA"
-          data-title="Ek Nazar Dekha Tujhe" data-author="Sounds of Isha"
-          aria-label="Play Ek Nazar Dekha Tujhe by Sounds of Isha">
+      <article class="vrow" data-song="TH8Y7DhLPOA"
+        data-title="Ek Nazar Dekha Tujhe" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="TH8Y7DhLPOA" aria-label="Play Ek Nazar Dekha Tujhe">
           <img src="https://i.ytimg.com/vi/TH8Y7DhLPOA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Guru Purnima</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Guru</span>
-          <h3>Ek Nazar Dekha Tujhe</h3>
-          
-          <p>A tribute to Sadhguru on Guru Purnima.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=TH8Y7DhLPOA" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Ek Nazar Dekha Tujhe</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Guru Purnima</span>
       </article>
 
-      <article class="isha-card reveal" data-song="vI9st5RjkBw" data-delay="140"
-        style="--ic1:#d8b0e0;--ic2:#6a3f83">
-        <button class="isha-card__thumb" data-video="vI9st5RjkBw"
-          data-title="Sadhguru Raya" data-author="Sounds of Isha"
-          aria-label="Play Sadhguru Raya by Sounds of Isha">
+      <article class="vrow" data-song="vI9st5RjkBw"
+        data-title="Sadhguru Raya" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="vI9st5RjkBw" aria-label="Play Sadhguru Raya">
           <img src="https://i.ytimg.com/vi/vI9st5RjkBw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">live</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Guru</span>
-          <h3>Sadhguru Raya</h3>
-          
-          <p>Ram Miriyala and Parthiv Gohil with Sounds of Isha, live at Guru Purnima 2025.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=vI9st5RjkBw" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Sadhguru Raya</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">live</span>
       </article>
 
-      <article class="isha-card reveal" data-song="w3IMkVKh5lU" data-delay="0"
-        style="--ic1:#c9b0e8;--ic2:#573f83">
-        <button class="isha-card__thumb" data-video="w3IMkVKh5lU"
-          data-title="Sadhguru Raya — high quality audio" data-author="Sounds of Isha"
-          aria-label="Play Sadhguru Raya — high quality audio by Sounds of Isha">
+      <article class="vrow" data-song="w3IMkVKh5lU"
+        data-title="Sadhguru Raya — high quality audio" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="w3IMkVKh5lU" aria-label="Play Sadhguru Raya — high quality audio">
           <img src="https://i.ytimg.com/vi/w3IMkVKh5lU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">HQ audio</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Guru</span>
-          <h3>Sadhguru Raya — high quality audio</h3>
-          
-          <p>The high-quality audio version from Guru Purnima 2024.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=w3IMkVKh5lU" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Sadhguru Raya — high quality audio</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">HQ audio</span>
       </article>
 
-      <article class="isha-card reveal" data-song="4JcquT3A78o" data-delay="70"
-        style="--ic1:#b0c4e8;--ic2:#3a5480">
-        <button class="isha-card__thumb" data-video="4JcquT3A78o"
-          data-title="Sadhgurum tam Namami" data-author="Sounds of Isha"
-          aria-label="Play Sadhgurum tam Namami by Sounds of Isha">
+      <article class="vrow" data-song="4JcquT3A78o"
+        data-title="Sadhgurum tam Namami" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="4JcquT3A78o" aria-label="Play Sadhgurum tam Namami">
           <img src="https://i.ytimg.com/vi/4JcquT3A78o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">HQ audio</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Guru</span>
-          <h3>Sadhgurum tam Namami</h3>
-          
-          <p>Devotional chant from Guru Purnima 2024, high-quality audio.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=4JcquT3A78o" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Sadhgurum tam Namami</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">HQ audio</span>
       </article>
 
-      <article class="isha-card reveal" data-song="xAG4mZmoH1o" data-delay="140"
-        style="--ic1:#e8d0a8;--ic2:#8a6a2a">
-        <button class="isha-card__thumb" data-video="xAG4mZmoH1o"
-          data-title="Payoji Maine" data-author="Sounds of Isha"
-          aria-label="Play Payoji Maine by Sounds of Isha">
+      <article class="vrow" data-song="xAG4mZmoH1o"
+        data-title="Payoji Maine" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="xAG4mZmoH1o" aria-label="Play Payoji Maine">
           <img src="https://i.ytimg.com/vi/xAG4mZmoH1o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">live</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devotional</span>
-          <h3>Payoji Maine</h3>
-          
-          <p>Swagat Rathod with Sounds of Isha, live at Guru Purnima 2025.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=xAG4mZmoH1o" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Payoji Maine</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">live</span>
       </article>
 
-      <article class="isha-card reveal" data-song="US9FsAA9U0Q" data-delay="0"
-        style="--ic1:#a9c9e8;--ic2:#35597f">
-        <button class="isha-card__thumb" data-video="US9FsAA9U0Q"
-          data-title="The Adiyogi Song — Adiguruve" data-author="Sounds of Isha"
-          aria-label="Play The Adiyogi Song — Adiguruve by Sounds of Isha">
+      <article class="vrow" data-song="US9FsAA9U0Q"
+        data-title="The Adiyogi Song — Adiguruve" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="US9FsAA9U0Q" aria-label="Play The Adiyogi Song — Adiguruve">
           <img src="https://i.ytimg.com/vi/US9FsAA9U0Q/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">ode</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Adiyogi</span>
-          <h3>The Adiyogi Song — Adiguruve</h3>
-          
-          <p>An ode to Adiyogi — the first yogi.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=US9FsAA9U0Q" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>The Adiyogi Song — Adiguruve</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">ode</span>
       </article>
 
-      <article class="isha-card reveal" data-song="mUcAkCi8Dtw" data-delay="70"
-        style="--ic1:#c8d8b0;--ic2:#4a6b30">
-        <button class="isha-card__thumb" data-video="mUcAkCi8Dtw"
-          data-title="Ekam Nityam" data-author="Sounds of Isha"
-          aria-label="Play Ekam Nityam by Sounds of Isha">
+      <article class="vrow" data-song="mUcAkCi8Dtw"
+        data-title="Ekam Nityam" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="mUcAkCi8Dtw" aria-label="Play Ekam Nityam">
           <img src="https://i.ytimg.com/vi/mUcAkCi8Dtw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">live</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devotional</span>
-          <h3>Ekam Nityam</h3>
-          
-          <p>Live at Guru Purnima 2025.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=mUcAkCi8Dtw" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Ekam Nityam</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">live</span>
       </article>
 
-      <article class="isha-card reveal" data-song="_PBzu_-_ul4" data-delay="140"
-        style="--ic1:#f0c8a8;--ic2:#8a5a2a">
-        <button class="isha-card__thumb" data-video="_PBzu_-_ul4"
-          data-title="Gauranga" data-author="Sounds of Isha"
-          aria-label="Play Gauranga by Sounds of Isha">
+      <article class="vrow" data-song="_PBzu_-_ul4"
+        data-title="Gauranga" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="_PBzu_-_ul4" aria-label="Play Gauranga">
           <img src="https://i.ytimg.com/vi/_PBzu_-_ul4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Damaru</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Adiyogi Chants</span>
-          <h3>Gauranga</h3>
-          
-          <p>Adiyogi Chants from the Damaru collection.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=_PBzu_-_ul4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Gauranga</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Damaru</span>
       </article>
 
-      <article class="isha-card reveal" data-song="e-w7BuYOYKY" data-delay="0"
-        style="--ic1:#b8c8e8;--ic2:#3f5283">
-        <button class="isha-card__thumb" data-video="e-w7BuYOYKY"
-          data-title="In Is The Only Way Out" data-author="Sounds of Isha"
-          aria-label="Play In Is The Only Way Out by Sounds of Isha">
+      <article class="vrow" data-song="e-w7BuYOYKY"
+        data-title="In Is The Only Way Out" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="e-w7BuYOYKY" aria-label="Play In Is The Only Way Out">
           <img src="https://i.ytimg.com/vi/e-w7BuYOYKY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">fusion</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Musical</span>
-          <h3>In Is The Only Way Out</h3>
-          
-          <p>An Indian–Western musical fusion on the journey of the self.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=e-w7BuYOYKY" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>In Is The Only Way Out</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">fusion</span>
       </article>
 
-      <article class="isha-card reveal" data-song="LVojRjzUJLE" data-delay="70"
-        style="--ic1:#d8c4a0;--ic2:#7f6329">
-        <button class="isha-card__thumb" data-video="LVojRjzUJLE"
-          data-title="Patanjali Yoga Sutras — musical rendition" data-author="Sounds of Isha"
-          aria-label="Play Patanjali Yoga Sutras — musical rendition by Sounds of Isha">
+      <article class="vrow" data-song="LVojRjzUJLE"
+        data-title="Patanjali Yoga Sutras — musical rendition" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="LVojRjzUJLE" aria-label="Play Patanjali Yoga Sutras — musical rendition">
           <img src="https://i.ytimg.com/vi/LVojRjzUJLE/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Sadhguru</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Yoga Sutras</span>
-          <h3>Patanjali Yoga Sutras — musical rendition</h3>
-          
-          <p>A musical rendition of Patanjali’s Yoga Sutras, for International Day of Yoga.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=LVojRjzUJLE" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Patanjali Yoga Sutras — musical rendition</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Sadhguru</span>
       </article>
 
-      <article class="isha-card reveal" data-song="0OFIjRfNU6E" data-delay="140"
-        style="--ic1:#a8b8e8;--ic2:#35458f">
-        <button class="isha-card__thumb" data-video="0OFIjRfNU6E"
-          data-title="Namah Aum Namah Shivaya" data-author="Sounds of Isha"
-          aria-label="Play Namah Aum Namah Shivaya by Sounds of Isha">
+      <article class="vrow" data-song="0OFIjRfNU6E"
+        data-title="Namah Aum Namah Shivaya" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="0OFIjRfNU6E" aria-label="Play Namah Aum Namah Shivaya">
           <img src="https://i.ytimg.com/vi/0OFIjRfNU6E/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Mahashivratri</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Namah Aum Namah Shivaya</h3>
-          
-          <p>A devotional Shiva chant released for Mahashivratri.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=0OFIjRfNU6E" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Namah Aum Namah Shivaya</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Mahashivratri</span>
       </article>
 
-      <article class="isha-card reveal" data-song="BfCf7pMQNkU" data-delay="0"
-        style="--ic1:#a9c9e8;--ic2:#35597f">
-        <button class="isha-card__thumb" data-video="BfCf7pMQNkU"
-          data-title="Shiv Kailasho Ke Vasi" data-author="Sounds of Isha"
-          aria-label="Play Shiv Kailasho Ke Vasi by Sounds of Isha">
+      <article class="vrow" data-song="BfCf7pMQNkU"
+        data-title="Shiv Kailasho Ke Vasi" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="BfCf7pMQNkU" aria-label="Play Shiv Kailasho Ke Vasi">
           <img src="https://i.ytimg.com/vi/BfCf7pMQNkU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Mohit Chauhan</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Shiv Kailasho Ke Vasi</h3>
-          
-          <p>Sadhguru sings with Mohit Chauhan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=BfCf7pMQNkU" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Shiv Kailasho Ke Vasi</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Mohit Chauhan</span>
       </article>
 
-      <article class="isha-card reveal" data-song="d2etuly9Zfc" data-delay="70"
-        style="--ic1:#b0c4e8;--ic2:#3a5480">
-        <button class="isha-card__thumb" data-video="d2etuly9Zfc"
-          data-title="Shiva Shiva Shiva Shambho" data-author="Sounds of Isha"
-          aria-label="Play Shiva Shiva Shiva Shambho by Sounds of Isha">
+      <article class="vrow" data-song="d2etuly9Zfc"
+        data-title="Shiva Shiva Shiva Shambho" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="d2etuly9Zfc" aria-label="Play Shiva Shiva Shiva Shambho">
           <img src="https://i.ytimg.com/vi/d2etuly9Zfc/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Prithvi Gandharv</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Shiva Shiva Shiva Shambho</h3>
-          
-          <p>A Mahashivratri chant with Prithvi Gandharv.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=d2etuly9Zfc" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Shiva Shiva Shiva Shambho</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Prithvi Gandharv</span>
       </article>
 
-      <article class="isha-card reveal" data-song="uWYdEqdMHYM" data-delay="140"
-        style="--ic1:#c8b8e8;--ic2:#553f83">
-        <button class="isha-card__thumb" data-video="uWYdEqdMHYM"
-          data-title="Mera Bhola Hai Bandhari" data-author="Sounds of Isha"
-          aria-label="Play Mera Bhola Hai Bandhari by Sounds of Isha">
+      <article class="vrow" data-song="uWYdEqdMHYM"
+        data-title="Mera Bhola Hai Bandhari" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="uWYdEqdMHYM" aria-label="Play Mera Bhola Hai Bandhari">
           <img src="https://i.ytimg.com/vi/uWYdEqdMHYM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Swagat Rathod</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Mera Bhola Hai Bandhari</h3>
-          
-          <p>A folk-flavoured Shiva bhajan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=uWYdEqdMHYM" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Mera Bhola Hai Bandhari</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Swagat Rathod</span>
       </article>
 
-      <article class="isha-card reveal" data-song="MiwgNHbdMfk" data-delay="0"
-        style="--ic1:#e8c0a0;--ic2:#8a4f24">
-        <button class="isha-card__thumb" data-video="MiwgNHbdMfk"
-          data-title="Babam Bam Lehri" data-author="Sounds of Isha"
-          aria-label="Play Babam Bam Lehri by Sounds of Isha">
+      <article class="vrow" data-song="MiwgNHbdMfk"
+        data-title="Babam Bam Lehri" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="MiwgNHbdMfk" aria-label="Play Babam Bam Lehri">
           <img src="https://i.ytimg.com/vi/MiwgNHbdMfk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Aishwarya Nigam</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Babam Bam Lehri</h3>
-          
-          <p>A rousing Mahashivratri piece.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=MiwgNHbdMfk" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Babam Bam Lehri</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Aishwarya Nigam</span>
       </article>
 
-      <article class="isha-card reveal" data-song="v6OC7H-Gzkw" data-delay="70"
-        style="--ic1:#d8c8a8;--ic2:#7a6030">
-        <button class="isha-card__thumb" data-video="v6OC7H-Gzkw"
-          data-title="Kya Leke Aaya Jagat Mai" data-author="Sounds of Isha"
-          aria-label="Play Kya Leke Aaya Jagat Mai by Sounds of Isha">
+      <article class="vrow" data-song="v6OC7H-Gzkw"
+        data-title="Kya Leke Aaya Jagat Mai" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="v6OC7H-Gzkw" aria-label="Play Kya Leke Aaya Jagat Mai">
           <img src="https://i.ytimg.com/vi/v6OC7H-Gzkw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">folk</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Folk</span>
-          <h3>Kya Leke Aaya Jagat Mai</h3>
-          
-          <p>A folk song asking what any of us brought into this world.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=v6OC7H-Gzkw" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Kya Leke Aaya Jagat Mai</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">folk</span>
       </article>
 
-      <article class="isha-card reveal" data-song="6nJ-hWLNCjg" data-delay="140"
-        style="--ic1:#b8c8e8;--ic2:#3f5283">
-        <button class="isha-card__thumb" data-video="6nJ-hWLNCjg"
-          data-title="Jaya Sada Shiva" data-author="Sounds of Isha"
-          aria-label="Play Jaya Sada Shiva by Sounds of Isha">
+      <article class="vrow" data-song="6nJ-hWLNCjg"
+        data-title="Jaya Sada Shiva" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="6nJ-hWLNCjg" aria-label="Play Jaya Sada Shiva">
           <img src="https://i.ytimg.com/vi/6nJ-hWLNCjg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Sachet Tandon</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Jaya Sada Shiva</h3>
-          
-          <p>With Sachet Tandon and Vishal Khatri, for Sawan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=6nJ-hWLNCjg" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Jaya Sada Shiva</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Sachet Tandon</span>
       </article>
 
-      <article class="isha-card reveal" data-song="VBkHP4QZU1E" data-delay="0"
-        style="--ic1:#b8c8d8;--ic2:#3f5872">
-        <button class="isha-card__thumb" data-video="VBkHP4QZU1E"
-          data-title="Kalabhairava Chant" data-author="Sounds of Isha"
-          aria-label="Play Kalabhairava Chant by Sounds of Isha">
+      <article class="vrow" data-song="VBkHP4QZU1E"
+        data-title="Kalabhairava Chant" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="VBkHP4QZU1E" aria-label="Play Kalabhairava Chant">
           <img src="https://i.ytimg.com/vi/VBkHP4QZU1E/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Sadhguru</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Kalabhairava</span>
-          <h3>Kalabhairava Chant</h3>
-          
-          <p>The Kalabhairava chant, led by Sadhguru.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=VBkHP4QZU1E" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Kalabhairava Chant</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Sadhguru</span>
       </article>
 
-      <article class="isha-card reveal" data-song="74KWY5lCfD8" data-delay="70"
-        style="--ic1:#d8c8b0;--ic2:#7a6040">
-        <button class="isha-card__thumb" data-video="74KWY5lCfD8"
-          data-title="Man Lago Mero Yaar Fakiri Mein" data-author="Sounds of Isha"
-          aria-label="Play Man Lago Mero Yaar Fakiri Mein by Sounds of Isha">
+      <article class="vrow" data-song="74KWY5lCfD8"
+        data-title="Man Lago Mero Yaar Fakiri Mein" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="74KWY5lCfD8" aria-label="Play Man Lago Mero Yaar Fakiri Mein">
           <img src="https://i.ytimg.com/vi/74KWY5lCfD8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Kabir</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Kabir</span>
-          <h3>Man Lago Mero Yaar Fakiri Mein</h3>
-          
-          <p>A Kabir bhajan about the fakir’s contentment.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=74KWY5lCfD8" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Man Lago Mero Yaar Fakiri Mein</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Kabir</span>
       </article>
 
-      <article class="isha-card reveal" data-song="reb5fw5RUn8" data-delay="140"
-        style="--ic1:#e8c8d8;--ic2:#8a4a6a">
-        <button class="isha-card__thumb" data-video="reb5fw5RUn8"
-          data-title="Ae Ri Sakhi More" data-author="Sounds of Isha"
-          aria-label="Play Ae Ri Sakhi More by Sounds of Isha">
+      <article class="vrow" data-song="reb5fw5RUn8"
+        data-title="Ae Ri Sakhi More" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="reb5fw5RUn8" aria-label="Play Ae Ri Sakhi More">
           <img src="https://i.ytimg.com/vi/reb5fw5RUn8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Parthiv Gohil</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devotional</span>
-          <h3>Ae Ri Sakhi More</h3>
-          
-          <p>A devotional with Parthiv Gohil and Prithvi Gandharv.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=reb5fw5RUn8" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Ae Ri Sakhi More</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Parthiv Gohil</span>
       </article>
 
-      <article class="isha-card reveal" data-song="4e1nOze-5Yw" data-delay="0"
-        style="--ic1:#e0b8a0;--ic2:#8a4a24">
-        <button class="isha-card__thumb" data-video="4e1nOze-5Yw"
-          data-title="Dam Da Dam — studio version" data-author="Sounds of Isha"
-          aria-label="Play Dam Da Dam — studio version by Sounds of Isha">
+      <article class="vrow" data-song="4e1nOze-5Yw"
+        data-title="Dam Da Dam — studio version" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="4e1nOze-5Yw" aria-label="Play Dam Da Dam — studio version">
           <img src="https://i.ytimg.com/vi/4e1nOze-5Yw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">studio</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devotional</span>
-          <h3>Dam Da Dam — studio version</h3>
-          
-          <p>The studio recording with Aishwarya Nigam.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=4e1nOze-5Yw" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Dam Da Dam — studio version</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">studio</span>
       </article>
 
-      <article class="isha-card reveal" data-song="3zRi2IAbNJs" data-delay="70"
-        style="--ic1:#d8b0a0;--ic2:#7a3f24">
-        <button class="isha-card__thumb" data-video="3zRi2IAbNJs"
-          data-title="Dam Da Dam — Zindagi Jiya Main Yaara" data-author="Sounds of Isha"
-          aria-label="Play Dam Da Dam — Zindagi Jiya Main Yaara by Sounds of Isha">
+      <article class="vrow" data-song="3zRi2IAbNJs"
+        data-title="Dam Da Dam — Zindagi Jiya Main Yaara" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="3zRi2IAbNJs" aria-label="Play Dam Da Dam — Zindagi Jiya Main Yaara">
           <img src="https://i.ytimg.com/vi/3zRi2IAbNJs/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">live</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devotional</span>
-          <h3>Dam Da Dam — Zindagi Jiya Main Yaara</h3>
-          
-          <p>The Mahashivratri live version.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=3zRi2IAbNJs" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Dam Da Dam — Zindagi Jiya Main Yaara</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">live</span>
       </article>
 
-      <article class="isha-card reveal" data-song="rnE3m446n3Y" data-delay="140"
-        style="--ic1:#c8b8e8;--ic2:#553f83">
-        <button class="isha-card__thumb" data-video="rnE3m446n3Y"
-          data-title="Delulu to Solulu" data-author="Sounds of Isha"
-          aria-label="Play Delulu to Solulu by Sounds of Isha">
+      <article class="vrow" data-song="rnE3m446n3Y"
+        data-title="Delulu to Solulu" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="rnE3m446n3Y" aria-label="Play Delulu to Solulu">
           <img src="https://i.ytimg.com/vi/rnE3m446n3Y/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Miracle of Mind</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Modern</span>
-          <h3>Delulu to Solulu</h3>
-          
-          <p>A contemporary piece from the Miracle of Mind series.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=rnE3m446n3Y" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Delulu to Solulu</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Miracle of Mind</span>
       </article>
 
-      <article class="isha-card reveal" data-song="TWf_eX_wAHA" data-delay="0"
-        style="--ic1:#c8c8d8;--ic2:#4a4a60">
-        <button class="isha-card__thumb" data-video="TWf_eX_wAHA"
-          data-title="Buddham Sharanam Gacchami" data-author="Sounds of Isha"
-          aria-label="Play Buddham Sharanam Gacchami by Sounds of Isha">
+      <article class="vrow" data-song="TWf_eX_wAHA"
+        data-title="Buddham Sharanam Gacchami" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="TWf_eX_wAHA" aria-label="Play Buddham Sharanam Gacchami">
           <img src="https://i.ytimg.com/vi/TWf_eX_wAHA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Buddha Purnima</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Buddha</span>
-          <h3>Buddham Sharanam Gacchami</h3>
-          
-          <p>The refuge chant, for Buddha Purnima.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=TWf_eX_wAHA" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Buddham Sharanam Gacchami</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Buddha Purnima</span>
       </article>
 
-      <article class="isha-card reveal" data-song="UE8n5NA_DyQ" data-delay="70"
-        style="--ic1:#e8d0a8;--ic2:#8a6a2a">
-        <button class="isha-card__thumb" data-video="UE8n5NA_DyQ"
-          data-title="Ennappan Allava" data-author="Sounds of Isha"
-          aria-label="Play Ennappan Allava by Sounds of Isha">
+      <article class="vrow" data-song="UE8n5NA_DyQ"
+        data-title="Ennappan Allava" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="UE8n5NA_DyQ" aria-label="Play Ennappan Allava">
           <img src="https://i.ytimg.com/vi/UE8n5NA_DyQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Tamil</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Dhyanalinga</span>
-          <h3>Ennappan Allava</h3>
-          
-          <p>Papanasam Sivan’s Tamil song, with Akshit Nirupam.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=UE8n5NA_DyQ" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Ennappan Allava</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Tamil</span>
       </article>
 
-      <article class="isha-card reveal" data-song="f5rGll4VGQo" data-delay="140"
-        style="--ic1:#c8d8b0;--ic2:#4a6b30">
-        <button class="isha-card__thumb" data-video="f5rGll4VGQo"
-          data-title="Mei Porul Kandu" data-author="Sounds of Isha"
-          aria-label="Play Mei Porul Kandu by Sounds of Isha">
+      <article class="vrow" data-song="f5rGll4VGQo"
+        data-title="Mei Porul Kandu" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="f5rGll4VGQo" aria-label="Play Mei Porul Kandu">
           <img src="https://i.ytimg.com/vi/f5rGll4VGQo/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Tamil</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
-          <h3>Mei Porul Kandu</h3>
-          
-          <p>A Tamil song with Sandeep Narayan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=f5rGll4VGQo" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Mei Porul Kandu</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Tamil</span>
       </article>
 
-      <article class="isha-card reveal" data-song="D0KdiOJPWTA" data-delay="0"
-        style="--ic1:#b8c8d8;--ic2:#3f5872">
-        <button class="isha-card__thumb" data-video="D0KdiOJPWTA"
-          data-title="Chandrachooda" data-author="Sounds of Isha"
-          aria-label="Play Chandrachooda by Sounds of Isha">
+      <article class="vrow" data-song="D0KdiOJPWTA"
+        data-title="Chandrachooda" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="D0KdiOJPWTA" aria-label="Play Chandrachooda">
           <img src="https://i.ytimg.com/vi/D0KdiOJPWTA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Purandara Dasa</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Bhajan</span>
-          <h3>Chandrachooda</h3>
-          
-          <p>Purandara Dasa’s bhajan, for the Dhyanalinga consecration day.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=D0KdiOJPWTA" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Chandrachooda</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Purandara Dasa</span>
       </article>
 
-      <article class="isha-card reveal" data-song="YntYzVwmI8M" data-delay="70"
-        style="--ic1:#c8d8b8;--ic2:#4a6b3a">
-        <button class="isha-card__thumb" data-video="YntYzVwmI8M"
-          data-title="Sojugada Sooju Mallige" data-author="Sounds of Isha"
-          aria-label="Play Sojugada Sooju Mallige by Sounds of Isha">
+      <article class="vrow" data-song="YntYzVwmI8M"
+        data-title="Sojugada Sooju Mallige" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="YntYzVwmI8M" aria-label="Play Sojugada Sooju Mallige">
           <img src="https://i.ytimg.com/vi/YntYzVwmI8M/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Kannada</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Folk</span>
-          <h3>Sojugada Sooju Mallige</h3>
-          
-          <p>A Kannada folk song.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=YntYzVwmI8M" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Sojugada Sooju Mallige</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Kannada</span>
       </article>
 
-      <article class="isha-card reveal" data-song="0f2PS-40tjY" data-delay="140"
-        style="--ic1:#b8d0c0;--ic2:#3a6b52">
-        <button class="isha-card__thumb" data-video="0f2PS-40tjY"
-          data-title="Sneha Tappida" data-author="Sounds of Isha"
-          aria-label="Play Sneha Tappida by Sounds of Isha">
+      <article class="vrow" data-song="0f2PS-40tjY"
+        data-title="Sneha Tappida" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="0f2PS-40tjY" aria-label="Play Sneha Tappida">
           <img src="https://i.ytimg.com/vi/0f2PS-40tjY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Vachana</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vachana</span>
-          <h3>Sneha Tappida</h3>
-          
-          <p>A vachana by Basavanna, in Kannada.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=0f2PS-40tjY" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Sneha Tappida</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Vachana</span>
       </article>
 
-      <article class="isha-card reveal" data-song="sPlP2N6MD0M" data-delay="0"
-        style="--ic1:#b8ccc0;--ic2:#3a6252">
-        <button class="isha-card__thumb" data-video="sPlP2N6MD0M"
-          data-title="Nudidare Muttina Haradantirabeku" data-author="Sounds of Isha"
-          aria-label="Play Nudidare Muttina Haradantirabeku by Sounds of Isha">
+      <article class="vrow" data-song="sPlP2N6MD0M"
+        data-title="Nudidare Muttina Haradantirabeku" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="sPlP2N6MD0M" aria-label="Play Nudidare Muttina Haradantirabeku">
           <img src="https://i.ytimg.com/vi/sPlP2N6MD0M/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Vachana</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vachana</span>
-          <h3>Nudidare Muttina Haradantirabeku</h3>
-          
-          <p>Basavanna’s vachana on speech as a string of pearls.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=sPlP2N6MD0M" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Nudidare Muttina Haradantirabeku</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Vachana</span>
       </article>
 
-      <article class="isha-card reveal" data-song="zrkoAw7On0s" data-delay="70"
-        style="--ic1:#b0c8c0;--ic2:#355f52">
-        <button class="isha-card__thumb" data-video="zrkoAw7On0s"
-          data-title="Ullavaru Shivalaya Maduvaru" data-author="Sounds of Isha"
-          aria-label="Play Ullavaru Shivalaya Maduvaru by Sounds of Isha">
+      <article class="vrow" data-song="zrkoAw7On0s"
+        data-title="Ullavaru Shivalaya Maduvaru" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="zrkoAw7On0s" aria-label="Play Ullavaru Shivalaya Maduvaru">
           <img src="https://i.ytimg.com/vi/zrkoAw7On0s/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Vachana</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vachana</span>
-          <h3>Ullavaru Shivalaya Maduvaru</h3>
-          
-          <p>Basavanna’s vachana on the temple within.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=zrkoAw7On0s" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Ullavaru Shivalaya Maduvaru</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Vachana</span>
       </article>
 
-      <article class="isha-card reveal" data-song="kO-EVegh9-E" data-delay="140"
-        style="--ic1:#b8d0c8;--ic2:#3a6b60">
-        <button class="isha-card__thumb" data-video="kO-EVegh9-E"
-          data-title="Ethana Mamara" data-author="Sounds of Isha"
-          aria-label="Play Ethana Mamara by Sounds of Isha">
+      <article class="vrow" data-song="kO-EVegh9-E"
+        data-title="Ethana Mamara" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="kO-EVegh9-E" aria-label="Play Ethana Mamara">
           <img src="https://i.ytimg.com/vi/kO-EVegh9-E/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Allama Prabhu</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vachana</span>
-          <h3>Ethana Mamara</h3>
-          
-          <p>A vachana by Allama Prabhu, in Kannada.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=kO-EVegh9-E" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Ethana Mamara</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Allama Prabhu</span>
       </article>
 
-      <article class="isha-card reveal" data-song="mG9_sKHTcMk" data-delay="0"
-        style="--ic1:#b4ccc4;--ic2:#386457">
-        <button class="isha-card__thumb" data-video="mG9_sKHTcMk"
-          data-title="Vachanadalli Namamruta Tumbi" data-author="Sounds of Isha"
-          aria-label="Play Vachanadalli Namamruta Tumbi by Sounds of Isha">
+      <article class="vrow" data-song="mG9_sKHTcMk"
+        data-title="Vachanadalli Namamruta Tumbi" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="mG9_sKHTcMk" aria-label="Play Vachanadalli Namamruta Tumbi">
           <img src="https://i.ytimg.com/vi/mG9_sKHTcMk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Vachana</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vachana</span>
-          <h3>Vachanadalli Namamruta Tumbi</h3>
-          
-          <p>A Basavanna vachana filled with the nectar of the name.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=mG9_sKHTcMk" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Vachanadalli Namamruta Tumbi</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Vachana</span>
       </article>
 
-      <article class="isha-card reveal" data-song="vSlJwPEA1HM" data-delay="70"
-        style="--ic1:#c0d0c8;--ic2:#3f6b60">
-        <button class="isha-card__thumb" data-video="vSlJwPEA1HM"
-          data-title="Bettada Melondu" data-author="Sounds of Isha"
-          aria-label="Play Bettada Melondu by Sounds of Isha">
+      <article class="vrow" data-song="vSlJwPEA1HM"
+        data-title="Bettada Melondu" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="vSlJwPEA1HM" aria-label="Play Bettada Melondu">
           <img src="https://i.ytimg.com/vi/vSlJwPEA1HM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Akka Mahadevi</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vachana</span>
-          <h3>Bettada Melondu</h3>
-          
-          <p>Akka Mahadevi’s vachana, with Ram Miriyala.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=vSlJwPEA1HM" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Bettada Melondu</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Akka Mahadevi</span>
       </article>
 
-      <article class="isha-card reveal" data-song="8LZgV1tJiEw" data-delay="140"
-        style="--ic1:#f0b8c8;--ic2:#8a3f50">
-        <button class="isha-card__thumb" data-video="8LZgV1tJiEw"
-          data-title="Aigiri Nandini — Bhairavi Stotram" data-author="Sounds of Isha"
-          aria-label="Play Aigiri Nandini — Bhairavi Stotram by Sounds of Isha">
+      <article class="vrow" data-song="8LZgV1tJiEw"
+        data-title="Aigiri Nandini — Bhairavi Stotram" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="8LZgV1tJiEw" aria-label="Play Aigiri Nandini — Bhairavi Stotram">
           <img src="https://i.ytimg.com/vi/8LZgV1tJiEw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Devi</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devi</span>
-          <h3>Aigiri Nandini — Bhairavi Stotram</h3>
-          
-          <p>Adi Shankaracharya’s hymn to the Devi, from Ye Devi.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=8LZgV1tJiEw" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Aigiri Nandini — Bhairavi Stotram</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Devi</span>
       </article>
 
-      <article class="isha-card reveal" data-song="3OqX-c9s2HU" data-delay="0"
-        style="--ic1:#e8b0c8;--ic2:#8a3058">
-        <button class="isha-card__thumb" data-video="3OqX-c9s2HU"
-          data-title="Ya Devi Sarva Bhuteshu" data-author="Sounds of Isha"
-          aria-label="Play Ya Devi Sarva Bhuteshu by Sounds of Isha">
+      <article class="vrow" data-song="3OqX-c9s2HU"
+        data-title="Ya Devi Sarva Bhuteshu" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="3OqX-c9s2HU" aria-label="Play Ya Devi Sarva Bhuteshu">
           <img src="https://i.ytimg.com/vi/3OqX-c9s2HU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Devi Suktam</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devi</span>
-          <h3>Ya Devi Sarva Bhuteshu</h3>
-          
-          <p>The Devi Suktam on the presence of the goddess in all beings.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=3OqX-c9s2HU" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Ya Devi Sarva Bhuteshu</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Devi Suktam</span>
       </article>
 
-      <article class="isha-card reveal" data-song="VKlBYhHkdcg" data-delay="70"
-        style="--ic1:#e8b8c0;--ic2:#8a3a48">
-        <button class="isha-card__thumb" data-video="VKlBYhHkdcg"
-          data-title="Na Taato Na Maata" data-author="Sounds of Isha"
-          aria-label="Play Na Taato Na Maata by Sounds of Isha">
+      <article class="vrow" data-song="VKlBYhHkdcg"
+        data-title="Na Taato Na Maata" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="VKlBYhHkdcg" aria-label="Play Na Taato Na Maata">
           <img src="https://i.ytimg.com/vi/VKlBYhHkdcg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Bhairavi Stavan</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devi</span>
-          <h3>Na Taato Na Maata</h3>
-          
-          <p>Adi Shankaracharya’s stavan — “not father, not mother”.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=VKlBYhHkdcg" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Na Taato Na Maata</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Bhairavi Stavan</span>
       </article>
 
-      <article class="isha-card reveal" data-song="hk7LbfWOomM" data-delay="140"
-        style="--ic1:#e0b8c0;--ic2:#7a3a48">
-        <button class="isha-card__thumb" data-video="hk7LbfWOomM"
-          data-title="Naga Stotram — Ye Devi reprise" data-author="Sounds of Isha"
-          aria-label="Play Naga Stotram — Ye Devi reprise by Sounds of Isha">
+      <article class="vrow" data-song="hk7LbfWOomM"
+        data-title="Naga Stotram — Ye Devi reprise" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="hk7LbfWOomM" aria-label="Play Naga Stotram — Ye Devi reprise">
           <img src="https://i.ytimg.com/vi/hk7LbfWOomM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Devi</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devi</span>
-          <h3>Naga Stotram — Ye Devi reprise</h3>
-          
-          <p>A reprise from the Ye Devi collection, for Navratri.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=hk7LbfWOomM" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Naga Stotram — Ye Devi reprise</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Devi</span>
       </article>
 
-      <article class="isha-card reveal" data-song="yp0bZDSm05Q" data-delay="0"
-        style="--ic1:#f0b0b8;--ic2:#8a3038">
-        <button class="isha-card__thumb" data-video="yp0bZDSm05Q"
-          data-title="Linga Bhairavi Shayana Arati" data-author="Sounds of Isha"
-          aria-label="Play Linga Bhairavi Shayana Arati by Sounds of Isha">
+      <article class="vrow" data-song="yp0bZDSm05Q"
+        data-title="Linga Bhairavi Shayana Arati" data-author="Sounds of Isha">
+        <button class="vrow__btn" data-video="yp0bZDSm05Q" aria-label="Play Linga Bhairavi Shayana Arati">
           <img src="https://i.ytimg.com/vi/yp0bZDSm05Q/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Arijit Singh</span>
+          <span class="vrow__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devi</span>
-          <h3>Linga Bhairavi Shayana Arati</h3>
-          
-          <p>The Linga Bhairavi arati, sung by Arijit Singh.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=yp0bZDSm05Q" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+        <div class="vrow__meta">
+          <h4>Linga Bhairavi Shayana Arati</h4>
+          <p>Sounds of Isha</p>
         </div>
+        <span class="vrow__dur">Arijit Singh</span>
       </article>
-    </div>
+      </div>
+    </section>
 
-    <div class="isha-credit reveal">
-      <svg viewBox="0 0 24 24" class="ico"><use href="#i-music"></use></svg>
-      <p>
-        All music in this section is by
-        <a href="https://www.youtube.com/@soundsofisha" target="_blank" rel="noopener noreferrer">Sounds of Isha</a>
-        and plays through YouTube's own player, so views and credit go to them.
-        We host none of these audio files.
-      </p>
-    </div>
-  </section>
+    <section class="yt-section" id="devotional" data-title="Devotional & bhajans">
+      <div class="yt-section__head">
+        <h2>Devotional & bhajans</h2>
+        <p>Marathi devotional, kirtan, film songs and shlokas from other artists.</p>
+      </div>
+      <div class="yt-grid">
 
-  <section class="section" id="shelf">
-    <div class="section__head">
-      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> The collection</p>
-      <h2 class="section__title reveal">Pick a <em>mood</em></h2>
-      <p class="section__lead reveal">Everything plays from YouTube using their own player, so the controls, quality and captions are exactly what you would get on YouTube — and the view goes to the original creator. Minimise to keep the music going while you browse.</p>
-    </div>
-
-    <div class="track-filters reveal" role="group" aria-label="Filter music">
-      <button class="chip is-active" data-filter="all">All</button>
-      <button class="chip" data-filter="mantra">Mantra &amp; chant</button>
-      <button class="chip" data-filter="isha">Sounds of Isha</button>
-      <button class="chip" data-filter="frequency">Frequencies</button>
-      <button class="chip" data-filter="chakra">Chakras</button>
-      <button class="chip" data-filter="sleep">Sleep &amp; rest</button>
-      <button class="chip" data-filter="practice">Practice</button>
-      <button class="chip" data-filter="focus">Ambient &amp; focus</button>
-    </div>
-
-    <div class="track-grid" id="trackGrid">
-
-      <article class="track reveal" data-cat="mantra" data-delay="0"
-        style="--c1:#d8c48a;--c2:#8a6d2f">
-        <button class="track__thumb" data-video="pnkFJ0NQrkM" data-title="The Deepest Om — 108 times" data-author="Meditative Mind"
-          aria-label="Play The Deepest Om — 108 times by Meditative Mind">
-          <img src="https://i.ytimg.com/vi/pnkFJ0NQrkM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">30 min</span>
-        </button>
-        <div class="track__meta">
-          <h3>The Deepest Om — 108 times</h3>
-          <p class="track__by">Meditative Mind</p>
-          <p class="track__note">Om chanted 108 times — the classical mala count. Good for japa, or just for the back of a long practice.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="mantra" data-delay="70"
-        style="--c1:#e0cfa0;--c2:#8d6b2c">
-        <button class="track__thumb" data-video="vH11undyI2o" data-title="Om Mantra Meditation — 11 minutes" data-author="Meditative Mind"
-          aria-label="Play Om Mantra Meditation — 11 minutes by Meditative Mind">
-          <img src="https://i.ytimg.com/vi/vH11undyI2o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">11 min</span>
-        </button>
-        <div class="track__meta">
-          <h3>Om Mantra Meditation — 11 minutes</h3>
-          <p class="track__by">Meditative Mind</p>
-          <p class="track__note">A short, complete practice. Eleven minutes fits into a morning before anyone else is awake.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="mantra" data-delay="140"
-        style="--c1:#c9b2e8;--c2:#5b3f8f">
-        <button class="track__thumb" data-video="05c7SkvFY_o" data-title="Om Namah Shivaya — 108 times" data-author="Anandmurti Gurumaa"
-          aria-label="Play Om Namah Shivaya — 108 times by Anandmurti Gurumaa">
-          <img src="https://i.ytimg.com/vi/05c7SkvFY_o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">chanting</span>
-        </button>
-        <div class="track__meta">
-          <h3>Om Namah Shivaya — 108 times</h3>
-          <p class="track__by">Anandmurti Gurumaa</p>
-          <p class="track__note">A devotional chant to Shiva, in the traditional 108 repetitions. Slow, low and steadying.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="mantra" data-delay="0"
-        style="--c1:#e8cfa8;--c2:#8a6231">
-        <button class="track__thumb" data-video="J11VChbAboA" data-title="Om Chanting 100 times" data-author="DhyaanGuru Dr. Nipun Aggarwal"
-          aria-label="Play Om Chanting 100 times by DhyaanGuru Dr. Nipun Aggarwal">
-          <img src="https://i.ytimg.com/vi/J11VChbAboA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">guided</span>
-        </button>
-        <div class="track__meta">
-          <h3>Om Chanting 100 times</h3>
-          <p class="track__by">DhyaanGuru Dr. Nipun Aggarwal</p>
-          <p class="track__note">Guided om chanting with a clear, simple count — helpful if you have never chanted before.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="mantra" data-delay="70"
-        style="--c1:#c2cfe0;--c2:#4a5f7a">
-        <button class="track__thumb" data-video="0D4V5awe-PA" data-title="Tibetan monks chanting Om" data-author="Tibetan Singing Bells Monks"
-          aria-label="Play Tibetan monks chanting Om by Tibetan Singing Bells Monks">
-          <img src="https://i.ytimg.com/vi/0D4V5awe-PA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">long</span>
-        </button>
-        <div class="track__meta">
-          <h3>Tibetan monks chanting Om</h3>
-          <p class="track__by">Tibetan Singing Bells Monks</p>
-          <p class="track__note">Field recording style chanting from a monastic setting. Deep, textured and very still.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="frequency" data-delay="140"
-        style="--c1:#c9a4f7;--c2:#5a2a8f">
-        <button class="track__thumb" data-video="UuidkAboVQw" data-title="Gate to Oneness — 963 Hz" data-author="Inner Lotus Music"
-          aria-label="Play Gate to Oneness — 963 Hz by Inner Lotus Music">
-          <img src="https://i.ytimg.com/vi/UuidkAboVQw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">crown chakra</span>
-        </button>
-        <div class="track__meta">
-          <h3>Gate to Oneness — 963 Hz</h3>
-          <p class="track__by">Inner Lotus Music</p>
-          <p class="track__note">The crown chakra Solfeggio tone. Pair with the chakra page timer if you are working through all seven.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="frequency" data-delay="0"
-        style="--c1:#8ee4d6;--c2:#2f7d74">
-        <button class="track__thumb" data-video="C9hMaqQFKXk" data-title="Inner Balance — 432 Hz + 111 Hz" data-author="Inner Lotus Music"
-          aria-label="Play Inner Balance — 432 Hz + 111 Hz by Inner Lotus Music">
-          <img src="https://i.ytimg.com/vi/C9hMaqQFKXk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">long ambient</span>
-        </button>
-        <div class="track__meta">
-          <h3>Inner Balance — 432 Hz + 111 Hz</h3>
-          <p class="track__by">Inner Lotus Music</p>
-          <p class="track__note">Natural tuning blended with a low 111 Hz bed. The most "easy listening" track in the collection.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="frequency" data-delay="70"
-        style="--c1:#a8c9e8;--c2:#3f5f8f">
-        <button class="track__thumb" data-video="PFsGsmtPz24" data-title="Tibetan healing sounds" data-author="Positive Energy Meditation Music"
-          aria-label="Play Tibetan healing sounds by Positive Energy Meditation Music">
-          <img src="https://i.ytimg.com/vi/PFsGsmtPz24/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">ambient</span>
-        </button>
-        <div class="track__meta">
-          <h3>Tibetan healing sounds</h3>
-          <p class="track__by">Positive Energy Meditation Music</p>
-          <p class="track__note">Bowl and bell textures rather than a single drone — good when a pure sine tone feels too clinical.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="chakra" data-delay="140"
-        style="--c1:#f7a9c9;--c2:#8f3a63">
-        <button class="track__thumb" data-video="NF35xujl23c" data-title="All 7 chakras — healing music" data-author="Tibetan Meditation Music"
-          aria-label="Play All 7 chakras — healing music by Tibetan Meditation Music">
-          <img src="https://i.ytimg.com/vi/NF35xujl23c/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">3 h</span>
-        </button>
-        <div class="track__meta">
-          <h3>All 7 chakras — healing music</h3>
-          <p class="track__by">Tibetan Meditation Music</p>
-          <p class="track__note">A long continuous piece cycling the seven chakra tones. Leave it on and let it carry you.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="chakra" data-delay="0"
-        style="--c1:#f29a3d;--c2:#8a4b0c">
-        <button class="track__thumb" data-video="WZ6hDuI23qU" data-title="Sacral chakra awakening — 303 Hz" data-author="Meditative Mind"
-          aria-label="Play Sacral chakra awakening — 303 Hz by Meditative Mind">
-          <img src="https://i.ytimg.com/vi/WZ6hDuI23qU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">focused</span>
-        </button>
-        <div class="track__meta">
-          <h3>Sacral chakra awakening — 303 Hz</h3>
-          <p class="track__by">Meditative Mind</p>
-          <p class="track__note">A single-centre track. Sit with orange for the whole length, then switch to your next centre.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="sleep" data-delay="70"
-        style="--c1:#8b98c7;--c2:#2f3864">
-        <button class="track__thumb" data-video="Jyy0ra2WcQQ" data-title="Sleep meditation — restore your mind" data-author="Guided meditation"
-          aria-label="Play Sleep meditation — restore your mind by Guided meditation">
-          <img src="https://i.ytimg.com/vi/Jyy0ra2WcQQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">long</span>
-        </button>
-        <div class="track__meta">
-          <h3>Sleep meditation — restore your mind</h3>
-          <p class="track__by">Guided meditation</p>
-          <p class="track__note">A guided voice to fall asleep to. Use headphones, low volume, and expect not to hear the end.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="sleep" data-delay="140"
-        style="--c1:#7f8ee0;--c2:#2c356e">
-        <button class="track__thumb" data-video="N4qCFFBrrgk" data-title="Deep sleep — meditation music" data-author="Sleep music"
-          aria-label="Play Deep sleep — meditation music by Sleep music">
-          <img src="https://i.ytimg.com/vi/N4qCFFBrrgk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">all night</span>
-        </button>
-        <div class="track__meta">
-          <h3>Deep sleep — meditation music</h3>
-          <p class="track__by">Sleep music</p>
-          <p class="track__note">Drone-led sleep music with no sudden changes. Keep the volume just under audible.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="practice" data-delay="0"
-        style="--c1:#f7e8c4;--c2:#8a6c25">
-        <button class="track__thumb" data-video="IKzkc3FWx7g" data-title="Surya Namaskar — step by step" data-author="The Art of Living"
-          aria-label="Play Surya Namaskar — step by step by The Art of Living">
-          <img src="https://i.ytimg.com/vi/IKzkc3FWx7g/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">tutorial</span>
-        </button>
-        <div class="track__meta">
-          <h3>Surya Namaskar — step by step</h3>
-          <p class="track__by">The Art of Living</p>
-          <p class="track__note">The sun salutation walkthrough used on the yoga page. Watch it once, then practise along.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="practice" data-delay="70"
-        style="--c1:#f0d9a0;--c2:#8a6c25">
-        <button class="track__thumb" data-video="Ho68X9QKxfc" data-title="Sun salutation mantras" data-author="The Art of Living"
-          aria-label="Play Sun salutation mantras by The Art of Living">
-          <img src="https://i.ytimg.com/vi/Ho68X9QKxfc/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">chanting</span>
-        </button>
-        <div class="track__meta">
-          <h3>Sun salutation mantras</h3>
-          <p class="track__by">The Art of Living</p>
-          <p class="track__note">The twelve mantras chanted slowly — the audio companion to the mantra list on the yoga page.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="practice" data-delay="140"
-        style="--c1:#9fd6f5;--c2:#3f82b8">
-        <button class="track__thumb" data-video="eWLVBP3VrO4" data-title="Bhramari — humming bee breath" data-author="Breath practice"
-          aria-label="Play Bhramari — humming bee breath by Breath practice">
-          <img src="https://i.ytimg.com/vi/eWLVBP3VrO4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">technique</span>
-        </button>
-        <div class="track__meta">
-          <h3>Bhramari — humming bee breath</h3>
-          <p class="track__by">Breath practice</p>
-          <p class="track__note">How bhramari actually sounds. Follow along after reading the steps on the breathing page.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="practice" data-delay="0"
-        style="--c1:#79f2dc;--c2:#2a7d70">
-        <button class="track__thumb" data-video="A0X61Cukxg0" data-title="Guided breathing session" data-author="Breathwork"
-          aria-label="Play Guided breathing session by Breathwork">
-          <img src="https://i.ytimg.com/vi/A0X61Cukxg0/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">guided</span>
-        </button>
-        <div class="track__meta">
-          <h3>Guided breathing session</h3>
-          <p class="track__by">Breathwork</p>
-          <p class="track__note">A spoken breath count to follow. Nice when you would rather listen than watch an orb.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="focus" data-delay="70"
-        style="--c1:#a5b8d8;--c2:#3a4a6b">
-        <button class="track__thumb" data-video="N5hFNoRcMVU" data-title="Deep focus ambient" data-author="Ambient meditation"
-          aria-label="Play Deep focus ambient by Ambient meditation">
-          <img src="https://i.ytimg.com/vi/N5hFNoRcMVU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">long</span>
-        </button>
-        <div class="track__meta">
-          <h3>Deep focus ambient</h3>
-          <p class="track__by">Ambient meditation</p>
-          <p class="track__note">No lyrics, no rhythm to lock onto — good for reading or slow work.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="focus" data-delay="140"
-        style="--c1:#9ecfb8;--c2:#356b52">
-        <button class="track__thumb" data-video="DulNz2CkoHI" data-title="Calm ambient — rain and drones" data-author="Ambient meditation"
-          aria-label="Play Calm ambient — rain and drones by Ambient meditation">
-          <img src="https://i.ytimg.com/vi/DulNz2CkoHI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">long</span>
-        </button>
-        <div class="track__meta">
-          <h3>Calm ambient — rain and drones</h3>
-          <p class="track__by">Ambient meditation</p>
-          <p class="track__note">A softer alternative to the live soundscapes, for when you want one long unbroken bed.</p>
-        </div>
-      </article>
-
-      <article class="track reveal" data-cat="focus" data-delay="0"
-        style="--c1:#e8b28a;--c2:#8a4b2c">
-        <button class="track__thumb" data-video="wlN_3cu7Xe4" data-title="Candlelight ambient" data-author="Meditation music"
-          aria-label="Play Candlelight ambient by Meditation music">
-          <img src="https://i.ytimg.com/vi/wlN_3cu7Xe4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="track__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="track__len">evening</span>
-        </button>
-        <div class="track__meta">
-          <h3>Candlelight ambient</h3>
-          <p class="track__by">Meditation music</p>
-          <p class="track__note">Warm, low and slow. Suits an evening practice or dimming the room early.</p>
-        </div>
-      </article>
-    </div>
-
-    <p class="track-empty" id="trackEmpty" hidden>No tracks in this category yet.</p>
-  </section>
-
-  <section class="section" id="devotional">
-    <div class="section__head">
-      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> From elsewhere on YouTube</p>
-      <h2 class="section__title reveal">Other <em>devotional</em></h2>
-      <p class="section__lead reveal">Chants and shlokas from other channels, kept separate so each creator gets their own credit.</p>
-    </div>
-
-    <div class="isha-grid">
-
-      <article class="isha-card reveal" data-song="GePN4-Cajvk" data-delay="0"
-        style="--ic1:#e0cfa8;--ic2:#7a6228">
-        <button class="isha-card__thumb" data-video="GePN4-Cajvk"
-          data-title="Vedic Chanting" data-author="Manish Vyas"
-          aria-label="Play Vedic Chanting">
+      <article class="vcard" data-song="GePN4-Cajvk" data-cat=""
+        data-title="Vedic Chanting" data-author="Manish Vyas">
+        <button class="vcard__thumb" data-video="GePN4-Cajvk" aria-label="Play Vedic Chanting">
           <img src="https://i.ytimg.com/vi/GePN4-Cajvk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Manish Vyas</span>
+          <span class="vcard__dur">Manish Vyas</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Chant</span>
+        <div class="vcard__meta">
           <h3>Vedic Chanting</h3>
-          
-          <p>Traditional Vedic recitation by Manish Vyas.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=GePN4-Cajvk" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Manish Vyas</p>
+          <p class="vcard__note">Traditional Vedic recitation by Manish Vyas.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="l3CunU4M0jQ" data-delay="70"
-        style="--ic1:#f0b8d0;--ic2:#8a3f61">
-        <button class="isha-card__thumb" data-video="l3CunU4M0jQ"
-          data-title="Prasanna Vadanam Shloka" data-author="shloka"
-          aria-label="Play Prasanna Vadanam Shloka">
+      <article class="vcard" data-song="l3CunU4M0jQ" data-cat=""
+        data-title="Prasanna Vadanam Shloka" data-author="shloka">
+        <button class="vcard__thumb" data-video="l3CunU4M0jQ" aria-label="Play Prasanna Vadanam Shloka">
           <img src="https://i.ytimg.com/vi/l3CunU4M0jQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">shloka</span>
+          <span class="vcard__dur">shloka</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Radha-Krishna</span>
+        <div class="vcard__meta">
           <h3>Prasanna Vadanam Shloka</h3>
-          
-          <p>A short shloka offered to Radha and Krishna.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=l3CunU4M0jQ" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">shloka</p>
+          <p class="vcard__note">A short shloka offered to Radha and Krishna.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="CYT7WfoTZZ4" data-delay="140"
-        style="--ic1:#d8b8a8;--ic2:#7a4a35">
-        <button class="isha-card__thumb" data-video="CYT7WfoTZZ4"
-          data-title="Bhaja Govindam — with lyrics & meaning" data-author="with lyrics"
-          aria-label="Play Bhaja Govindam — with lyrics & meaning">
+      <article class="vcard" data-song="CYT7WfoTZZ4" data-cat=""
+        data-title="Bhaja Govindam — with lyrics & meaning" data-author="with lyrics">
+        <button class="vcard__thumb" data-video="CYT7WfoTZZ4" aria-label="Play Bhaja Govindam — with lyrics & meaning">
           <img src="https://i.ytimg.com/vi/CYT7WfoTZZ4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">with lyrics</span>
+          <span class="vcard__dur">with lyrics</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vedanta</span>
+        <div class="vcard__meta">
           <h3>Bhaja Govindam — with lyrics & meaning</h3>
-          
-          <p>Adi Shankara’s Moha Mudgaram, sung with text and translation.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=CYT7WfoTZZ4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">with lyrics</p>
+          <p class="vcard__note">Adi Shankara’s Moha Mudgaram, sung with text and translation.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="IdLhCGU78j4" data-delay="0"
-        style="--ic1:#e8c0a0;--ic2:#8a4f24">
-        <button class="isha-card__thumb" data-video="IdLhCGU78j4"
-          data-title="Ram Siya Ram" data-author="Sonu Nigam"
-          aria-label="Play Ram Siya Ram">
+      <article class="vcard" data-song="IdLhCGU78j4" data-cat=""
+        data-title="Ram Siya Ram" data-author="Sonu Nigam">
+        <button class="vcard__thumb" data-video="IdLhCGU78j4" aria-label="Play Ram Siya Ram">
           <img src="https://i.ytimg.com/vi/IdLhCGU78j4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Sonu Nigam</span>
+          <span class="vcard__dur">Sonu Nigam</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Ramayan</span>
+        <div class="vcard__meta">
           <h3>Ram Siya Ram</h3>
-          
-          <p>The Ramayan chaupai, sung by Sonu Nigam.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=IdLhCGU78j4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Sonu Nigam</p>
+          <p class="vcard__note">The Ramayan chaupai, sung by Sonu Nigam.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="haGL4d2qCRY" data-delay="70"
-        style="--ic1:#f0b8c0;--ic2:#8a3f4a">
-        <button class="isha-card__thumb" data-video="haGL4d2qCRY"
-          data-title="Anand Potat — Guru Darshan" data-author="Nihar Shembekar"
-          aria-label="Play Anand Potat — Guru Darshan">
+      <article class="vcard" data-song="haGL4d2qCRY" data-cat=""
+        data-title="Anand Potat — Guru Darshan" data-author="Nihar Shembekar">
+        <button class="vcard__thumb" data-video="haGL4d2qCRY" aria-label="Play Anand Potat — Guru Darshan">
           <img src="https://i.ytimg.com/vi/haGL4d2qCRY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Marathi</span>
+          <span class="vcard__dur">Marathi</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Marathi</span>
+        <div class="vcard__meta">
           <h3>Anand Potat — Guru Darshan</h3>
-          <p class="isha-card__by">Nihar Shembekar</p>
-          <p>A Marathi devotional song by Nihar Shembekar.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=haGL4d2qCRY" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Nihar Shembekar</p>
+          <p class="vcard__note">A Marathi devotional song by Nihar Shembekar.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="oHM4zm8OdGU" data-delay="140"
-        style="--ic1:#e8b8a8;--ic2:#8a4a35">
-        <button class="isha-card__thumb" data-video="oHM4zm8OdGU"
-          data-title="Yei Ho Vitthale — Vitthal Aarti" data-author="Nihar Shembekar"
-          aria-label="Play Yei Ho Vitthale — Vitthal Aarti">
+      <article class="vcard" data-song="oHM4zm8OdGU" data-cat=""
+        data-title="Yei Ho Vitthale — Vitthal Aarti" data-author="Nihar Shembekar">
+        <button class="vcard__thumb" data-video="oHM4zm8OdGU" aria-label="Play Yei Ho Vitthale — Vitthal Aarti">
           <img src="https://i.ytimg.com/vi/oHM4zm8OdGU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">aarti</span>
+          <span class="vcard__dur">aarti</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vitthal</span>
+        <div class="vcard__meta">
           <h3>Yei Ho Vitthale — Vitthal Aarti</h3>
-          <p class="isha-card__by">Nihar Shembekar</p>
-          <p>A Vitthal aarti, sung by Nihar Shembekar.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=oHM4zm8OdGU" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Nihar Shembekar</p>
+          <p class="vcard__note">A Vitthal aarti, sung by Nihar Shembekar.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="BlEXTDMsBII" data-delay="0"
-        style="--ic1:#d8b8c8;--ic2:#7a3f5a">
-        <button class="isha-card__thumb" data-video="BlEXTDMsBII"
-          data-title="Adi Tuch Anti Tuch Swami" data-author="Abhay Jodhpurkar"
-          aria-label="Play Adi Tuch Anti Tuch Swami">
+      <article class="vcard" data-song="BlEXTDMsBII" data-cat=""
+        data-title="Adi Tuch Anti Tuch Swami" data-author="Abhay Jodhpurkar">
+        <button class="vcard__thumb" data-video="BlEXTDMsBII" aria-label="Play Adi Tuch Anti Tuch Swami">
           <img src="https://i.ytimg.com/vi/BlEXTDMsBII/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Marathi</span>
+          <span class="vcard__dur">Marathi</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Marathi</span>
+        <div class="vcard__meta">
           <h3>Adi Tuch Anti Tuch Swami</h3>
-          <p class="isha-card__by">Abhay Jodhpurkar</p>
-          <p>Sung by Abhay Jodhpurkar.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=BlEXTDMsBII" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Abhay Jodhpurkar</p>
+          <p class="vcard__note">Sung by Abhay Jodhpurkar.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="sHVUlXAvCd0" data-delay="70"
-        style="--ic1:#e0c0a0;--ic2:#8a5a2a">
-        <button class="isha-card__thumb" data-video="sHVUlXAvCd0"
-          data-title="Deh Vitthal" data-author="Avadhoot Gandhi"
-          aria-label="Play Deh Vitthal">
+      <article class="vcard" data-song="sHVUlXAvCd0" data-cat=""
+        data-title="Deh Vitthal" data-author="Avadhoot Gandhi">
+        <button class="vcard__thumb" data-video="sHVUlXAvCd0" aria-label="Play Deh Vitthal">
           <img src="https://i.ytimg.com/vi/sHVUlXAvCd0/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">WARI 2024</span>
+          <span class="vcard__dur">WARI 2024</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Marathi</span>
+        <div class="vcard__meta">
           <h3>Deh Vitthal</h3>
-          <p class="isha-card__by">Avadhoot Gandhi</p>
-          <p>From the Wari pilgrimage film, sung by Avadhoot Gandhi.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=sHVUlXAvCd0" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Avadhoot Gandhi</p>
+          <p class="vcard__note">From the Wari pilgrimage film, sung by Avadhoot Gandhi.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="xaUvx0IILW4" data-delay="140"
-        style="--ic1:#c8b8d8;--ic2:#5f4a7a">
-        <button class="isha-card__thumb" data-video="xaUvx0IILW4"
-          data-title="Jagnyache Deva" data-author="Swapnil Bandodkar"
-          aria-label="Play Jagnyache Deva">
+      <article class="vcard" data-song="xaUvx0IILW4" data-cat=""
+        data-title="Jagnyache Deva" data-author="Swapnil Bandodkar">
+        <button class="vcard__thumb" data-video="xaUvx0IILW4" aria-label="Play Jagnyache Deva">
           <img src="https://i.ytimg.com/vi/xaUvx0IILW4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Marathi</span>
+          <span class="vcard__dur">Marathi</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Marathi</span>
+        <div class="vcard__meta">
           <h3>Jagnyache Deva</h3>
-          <p class="isha-card__by">Swapnil Bandodkar</p>
-          <p>A Marathi devotional song by Swapnil Bandodkar.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=xaUvx0IILW4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Swapnil Bandodkar</p>
+          <p class="vcard__note">A Marathi devotional song by Swapnil Bandodkar.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="Y8QyyACKa70" data-delay="0"
-        style="--ic1:#e8c8b0;--ic2:#8a5230">
-        <button class="isha-card__thumb" data-video="Y8QyyACKa70"
-          data-title="Majhi Pandharichi Maay" data-author="Ajay-Atul"
-          aria-label="Play Majhi Pandharichi Maay">
+      <article class="vcard" data-song="Y8QyyACKa70" data-cat=""
+        data-title="Majhi Pandharichi Maay" data-author="Ajay-Atul">
+        <button class="vcard__thumb" data-video="Y8QyyACKa70" aria-label="Play Majhi Pandharichi Maay">
           <img src="https://i.ytimg.com/vi/Y8QyyACKa70/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">film · Mauli</span>
+          <span class="vcard__dur">film · Mauli</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Vitthal</span>
+        <div class="vcard__meta">
           <h3>Majhi Pandharichi Maay</h3>
-          <p class="isha-card__by">Ajay-Atul</p>
-          <p>From the film Mauli, composed by Ajay-Atul.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=Y8QyyACKa70" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Ajay-Atul</p>
+          <p class="vcard__note">From the film Mauli, composed by Ajay-Atul.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="ycEI-_NXvEo" data-delay="70"
-        style="--ic1:#c8d0b0;--ic2:#536b30">
-        <button class="isha-card__thumb" data-video="ycEI-_NXvEo"
-          data-title="Malharvari" data-author="Shahir Sable"
-          aria-label="Play Malharvari">
+      <article class="vcard" data-song="ycEI-_NXvEo" data-cat=""
+        data-title="Malharvari" data-author="Shahir Sable">
+        <button class="vcard__thumb" data-video="ycEI-_NXvEo" aria-label="Play Malharvari">
           <img src="https://i.ytimg.com/vi/ycEI-_NXvEo/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Marathi</span>
+          <span class="vcard__dur">Marathi</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Marathi</span>
+        <div class="vcard__meta">
           <h3>Malharvari</h3>
-          <p class="isha-card__by">Shahir Sable</p>
-          <p>A traditional Marathi devotional sung by Shahir Sable.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=ycEI-_NXvEo" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Shahir Sable</p>
+          <p class="vcard__note">A traditional Marathi devotional sung by Shahir Sable.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="1QjDwNpQy88" data-delay="140"
-        style="--ic1:#e8b0b0;--ic2:#8a3030">
-        <button class="isha-card__thumb" data-video="1QjDwNpQy88"
-          data-title="Ude Ga Ambe Ude — Gondhal" data-author="Gondhal song"
-          aria-label="Play Ude Ga Ambe Ude — Gondhal">
+      <article class="vcard" data-song="1QjDwNpQy88" data-cat=""
+        data-title="Ude Ga Ambe Ude — Gondhal" data-author="Gondhal song">
+        <button class="vcard__thumb" data-video="1QjDwNpQy88" aria-label="Play Ude Ga Ambe Ude — Gondhal">
           <img src="https://i.ytimg.com/vi/1QjDwNpQy88/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Navratri</span>
+          <span class="vcard__dur">Navratri</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devi</span>
+        <div class="vcard__meta">
           <h3>Ude Ga Ambe Ude — Gondhal</h3>
-          <p class="isha-card__by">Gondhal song</p>
-          <p>A gondhal song for Navratri.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=1QjDwNpQy88" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Gondhal song</p>
+          <p class="vcard__note">A gondhal song for Navratri.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="8H0HEZDvYVw" data-delay="0"
-        style="--ic1:#e0a8b8;--ic2:#8a3050">
-        <button class="isha-card__thumb" data-video="8H0HEZDvYVw"
-          data-title="Durge Durgat Bhari" data-author="Ajay-Atul"
-          aria-label="Play Durge Durgat Bhari">
+      <article class="vcard" data-song="8H0HEZDvYVw" data-cat=""
+        data-title="Durge Durgat Bhari" data-author="Ajay-Atul">
+        <button class="vcard__thumb" data-video="8H0HEZDvYVw" aria-label="Play Durge Durgat Bhari">
           <img src="https://i.ytimg.com/vi/8H0HEZDvYVw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Devi aarti</span>
+          <span class="vcard__dur">Devi aarti</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devi</span>
+        <div class="vcard__meta">
           <h3>Durge Durgat Bhari</h3>
-          <p class="isha-card__by">Ajay-Atul</p>
-          <p>The Devi aarti, composed by Ajay-Atul.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=8H0HEZDvYVw" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Ajay-Atul</p>
+          <p class="vcard__note">The Devi aarti, composed by Ajay-Atul.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="2pVK0kxgfE4" data-delay="70"
-        style="--ic1:#d8a8c8;--ic2:#7a305f">
-        <button class="isha-card__thumb" data-video="2pVK0kxgfE4"
-          data-title="Gondhal — Jaundya Na Balasaheb" data-author="Ajay-Atul"
-          aria-label="Play Gondhal — Jaundya Na Balasaheb">
+      <article class="vcard" data-song="2pVK0kxgfE4" data-cat=""
+        data-title="Gondhal — Jaundya Na Balasaheb" data-author="Ajay-Atul">
+        <button class="vcard__thumb" data-video="2pVK0kxgfE4" aria-label="Play Gondhal — Jaundya Na Balasaheb">
           <img src="https://i.ytimg.com/vi/2pVK0kxgfE4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">film song</span>
+          <span class="vcard__dur">film song</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Devi</span>
+        <div class="vcard__meta">
           <h3>Gondhal — Jaundya Na Balasaheb</h3>
-          <p class="isha-card__by">Ajay-Atul</p>
-          <p>A gondhal from the film, composed by Ajay-Atul.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=2pVK0kxgfE4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Ajay-Atul</p>
+          <p class="vcard__note">A gondhal from the film, composed by Ajay-Atul.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="zEGD7ZDcHMo" data-delay="140"
-        style="--ic1:#a8b8e8;--ic2:#35458f">
-        <button class="isha-card__thumb" data-video="zEGD7ZDcHMo"
-          data-title="Om Namah Shivaya" data-author="Krishna Das"
-          aria-label="Play Om Namah Shivaya">
+      <article class="vcard" data-song="zEGD7ZDcHMo" data-cat=""
+        data-title="Om Namah Shivaya" data-author="Krishna Das">
+        <button class="vcard__thumb" data-video="zEGD7ZDcHMo" aria-label="Play Om Namah Shivaya">
           <img src="https://i.ytimg.com/vi/zEGD7ZDcHMo/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">kirtan</span>
+          <span class="vcard__dur">kirtan</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Kirtan</span>
+        <div class="vcard__meta">
           <h3>Om Namah Shivaya</h3>
-          <p class="isha-card__by">Krishna Das</p>
-          <p>Krishna Das — long-form kirtan on the five-syllable mantra.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=zEGD7ZDcHMo" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Krishna Das</p>
+          <p class="vcard__note">Krishna Das — long-form kirtan on the five-syllable mantra.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="3WrImrl2dmI" data-delay="0"
-        style="--ic1:#b0c0e0;--ic2:#3a4a7f">
-        <button class="isha-card__thumb" data-video="3WrImrl2dmI"
-          data-title="4AM Chalisa" data-author="Krishna Das"
-          aria-label="Play 4AM Chalisa">
+      <article class="vcard" data-song="3WrImrl2dmI" data-cat=""
+        data-title="4AM Chalisa" data-author="Krishna Das">
+        <button class="vcard__thumb" data-video="3WrImrl2dmI" aria-label="Play 4AM Chalisa">
           <img src="https://i.ytimg.com/vi/3WrImrl2dmI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">live</span>
+          <span class="vcard__dur">live</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Kirtan</span>
+        <div class="vcard__meta">
           <h3>4AM Chalisa</h3>
-          <p class="isha-card__by">Krishna Das</p>
-          <p>Krishna Das live, with lyrics.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=3WrImrl2dmI" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Krishna Das</p>
+          <p class="vcard__note">Krishna Das live, with lyrics.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="-x9Ly8ZjA18" data-delay="70"
-        style="--ic1:#a8b8d8;--ic2:#354563">
-        <button class="isha-card__thumb" data-video="-x9Ly8ZjA18"
-          data-title="Bernie's Chalisa" data-author="Krishna Das"
-          aria-label="Play Bernie's Chalisa">
+      <article class="vcard" data-song="-x9Ly8ZjA18" data-cat=""
+        data-title="Bernie's Chalisa" data-author="Krishna Das">
+        <button class="vcard__thumb" data-video="-x9Ly8ZjA18" aria-label="Play Bernie's Chalisa">
           <img src="https://i.ytimg.com/vi/-x9Ly8ZjA18/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">chalisa</span>
+          <span class="vcard__dur">chalisa</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Kirtan</span>
+        <div class="vcard__meta">
           <h3>Bernie's Chalisa</h3>
-          <p class="isha-card__by">Krishna Das</p>
-          <p>A chalisa in the Krishna Das repertoire.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=-x9Ly8ZjA18" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Krishna Das</p>
+          <p class="vcard__note">A chalisa in the Krishna Das repertoire.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="uV5zVWTz-Dk" data-delay="140"
-        style="--ic1:#c8b8e0;--ic2:#5f3f83">
-        <button class="isha-card__thumb" data-video="uV5zVWTz-Dk"
-          data-title="Hare Krishna Krishna Kirtan" data-author="Hari Om Sharan"
-          aria-label="Play Hare Krishna Krishna Kirtan">
+      <article class="vcard" data-song="uV5zVWTz-Dk" data-cat=""
+        data-title="Hare Krishna Krishna Kirtan" data-author="Hari Om Sharan">
+        <button class="vcard__thumb" data-video="uV5zVWTz-Dk" aria-label="Play Hare Krishna Krishna Kirtan">
           <img src="https://i.ytimg.com/vi/uV5zVWTz-Dk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">kirtan</span>
+          <span class="vcard__dur">kirtan</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Kirtan</span>
+        <div class="vcard__meta">
           <h3>Hare Krishna Krishna Kirtan</h3>
-          <p class="isha-card__by">Hari Om Sharan</p>
-          <p>A Hare Krishna kirtan by Hari Om Sharan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=uV5zVWTz-Dk" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Hari Om Sharan</p>
+          <p class="vcard__note">A Hare Krishna kirtan by Hari Om Sharan.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="i4BGIBsTWS4" data-delay="0"
-        style="--ic1:#f0b8d0;--ic2:#8a3f61">
-        <button class="isha-card__thumb" data-video="i4BGIBsTWS4"
-          data-title="Prasanna Vadanam Mantra" data-author="slowed + reverb"
-          aria-label="Play Prasanna Vadanam Mantra">
+      <article class="vcard" data-song="i4BGIBsTWS4" data-cat=""
+        data-title="Prasanna Vadanam Mantra" data-author="slowed + reverb">
+        <button class="vcard__thumb" data-video="i4BGIBsTWS4" aria-label="Play Prasanna Vadanam Mantra">
           <img src="https://i.ytimg.com/vi/i4BGIBsTWS4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">slowed</span>
+          <span class="vcard__dur">slowed</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Mantra</span>
+        <div class="vcard__meta">
           <h3>Prasanna Vadanam Mantra</h3>
-          <p class="isha-card__by">slowed + reverb</p>
-          <p>The Prasanna Vadanam shloka, slowed and reverbed.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=i4BGIBsTWS4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">slowed + reverb</p>
+          <p class="vcard__note">The Prasanna Vadanam shloka, slowed and reverbed.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="nRJD6kldukQ" data-delay="70"
-        style="--ic1:#e8c8a8;--ic2:#8a5a24">
-        <button class="isha-card__thumb" data-video="nRJD6kldukQ"
-          data-title="Raghupathi Raghava Rajaram" data-author="Rama mantra"
-          aria-label="Play Raghupathi Raghava Rajaram">
+      <article class="vcard" data-song="nRJD6kldukQ" data-cat=""
+        data-title="Raghupathi Raghava Rajaram" data-author="Rama mantra">
+        <button class="vcard__thumb" data-video="nRJD6kldukQ" aria-label="Play Raghupathi Raghava Rajaram">
           <img src="https://i.ytimg.com/vi/nRJD6kldukQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">with lyrics</span>
+          <span class="vcard__dur">with lyrics</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Ram</span>
+        <div class="vcard__meta">
           <h3>Raghupathi Raghava Rajaram</h3>
-          <p class="isha-card__by">Rama mantra</p>
-          <p>The Rama mantra with original lyrics.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=nRJD6kldukQ" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Rama mantra</p>
+          <p class="vcard__note">The Rama mantra with original lyrics.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="gsuskHo4Bqk" data-delay="140"
-        style="--ic1:#f0b8c8;--ic2:#8a3f50">
-        <button class="isha-card__thumb" data-video="gsuskHo4Bqk"
-          data-title="Radhe Radhe Shyamal Pyari" data-author="Hari Om Sharan"
-          aria-label="Play Radhe Radhe Shyamal Pyari">
+      <article class="vcard" data-song="gsuskHo4Bqk" data-cat=""
+        data-title="Radhe Radhe Shyamal Pyari" data-author="Hari Om Sharan">
+        <button class="vcard__thumb" data-video="gsuskHo4Bqk" aria-label="Play Radhe Radhe Shyamal Pyari">
           <img src="https://i.ytimg.com/vi/gsuskHo4Bqk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">bhajan</span>
+          <span class="vcard__dur">bhajan</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Radha-Krishna</span>
+        <div class="vcard__meta">
           <h3>Radhe Radhe Shyamal Pyari</h3>
-          <p class="isha-card__by">Hari Om Sharan</p>
-          <p>A Radha–Krishna bhajan by Hari Om Sharan and Nandini Sharan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=gsuskHo4Bqk" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Hari Om Sharan</p>
+          <p class="vcard__note">A Radha–Krishna bhajan by Hari Om Sharan and Nandini Sharan.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="tZKHQD6oC2s" data-delay="0"
-        style="--ic1:#e8c0a0;--ic2:#8a4f24">
-        <button class="isha-card__thumb" data-video="tZKHQD6oC2s"
-          data-title="Ram Ram Jai Raja Ram" data-author="Shankar Mahadevan"
-          aria-label="Play Ram Ram Jai Raja Ram">
+      <article class="vcard" data-song="tZKHQD6oC2s" data-cat=""
+        data-title="Ram Ram Jai Raja Ram" data-author="Shankar Mahadevan">
+        <button class="vcard__thumb" data-video="tZKHQD6oC2s" aria-label="Play Ram Ram Jai Raja Ram">
           <img src="https://i.ytimg.com/vi/tZKHQD6oC2s/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">Ram dhun</span>
+          <span class="vcard__dur">Ram dhun</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Ram</span>
+        <div class="vcard__meta">
           <h3>Ram Ram Jai Raja Ram</h3>
-          <p class="isha-card__by">Shankar Mahadevan</p>
-          <p>The Shri Ram dhun, sung by Shankar Mahadevan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=tZKHQD6oC2s" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Shankar Mahadevan</p>
+          <p class="vcard__note">The Shri Ram dhun, sung by Shankar Mahadevan.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="CH8sA9Pd6Gc" data-delay="70"
-        style="--ic1:#f0c8a0;--ic2:#8a5520">
-        <button class="isha-card__thumb" data-video="CH8sA9Pd6Gc"
-          data-title="Raghunandana" data-author="GowraHari & ensemble"
-          aria-label="Play Raghunandana">
+      <article class="vcard" data-song="CH8sA9Pd6Gc" data-cat=""
+        data-title="Raghunandana" data-author="GowraHari & ensemble">
+        <button class="vcard__thumb" data-video="CH8sA9Pd6Gc" aria-label="Play Raghunandana">
           <img src="https://i.ytimg.com/vi/CH8sA9Pd6Gc/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">film · HanuMan</span>
+          <span class="vcard__dur">film · HanuMan</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Hanuman</span>
+        <div class="vcard__meta">
           <h3>Raghunandana</h3>
-          <p class="isha-card__by">GowraHari & ensemble</p>
-          <p>From the film HanuMan, for Hanuman Jayanti.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=CH8sA9Pd6Gc" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">GowraHari & ensemble</p>
+          <p class="vcard__note">From the film HanuMan, for Hanuman Jayanti.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="VJ-o8y8JqCQ" data-delay="140"
-        style="--ic1:#e0b898;--ic2:#8a5024">
-        <button class="isha-card__thumb" data-video="VJ-o8y8JqCQ"
-          data-title="Jai Shri Ram" data-author="Ajay-Atul"
-          aria-label="Play Jai Shri Ram">
+      <article class="vcard" data-song="VJ-o8y8JqCQ" data-cat=""
+        data-title="Jai Shri Ram" data-author="Ajay-Atul">
+        <button class="vcard__thumb" data-video="VJ-o8y8JqCQ" aria-label="Play Jai Shri Ram">
           <img src="https://i.ytimg.com/vi/VJ-o8y8JqCQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">film · Adipurush</span>
+          <span class="vcard__dur">film · Adipurush</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Ram</span>
+        <div class="vcard__meta">
           <h3>Jai Shri Ram</h3>
-          <p class="isha-card__by">Ajay-Atul</p>
-          <p>From Adipurush, composed by Ajay-Atul.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=VJ-o8y8JqCQ" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Ajay-Atul</p>
+          <p class="vcard__note">From Adipurush, composed by Ajay-Atul.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="2aJJ28mIrco" data-delay="0"
-        style="--ic1:#a8c8e0;--ic2:#33587f">
-        <button class="isha-card__thumb" data-video="2aJJ28mIrco"
-          data-title="Gangadhara Shankara" data-author="Thaman S"
-          aria-label="Play Gangadhara Shankara">
+      <article class="vcard" data-song="2aJJ28mIrco" data-cat=""
+        data-title="Gangadhara Shankara" data-author="Thaman S">
+        <button class="vcard__thumb" data-video="2aJJ28mIrco" aria-label="Play Gangadhara Shankara">
           <img src="https://i.ytimg.com/vi/2aJJ28mIrco/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">film · Akhanda 2</span>
+          <span class="vcard__dur">film · Akhanda 2</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
+        <div class="vcard__meta">
           <h3>Gangadhara Shankara</h3>
-          <p class="isha-card__by">Thaman S</p>
-          <p>A Shiva song from the film Akhanda 2, by Thaman S.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=2aJJ28mIrco" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Thaman S</p>
+          <p class="vcard__note">A Shiva song from the film Akhanda 2, by Thaman S.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="MvNyxxK07H4" data-delay="70"
-        style="--ic1:#b8c8d8;--ic2:#3f5872">
-        <button class="isha-card__thumb" data-video="MvNyxxK07H4"
-          data-title="Kalbhairavastakam" data-author="Shankar Mahadevan"
-          aria-label="Play Kalbhairavastakam">
+      <article class="vcard" data-song="MvNyxxK07H4" data-cat=""
+        data-title="Kalbhairavastakam" data-author="Shankar Mahadevan">
+        <button class="vcard__thumb" data-video="MvNyxxK07H4" aria-label="Play Kalbhairavastakam">
           <img src="https://i.ytimg.com/vi/MvNyxxK07H4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">ashtakam</span>
+          <span class="vcard__dur">ashtakam</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Shiva</span>
+        <div class="vcard__meta">
           <h3>Kalbhairavastakam</h3>
-          <p class="isha-card__by">Shankar Mahadevan</p>
-          <p>The Kalabhairava Ashtakam, sung by Shankar Mahadevan.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=MvNyxxK07H4" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Shankar Mahadevan</p>
+          <p class="vcard__note">The Kalabhairava Ashtakam, sung by Shankar Mahadevan.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="PaoeGgJs3Ac" data-delay="140"
-        style="--ic1:#a8c8d8;--ic2:#2f5a75">
-        <button class="isha-card__thumb" data-video="PaoeGgJs3Ac"
-          data-title="Har Har Gange" data-author="Arijit Singh"
-          aria-label="Play Har Har Gange">
+      <article class="vcard" data-song="PaoeGgJs3Ac" data-cat=""
+        data-title="Har Har Gange" data-author="Arijit Singh">
+        <button class="vcard__thumb" data-video="PaoeGgJs3Ac" aria-label="Play Har Har Gange">
           <img src="https://i.ytimg.com/vi/PaoeGgJs3Ac/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">with lyrics</span>
+          <span class="vcard__dur">with lyrics</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Ganga</span>
+        <div class="vcard__meta">
           <h3>Har Har Gange</h3>
-          <p class="isha-card__by">Arijit Singh</p>
-          <p>A Ganga devotional sung by Arijit Singh.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=PaoeGgJs3Ac" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Arijit Singh</p>
+          <p class="vcard__note">A Ganga devotional sung by Arijit Singh.</p>
         </div>
       </article>
 
-      <article class="isha-card reveal" data-song="kJkaEOaNM4A" data-delay="0"
-        style="--ic1:#b8d8c8;--ic2:#2f6b52">
-        <button class="isha-card__thumb" data-video="kJkaEOaNM4A"
-          data-title="Slow yoga practice video" data-author="Craig Prues"
-          aria-label="Play Slow yoga practice video">
+      <article class="vcard" data-song="kJkaEOaNM4A" data-cat=""
+        data-title="Slow yoga practice video" data-author="Craig Prues">
+        <button class="vcard__thumb" data-video="kJkaEOaNM4A" aria-label="Play Slow yoga practice video">
           <img src="https://i.ytimg.com/vi/kJkaEOaNM4A/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
-          <span class="isha-card__play"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
-          <span class="isha-card__len">slow practice</span>
+          <span class="vcard__dur">slow practice</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
         </button>
-        <div class="isha-card__meta">
-          <span class="isha-card__tag">Practice</span>
+        <div class="vcard__meta">
           <h3>Slow yoga practice video</h3>
-          <p class="isha-card__by">Craig Prues</p>
-          <p>A slow, meditative yoga practice film — good to follow along with or keep in the background while you sit.</p>
-          <a class="isha-card__yt" href="https://www.youtube.com/watch?v=kJkaEOaNM4A" target="_blank" rel="noopener noreferrer">Open on YouTube</a>
+          <p class="vcard__by">Craig Prues</p>
+          <p class="vcard__note">A slow, meditative yoga practice film — good to follow along with or keep in the background while you sit.</p>
         </div>
       </article>
+      </div>
+    </section>
+
+    <section class="yt-section" id="shelf" data-title="Meditation shelf">
+      <div class="yt-section__head">
+        <h2>Meditation shelf</h2>
+        
+      </div>
+      <div class="yt-grid">
+
+      <article class="vcard" data-song="pnkFJ0NQrkM" data-cat=""
+        data-title="The Deepest Om — 108 times" data-author="Meditative Mind">
+        <button class="vcard__thumb" data-video="pnkFJ0NQrkM" aria-label="Play The Deepest Om — 108 times">
+          <img src="https://i.ytimg.com/vi/pnkFJ0NQrkM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">30 min</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>The Deepest Om — 108 times</h3>
+          <p class="vcard__by">Meditative Mind</p>
+          <p class="vcard__note">Om chanted 108 times — the classical mala count. Good for japa, or just for the back of a long practice.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="vH11undyI2o" data-cat=""
+        data-title="Om Mantra Meditation — 11 minutes" data-author="Meditative Mind">
+        <button class="vcard__thumb" data-video="vH11undyI2o" aria-label="Play Om Mantra Meditation — 11 minutes">
+          <img src="https://i.ytimg.com/vi/vH11undyI2o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">11 min</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Om Mantra Meditation — 11 minutes</h3>
+          <p class="vcard__by">Meditative Mind</p>
+          <p class="vcard__note">A short, complete practice. Eleven minutes fits into a morning before anyone else is awake.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="05c7SkvFY_o" data-cat=""
+        data-title="Om Namah Shivaya — 108 times" data-author="Anandmurti Gurumaa">
+        <button class="vcard__thumb" data-video="05c7SkvFY_o" aria-label="Play Om Namah Shivaya — 108 times">
+          <img src="https://i.ytimg.com/vi/05c7SkvFY_o/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">chanting</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Om Namah Shivaya — 108 times</h3>
+          <p class="vcard__by">Anandmurti Gurumaa</p>
+          <p class="vcard__note">A devotional chant to Shiva, in the traditional 108 repetitions. Slow, low and steadying.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="J11VChbAboA" data-cat=""
+        data-title="Om Chanting 100 times" data-author="DhyaanGuru Dr. Nipun Aggarwal">
+        <button class="vcard__thumb" data-video="J11VChbAboA" aria-label="Play Om Chanting 100 times">
+          <img src="https://i.ytimg.com/vi/J11VChbAboA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">guided</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Om Chanting 100 times</h3>
+          <p class="vcard__by">DhyaanGuru Dr. Nipun Aggarwal</p>
+          <p class="vcard__note">Guided om chanting with a clear, simple count — helpful if you have never chanted before.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="0D4V5awe-PA" data-cat=""
+        data-title="Tibetan monks chanting Om" data-author="Tibetan Singing Bells Monks">
+        <button class="vcard__thumb" data-video="0D4V5awe-PA" aria-label="Play Tibetan monks chanting Om">
+          <img src="https://i.ytimg.com/vi/0D4V5awe-PA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">long</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Tibetan monks chanting Om</h3>
+          <p class="vcard__by">Tibetan Singing Bells Monks</p>
+          <p class="vcard__note">Field recording style chanting from a monastic setting. Deep, textured and very still.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="UuidkAboVQw" data-cat=""
+        data-title="Gate to Oneness — 963 Hz" data-author="Inner Lotus Music">
+        <button class="vcard__thumb" data-video="UuidkAboVQw" aria-label="Play Gate to Oneness — 963 Hz">
+          <img src="https://i.ytimg.com/vi/UuidkAboVQw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">crown chakra</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Gate to Oneness — 963 Hz</h3>
+          <p class="vcard__by">Inner Lotus Music</p>
+          <p class="vcard__note">The crown chakra Solfeggio tone. Pair with the chakra page timer if you are working through all seven.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="C9hMaqQFKXk" data-cat=""
+        data-title="Inner Balance — 432 Hz + 111 Hz" data-author="Inner Lotus Music">
+        <button class="vcard__thumb" data-video="C9hMaqQFKXk" aria-label="Play Inner Balance — 432 Hz + 111 Hz">
+          <img src="https://i.ytimg.com/vi/C9hMaqQFKXk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">long ambient</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Inner Balance — 432 Hz + 111 Hz</h3>
+          <p class="vcard__by">Inner Lotus Music</p>
+          <p class="vcard__note">Natural tuning blended with a low 111 Hz bed. The most "easy listening" track in the collection.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="PFsGsmtPz24" data-cat=""
+        data-title="Tibetan healing sounds" data-author="Positive Energy Meditation Music">
+        <button class="vcard__thumb" data-video="PFsGsmtPz24" aria-label="Play Tibetan healing sounds">
+          <img src="https://i.ytimg.com/vi/PFsGsmtPz24/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">ambient</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Tibetan healing sounds</h3>
+          <p class="vcard__by">Positive Energy Meditation Music</p>
+          <p class="vcard__note">Bowl and bell textures rather than a single drone — good when a pure sine tone feels too clinical.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="NF35xujl23c" data-cat=""
+        data-title="All 7 chakras — healing music" data-author="Tibetan Meditation Music">
+        <button class="vcard__thumb" data-video="NF35xujl23c" aria-label="Play All 7 chakras — healing music">
+          <img src="https://i.ytimg.com/vi/NF35xujl23c/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">3 h</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>All 7 chakras — healing music</h3>
+          <p class="vcard__by">Tibetan Meditation Music</p>
+          <p class="vcard__note">A long continuous piece cycling the seven chakra tones. Leave it on and let it carry you.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="WZ6hDuI23qU" data-cat=""
+        data-title="Sacral chakra awakening — 303 Hz" data-author="Meditative Mind">
+        <button class="vcard__thumb" data-video="WZ6hDuI23qU" aria-label="Play Sacral chakra awakening — 303 Hz">
+          <img src="https://i.ytimg.com/vi/WZ6hDuI23qU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">focused</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Sacral chakra awakening — 303 Hz</h3>
+          <p class="vcard__by">Meditative Mind</p>
+          <p class="vcard__note">A single-centre track. Sit with orange for the whole length, then switch to your next centre.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="Jyy0ra2WcQQ" data-cat=""
+        data-title="Sleep meditation — restore your mind" data-author="Guided meditation">
+        <button class="vcard__thumb" data-video="Jyy0ra2WcQQ" aria-label="Play Sleep meditation — restore your mind">
+          <img src="https://i.ytimg.com/vi/Jyy0ra2WcQQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">long</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Sleep meditation — restore your mind</h3>
+          <p class="vcard__by">Guided meditation</p>
+          <p class="vcard__note">A guided voice to fall asleep to. Use headphones, low volume, and expect not to hear the end.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="N4qCFFBrrgk" data-cat=""
+        data-title="Deep sleep — meditation music" data-author="Sleep music">
+        <button class="vcard__thumb" data-video="N4qCFFBrrgk" aria-label="Play Deep sleep — meditation music">
+          <img src="https://i.ytimg.com/vi/N4qCFFBrrgk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">all night</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Deep sleep — meditation music</h3>
+          <p class="vcard__by">Sleep music</p>
+          <p class="vcard__note">Drone-led sleep music with no sudden changes. Keep the volume just under audible.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="IKzkc3FWx7g" data-cat=""
+        data-title="Surya Namaskar — step by step" data-author="The Art of Living">
+        <button class="vcard__thumb" data-video="IKzkc3FWx7g" aria-label="Play Surya Namaskar — step by step">
+          <img src="https://i.ytimg.com/vi/IKzkc3FWx7g/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">tutorial</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Surya Namaskar — step by step</h3>
+          <p class="vcard__by">The Art of Living</p>
+          <p class="vcard__note">The sun salutation walkthrough used on the yoga page. Watch it once, then practise along.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="Ho68X9QKxfc" data-cat=""
+        data-title="Sun salutation mantras" data-author="The Art of Living">
+        <button class="vcard__thumb" data-video="Ho68X9QKxfc" aria-label="Play Sun salutation mantras">
+          <img src="https://i.ytimg.com/vi/Ho68X9QKxfc/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">chanting</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Sun salutation mantras</h3>
+          <p class="vcard__by">The Art of Living</p>
+          <p class="vcard__note">The twelve mantras chanted slowly — the audio companion to the mantra list on the yoga page.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="eWLVBP3VrO4" data-cat=""
+        data-title="Bhramari — humming bee breath" data-author="Breath practice">
+        <button class="vcard__thumb" data-video="eWLVBP3VrO4" aria-label="Play Bhramari — humming bee breath">
+          <img src="https://i.ytimg.com/vi/eWLVBP3VrO4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">technique</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Bhramari — humming bee breath</h3>
+          <p class="vcard__by">Breath practice</p>
+          <p class="vcard__note">How bhramari actually sounds. Follow along after reading the steps on the breathing page.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="A0X61Cukxg0" data-cat=""
+        data-title="Guided breathing session" data-author="Breathwork">
+        <button class="vcard__thumb" data-video="A0X61Cukxg0" aria-label="Play Guided breathing session">
+          <img src="https://i.ytimg.com/vi/A0X61Cukxg0/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">guided</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Guided breathing session</h3>
+          <p class="vcard__by">Breathwork</p>
+          <p class="vcard__note">A spoken breath count to follow. Nice when you would rather listen than watch an orb.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="N5hFNoRcMVU" data-cat=""
+        data-title="Deep focus ambient" data-author="Ambient meditation">
+        <button class="vcard__thumb" data-video="N5hFNoRcMVU" aria-label="Play Deep focus ambient">
+          <img src="https://i.ytimg.com/vi/N5hFNoRcMVU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">long</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Deep focus ambient</h3>
+          <p class="vcard__by">Ambient meditation</p>
+          <p class="vcard__note">No lyrics, no rhythm to lock onto — good for reading or slow work.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="DulNz2CkoHI" data-cat=""
+        data-title="Calm ambient — rain and drones" data-author="Ambient meditation">
+        <button class="vcard__thumb" data-video="DulNz2CkoHI" aria-label="Play Calm ambient — rain and drones">
+          <img src="https://i.ytimg.com/vi/DulNz2CkoHI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">long</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Calm ambient — rain and drones</h3>
+          <p class="vcard__by">Ambient meditation</p>
+          <p class="vcard__note">A softer alternative to the live soundscapes, for when you want one long unbroken bed.</p>
+        </div>
+      </article>
+
+      <article class="vcard" data-song="wlN_3cu7Xe4" data-cat=""
+        data-title="Candlelight ambient" data-author="Meditation music">
+        <button class="vcard__thumb" data-video="wlN_3cu7Xe4" aria-label="Play Candlelight ambient">
+          <img src="https://i.ytimg.com/vi/wlN_3cu7Xe4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+          <span class="vcard__dur">evening</span>
+          <span class="vcard__hoverplay"><svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg></span>
+        </button>
+        <div class="vcard__meta">
+          <h3>Candlelight ambient</h3>
+          <p class="vcard__by">Meditation music</p>
+          <p class="vcard__note">Warm, low and slow. Suits an evening practice or dimming the room early.</p>
+        </div>
+      </article>
+      </div>
+    </section>
     </div>
-  </section>
 
-  <section class="section" id="also">
-    <div class="section__head section__head--center">
-      <p class="eyebrow reveal"><span class="eyebrow__dot"></span> Meanwhile</p>
-      <h2 class="section__title reveal">Made on <em>this site</em></h2>
-      <p class="section__lead reveal">Everything that isn't YouTube is generated live in your browser — no files, no streaming, no ads.</p>
+    <p class="yt-empty" id="ytEmpty" hidden>No tracks match that search.</p>
+  </div>
+
+  <!-- right rail: queue -->
+  <aside class="ytrail-right" id="ytQueue" aria-label="Queue">
+    <div class="ytq__head">
+      <h2>Queue</h2>
+      <button class="ytq__clear" id="ytQueueClear" type="button">Clear</button>
     </div>
+    <ol class="ytq" id="ytQueueList"></ol>
+    <p class="ytq__empty" id="ytQueueEmpty">Tracks you play are added here, in order.</p>
+  </aside>
+</div>
 
-    <div class="paths">
-      <a href="frequencies.html" class="path-card reveal" style="--pc:rgba(139,123,247,.32); --pc-h:rgba(139,123,247,.9); --pcfg:#b4a6ff">
-        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-wave"></use></svg></span>
-        <h3>Pure tones</h3>
-        <p>Every Solfeggio frequency from 174 to 963 Hz as a clean sine tone you can leave running.</p>
-        <span class="path-card__more">Open frequencies <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg></span>
-      </a>
-
-      <a href="breathing.html#sounds" class="path-card reveal" data-delay="90" style="--pc:rgba(121,242,220,.3); --pc-h:rgba(121,242,220,.85); --pcfg:#79f2dc">
-        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-wind"></use></svg></span>
-        <h3>Soundscapes</h3>
-        <p>Rain, ocean, forest and singing bowl — layered live, so they never loop or repeat.</p>
-        <span class="path-card__more">Open soundscapes <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg></span>
-      </a>
-
-      <a href="chakras.html" class="path-card reveal" data-delay="180" style="--pc:rgba(247,169,201,.28); --pc-h:rgba(247,169,201,.85); --pcfg:#f7a9c9">
-        <span class="path-card__icon"><svg viewBox="0 0 24 24"><use href="#i-flame"></use></svg></span>
-        <h3>Chakra tones</h3>
-        <p>The same seven frequencies, matched to their colours, each with a timer you set.</p>
-        <span class="path-card__more">Open chakras <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="cta__ring" aria-hidden="true"></div>
-    <div class="cta__inner reveal">
-      <svg viewBox="0 0 48 48" class="cta__mark"><use href="#logo-mark"></use></svg>
-      <h2>Sound is easier<br /><em>with a breath.</em></h2>
-      <p>Put a pattern on underneath and let the orb keep time for you.</p>
-      <a href="breathing.html" class="btn btn--primary">
-        <span>Start breathing</span><span class="btn__ripple"></span>
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg>
-      </a>
-    </div>
-  </section>
+<!-- mini player, when the full player is scrolled out of view -->
+<div class="ytmini" id="ytMini" hidden>
+  <button class="ytmini__main" id="ytMiniFocus" aria-label="Back to player">
+    <img id="ytMiniArt" src="" alt="" />
+    <span>
+      <b id="ytMiniTitle">—</b>
+      <small id="ytMiniBy">—</small>
+    </span>
+  </button>
+  <button class="ytmini__btn" id="ytMiniStart" aria-label="Back to player" title="Show player">
+    <svg viewBox="0 0 24 24" class="ico"><use href="#i-arrow"></use></svg>
+  </button>
+  <button class="ytmini__btn" id="ytMiniStop" aria-label="Stop" title="Stop">
+    <svg viewBox="0 0 24 24" class="ico"><use href="#i-stop"></use></svg>
+  </button>
+</div>
 </main>
 
-<div class="vplayer" id="vplayer" role="dialog" aria-modal="true" aria-labelledby="vplayerTitle" hidden>
-  <div class="vplayer__backdrop" data-close></div>
-  <div class="vplayer__panel" id="vplayerPanel">
-    <div class="vplayer__stage">
-      <div class="vplayer__frame">
-        <div id="vplayerTarget"></div>
-        <div class="vplayer__loading" id="vplayerLoading" hidden>
-          <span class="spinner"></span><span>Loading video…</span>
-        </div>
-      </div>
-    </div>
 
-    <div class="vplayer__bar">
-      <div class="vplayer__info">
-        <b id="vplayerTitle">—</b>
-        <span id="vplayerBy">—</span>
-      </div>
-      <div class="vplayer__actions">
-        <a class="vplayer__link" id="vplayerYT" href="#" target="_blank" rel="noopener noreferrer"
-           title="Watch on YouTube — supports the creator">
-          <span class="vplayer__ytmark" aria-hidden="true">▶</span> Watch on YouTube
-        </a>
-        <button class="vbtn" id="vpPip" aria-label="Picture in picture" title="Keep playing while browsing (P)">
-          <svg viewBox="0 0 24 24" class="ico"><use href="#i-pip"></use></svg>
-        </button>
-        <button class="vbtn" id="vpMin" aria-label="Minimize and keep playing" title="Minimize — keep the music playing">
-          <svg viewBox="0 0 24 24" class="ico"><use href="#i-minimize"></use></svg>
-        </button>
-        <button class="vbtn vbtn--close" data-close aria-label="Close and stop" title="Close and stop (Esc)">
-          <svg viewBox="0 0 24 24" class="ico"><use href="#i-close"></use></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="dock" id="dock" hidden aria-live="polite">
-  <div class="dock__art" id="dockArt">
-    <svg viewBox="0 0 48 48" aria-hidden="true"><use href="#logo-mark"></use></svg>
-  </div>
-  <div class="dock__body">
-    <b id="dockTitle">—</b>
-    <span id="dockSub">—</span>
-    <div class="dock__eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-  </div>
-  <div class="dock__vol">
-    <button class="dock__btn dock__btn--mute" id="dockMute" aria-label="Mute" title="Mute">
-      <svg viewBox="0 0 24 24" class="ico"><use href="#i-volume"></use></svg>
-    </button>
-    <input class="dock__range" id="dockVol" type="range" min="0" max="100" value="45" aria-label="Volume" />
-  </div>
-  <button class="dock__btn dock__btn--main" id="dockToggle" aria-label="Pause" title="Play / Pause">
-    <svg viewBox="0 0 24 24" class="ico"><use href="#i-pause"></use></svg>
-  </button>
-  <button class="dock__btn dock__btn--close" id="dockClose" aria-label="Stop and close" title="Stop">
-    <svg viewBox="0 0 24 24" class="ico"><use href="#i-close"></use></svg>
-  </button>
-</div>
-<div class="ambient-prompt" id="ambientPrompt" hidden>
-  <button class="ambient-prompt__btn" id="ambientStart" type="button">
-    <svg viewBox="0 0 24 24" class="ico"><use href="#i-music"></use></svg>
-    <span>Play ambient music</span>
-    <small>Spiritual Ambient · optional</small>
-  </button>
-  <button class="ambient-prompt__no" id="ambientNo" type="button" aria-label="Not now">Not now</button>
-</div>
-
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <a href="index.html" class="brand">
-        <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#logo-mark"/></svg></span>
-        <span class="brand__word">Sōma</span>
-      </a>
-      <p>Made slowly, for people who are tired of being rushed.</p>
-    </div>
-    <nav class="footer__cols" aria-label="Footer">
-      <div>
-        <h4>Practice</h4>
-        <a href="breathing.html">Breathing</a>
-        <a href="yoga.html">Yoga</a>
-        <a href="breathing.html#pranayama">Pranayama</a>
-        <a href="chakras.html">Chakra meditation</a>
-        <a href="journey.html">Your journey</a>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <a href="frequencies.html">Frequencies</a>
-        <a href="yoga.html#surya-namaskar">Surya Namaskar</a>
-        <a href="music.html">Music</a>
-        <a href="breathing.html#sounds">Soundscapes</a>
-      </div>
-      <div>
-        <h4>Elsewhere</h4>
-        <a href="index.html">Home</a>
-        <a href="index.html#voices">Voices</a>
-        <a href="index.html#about">About</a>
-      </div>
-    </nav>
-  </div>
-  <div class="footer__credits">
-    Ambient track:
-    <a href="https://commons.wikimedia.org/wiki/File:Spiritual_Ambient_by_MusicLFiles.ogg" target="_blank" rel="noopener noreferrer">“Spiritual Ambient”</a>
-    by <a href="https://commons.wikimedia.org/wiki/Category:Files_by_MusicLFiles" target="_blank" rel="noopener noreferrer">MusicLFiles</a>,
-    licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
-    Changes: looped and volume-adjusted for background listening.
-  </div>
-  <div class="footer__base">
-    <span>© <span id="year"></span> Sōma — breathe well.</span>
-    <span>Made with breath · no trackers, no noise</span>
-  </div>
-</footer>
-
-{/* site.js defines window.Soma — every page bundle depends on it, so it must come FIRST */}
 <script src="assets/js/site.js"></script>
-<script src="assets/js/ambient.js"></script>
+
 <script src="assets/js/music.js"></script>
 </body>
 </html>

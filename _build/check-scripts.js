@@ -14,7 +14,7 @@ const REQUIRES = {
   'assets/js/yoga.js': ['.subnav'],
   'assets/js/frequencies.js': ['#freqGrid', '.freq'],
   'assets/js/chakra.js': ['#chakraStage', '.chakra-item', '#ckGo'],
-  'assets/js/music.js': ['#trackGrid', '.track', '#vplayer', '#vpMin'],
+  'assets/js/music.js': ['#vplayerTarget', '.vcard', '#ytQueueList', '#vplayerTitle'],
   // Shared recorder: it also loads on pages that only *write* to the log, and
   // returns early when the Journey UI is absent, so these are page-only hooks.
   'assets/js/journey.js': ['#journeyPage', '#jTotal', '#jHeat', '#jBreakdown'],
@@ -34,11 +34,15 @@ function hasSelector(html, sel) {
 }
 
 /* Every element a script looks up by id at load time must exist on its page.
-   (A typo here silently disables a button, which is exactly how bugs hide.) */
+   (A typo here silently disables a button, which is exactly how bugs hide.)
+   Ids in OPTIONAL are guarded with `if (el)` and are allowed to be absent. */
+const OPTIONAL = new Set(['year']);
+
 function checkIds(p, html, src) {
   const code = fs.readFileSync(path.join(ROOT, src), 'utf8');
   const ids = [...code.matchAll(/\$\('#([A-Za-z0-9_-]+)'\)/g)].map((m) => m[1]);
   for (const id of new Set(ids)) {
+    if (OPTIONAL.has(id)) continue;
     // ids the script itself injects into the DOM are not in the static HTML
     const generated = new RegExp(`id="\\$?\{?${id}`).test(code) || code.includes(`id="${id}"`);
     if (generated) continue;

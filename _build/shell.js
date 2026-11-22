@@ -131,9 +131,7 @@ const PLAYER = `
     <div class="vplayer__stage">
       <div class="vplayer__frame">
         <div id="vplayerTarget"></div>
-        <div class="vplayer__loading" id="vplayerLoading" hidden>
-          <span class="spinner"></span><span>Loading video\u2026</span>
-        </div>
+        <p class="vplayer__error" id="vplayerError" hidden></p>
       </div>
     </div>
 
@@ -195,17 +193,20 @@ const DOCK = `
   <button class="ambient-prompt__no" id="ambientNo" type="button" aria-label="Not now">Not now</button>
 </div>`;
 
-function page({ file, title, desc, page, body, scripts = [], bodyClass = '', modals = false }) {
+function page({ file, title, desc, page, body, scripts = [], bodyClass = '', modals = false, layout = '' }) {
+  /* "yt" layout: the page provides its own top bar and side rails, so the
+     global nav, footer and audio dock are omitted to leave a clean app shell. */
+  const isApp = layout === 'yt';
+
   const html = `${head({ title, desc, page })}
 <main${bodyClass ? ` class="${bodyClass}"` : ''} id="top">
 ${body.trim()}
 </main>
 ${modals ? PLAYER : ''}
-${DOCK}
-${footer()}
-{/* site.js defines window.Soma — every page bundle depends on it, so it must come FIRST */}
+${isApp ? '' : DOCK}
+${isApp ? '' : footer()}
 <script src="assets/js/site.js"></script>
-<script src="assets/js/ambient.js"></script>
+${isApp ? '' : '<script src="assets/js/ambient.js"></script>'}
 ${scripts.map((s) => `<script src="${s}"></script>`).join('\n')}
 </body>
 </html>

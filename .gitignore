@@ -1,7 +1,9 @@
 # local helpers / QA scratch — never published
 _serve.js
-_qa*.mjs
+_qa*
 qa-*.png
+_build/_current_ids.txt
+_build/_urls.txt
 
 # OS noise
 .DS_Store

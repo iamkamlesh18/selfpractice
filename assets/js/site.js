@@ -133,6 +133,12 @@
     }, 900);
   }
 
+  /* ---------- Footer year (runs on every page, including the app shell) ---------- */
+  function initYear() {
+    const year = $('#year');
+    if (year) year.textContent = new Date().getFullYear();
+  }
+
   /* ---------- Nav ---------- */
   function initNav() {
     const nav = $('#nav');
@@ -167,9 +173,6 @@
         b.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
       });
     });
-
-    const year = $('#year');
-    if (year) year.textContent = new Date().getFullYear();
   }
 
   /* ---------- Counters ---------- */
@@ -247,6 +250,7 @@
     initStars();
     initReveals();
     initNav();
+    initYear();
     initCounters();
   }
 
