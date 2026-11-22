@@ -2770,19 +2770,8 @@ body.is-locked { overflow: hidden; }
   text-overflow: ellipsis;
 }
 .vplayer__info span { font-size: .76rem; color: var(--text-faint); }
-.vplayer__quick { display: flex; gap: 8px; }
-.vplayer .btn--icon { width: 42px; height: 42px; }
 
-/* transport controls */
-.vplayer__transport {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px 16px 14px;
-  border-top: 1px solid rgba(255,255,255,.06);
-  background: rgba(255,255,255,.02);
-}
+/* buttons used in the slim action bar */
 .vbtn {
   width: 38px; height: 38px;
   flex: none;
@@ -2797,124 +2786,9 @@ body.is-locked { overflow: hidden; }
 .vbtn .ico { width: 18px; height: 18px; }
 .vbtn:hover { color: var(--text); border-color: var(--stroke-strong); background: rgba(255,255,255,.09); transform: translateY(-1px); }
 .vbtn:active { transform: translateY(0) scale(.96); }
-.vbtn.is-on {
-  color: #07060d;
-  background: linear-gradient(120deg, #79f2dc, #8b7bf7);
-  border-color: transparent;
-  box-shadow: 0 6px 20px -8px rgba(121,242,220,.9);
-}
-#vpPlay {
-  width: 46px; height: 46px;
-  color: #07060d;
-  background: var(--grad-btn);
-  border-color: transparent;
-  box-shadow: 0 8px 24px -10px rgba(139,123,247,.95);
-}
-#vpPlay .ico { width: 20px; height: 20px; }
-
-.vplayer__time {
-  font-size: .76rem;
-  color: var(--text-dim);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: .02em;
-  padding: 0 2px;
-  min-width: 92px;
-  text-align: center;
-  flex: none;
-}
-
-/* range inputs */
-.vplayer__seek {
-  flex: 1 1 160px;
-  min-width: 110px;
-  height: 4px;
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--mint), var(--lilac)) no-repeat, rgba(255,255,255,.14);
-  background-size: 0% 100%, 100% 100%;
-  cursor: pointer;
-}
-.vplayer__seek::-webkit-slider-thumb {
-  appearance: none;
-  width: 13px; height: 13px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(121,242,220,.9);
-  cursor: pointer;
-}
-.vplayer__seek::-moz-range-thumb {
-  width: 13px; height: 13px;
-  border: 0;
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-}
-
-.vplayer__volume { display: flex; align-items: center; gap: 6px; flex: none; }
-.vplayer__vol {
-  width: 74px;
-  accent-color: var(--mint);
-  cursor: pointer;
-}
-
-.vplayer__speed { flex: none; }
-.vplayer__speed select {
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 8px 26px 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--stroke);
-  background: rgba(255,255,255,.04);
-  color: var(--text-dim);
-  font-size: .76rem;
-  font-family: inherit;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2379f2dc' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-}
-.vplayer__speed select:hover { border-color: var(--stroke-strong); color: var(--text); }
-.vplayer__speed select option { background: #12101f; color: #f3eefc; }
-
-/* footer links row */
-.vplayer__links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  padding: 0 16px 14px;
-}
-.vlink {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 15px;
-  border-radius: 999px;
-  border: 1px solid var(--stroke);
-  background: rgba(255,255,255,.03);
-  font-size: .77rem;
-  font-family: inherit;
-  color: var(--text-dim);
-  transition: all .3s var(--ease);
-}
-.vlink .ico { width: 14px; height: 14px; }
-.vlink:hover { color: var(--text); border-color: var(--stroke-strong); background: rgba(255,255,255,.07); }
-.vlink__yt { color: #ff3d3d; font-size: .72rem; line-height: 1; }
 
 @media (max-width: 700px) {
-  .vplayer__transport { gap: 6px; padding: 10px 12px 12px; }
-  .vplayer__seek { flex-basis: 100%; order: -1; }
-  .vplayer__time { min-width: 84px; }
-  .vplayer__vol { width: 54px; }
   .vbtn { width: 34px; height: 34px; }
-  #vpPlay { width: 42px; height: 42px; }
-  .vplayer__links { padding: 0 12px 12px; }
-  .vlink { font-size: .72rem; padding: 7px 12px; }
-}
-@media (max-width: 420px) {
-  .vplayer__speed select { padding: 7px 22px 7px 10px; }
-  .vplayer__volume { display: none; }
 }
 
 /* =========================================================
@@ -3653,3 +3527,101 @@ a:focus-visible {
   }
 }
 @keyframes panelRise { from { opacity: .55; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
+
+/* =========================================================
+   YOUTUBE THEATRE — lean bar, minimise-to-play state
+   ========================================================= */
+
+/* the info bar holds only title + the three actions we actually need */
+.vplayer__bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--stroke);
+}
+.vplayer__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.vplayer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 61, 61, .35);
+  background: rgba(255, 61, 61, .09);
+  color: #ffd9d9;
+  font-size: .78rem;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  transition: all .3s var(--ease);
+}
+.vplayer__link:hover {
+  background: rgba(255, 61, 61, .18);
+  border-color: rgba(255, 61, 61, .6);
+  color: #fff;
+}
+.vplayer__ytmark {
+  display: inline-grid;
+  place-items: center;
+  width: 20px; height: 14px;
+  border-radius: 4px;
+  background: #ff3d3d;
+  color: #fff;
+  font-size: 8px;
+  line-height: 1;
+  padding-left: 2px;
+}
+
+.vbtn--close:hover {
+  background: rgba(247, 169, 201, .16);
+  color: var(--blush);
+  border-color: rgba(247, 169, 201, .4);
+}
+
+/* minimise: the panel slides down out of view but stays in the document,
+   so the iframe keeps playing. A slim strip remains to bring it back. */
+.vplayer.is-minimised {
+  align-items: end;
+  padding-bottom: 0;
+}
+.vplayer.is-minimised .vplayer__backdrop { display: none; }
+.vplayer.is-minimised .vplayer__panel {
+  transform: translateY(calc(100% - 52px));
+  transition: transform .45s var(--ease);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  cursor: pointer;
+}
+.vplayer.is-minimised .vplayer__panel::after {
+  content: "Minimised — audio still playing · click to restore";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  font-size: .74rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: rgba(16, 12, 30, .96);
+  border-top: 1px solid var(--stroke-strong);
+}
+.vplayer.is-minimised .vplayer__bar,
+.vplayer.is-minimised .vplayer__stage { visibility: hidden; }
+
+/* while media plays, the page is not scroll-locked and the dock is hidden,
+   so there is never two sources of audio at once */
+body.is-playing-media .dock { display: none; }
+
+@media (max-width: 620px) {
+  .vplayer__link span:not(.vplayer__ytmark) { display: none; }
+  .vplayer__link { padding: 9px 12px; }
+  .vplayer__actions { gap: 6px; }
+  .vplayer__info b { font-size: .98rem; }
+}

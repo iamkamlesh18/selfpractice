@@ -15,7 +15,7 @@ audio files or trackers. Fonts come from Google Fonts, with a graceful system fa
 | `yoga.html` | Surya Namaskar as text only: 12 steps with Sanskrit names, breathing cues, chakra focus and the mantra for each step, a verified video tutorial, and exercises |
 | `frequencies.html` | Every Solfeggio tone (174–963 Hz) plus planetary and healing tones, each playable |
 | `chakras.html` | 7 chakras with true colours, yantra art, frequencies and a 2–30 minute timer per chakra |
-| `music.html` | 100+ verified YouTube meditations — Sounds of Isha chants, devotional, mantra, frequencies, sleep, ambient — with a full in-page player |
+| `music.html` | 100+ verified YouTube meditations — Sounds of Isha chants, devotional, mantra, frequencies, sleep, ambient — played in a YouTube theatre that keeps playing across tabs |
 | `journey.html` | Your practice time: total minutes, daily streak, 30-day heatmap, favourite patterns and recent sessions (stored locally) |
 
 ## Structure
@@ -31,7 +31,7 @@ assets/
   js/yoga.js                   ← yoga page sub-nav
   js/frequencies.js            ← frequencies page filters
   js/chakra.js                 ← chakra page
-  js/music.js                  ← music page (filters + YouTube player)
+  js/music.js                  ← music page (filters + YouTube theatre, never pauses on tab switch)
   js/journey.js                ← practice log + journey page rendering
   audio/spiritual-ambient.ogg  ← CC BY 4.0 track (see credits below)
   partials/sprite.svg          ← shared icon/logo sprite (inlined at build time)

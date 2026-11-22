@@ -116,8 +116,14 @@ function footer() {
 `;
 }
 
-/* Optional in-page YouTube player, used by music.html.
-   All controls are wired to the IFrame Player API in music.js. */
+/* In-page YouTube theatre, used by music.html.
+   YouTube supplies the whole control bar (play, seek, volume, speed, quality,
+   captions, fullscreen) — it is their player, so their chrome. We only add:
+     · close            (Esc)
+     · picture-in-picture — keeps the video playing while you browse the site
+     · minimize-to-dock — closes the theatre but keeps the audio going
+     · open on YouTube  — so views and watch time go to the creator
+   Playback is never paused when the tab is hidden or minimised. */
 const PLAYER = `
 <div class="vplayer" id="vplayer" role="dialog" aria-modal="true" aria-labelledby="vplayerTitle" hidden>
   <div class="vplayer__backdrop" data-close></div>
@@ -136,69 +142,21 @@ const PLAYER = `
         <b id="vplayerTitle">—</b>
         <span id="vplayerBy">—</span>
       </div>
-      <div class="vplayer__quick">
-        <button class="btn btn--icon" data-close aria-label="Close player" title="Close (Esc)">
+      <div class="vplayer__actions">
+        <a class="vplayer__link" id="vplayerYT" href="#" target="_blank" rel="noopener noreferrer"
+           title="Watch on YouTube — supports the creator">
+          <span class="vplayer__ytmark" aria-hidden="true">▶</span> Watch on YouTube
+        </a>
+        <button class="vbtn" id="vpPip" aria-label="Picture in picture" title="Keep playing while browsing (P)">
+          <svg viewBox="0 0 24 24" class="ico"><use href="#i-pip"></use></svg>
+        </button>
+        <button class="vbtn" id="vpMin" aria-label="Minimize and keep playing" title="Minimize — keep the music playing">
+          <svg viewBox="0 0 24 24" class="ico"><use href="#i-minimize"></use></svg>
+        </button>
+        <button class="vbtn vbtn--close" data-close aria-label="Close and stop" title="Close and stop (Esc)">
           <svg viewBox="0 0 24 24" class="ico"><use href="#i-close"></use></svg>
         </button>
       </div>
-    </div>
-
-    <div class="vplayer__transport">
-      <button class="vbtn" id="vpPlay" aria-label="Play" title="Play / Pause (Space)">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-play"></use></svg>
-      </button>
-      <button class="vbtn" id="vpBack" aria-label="Back 15 seconds" title="Back 15s (\u2190)">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-back15"></use></svg>
-      </button>
-      <button class="vbtn" id="vpFwd" aria-label="Forward 15 seconds" title="Forward 15s (\u2192)">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-fwd15"></use></svg>
-      </button>
-
-      <span class="vplayer__time" id="vpTime">0:00 / 0:00</span>
-      <input class="vplayer__seek" id="vpSeek" type="range" min="0" max="100" value="0" step="0.1"
-        aria-label="Seek through video" />
-
-      <div class="vplayer__volume">
-        <button class="vbtn" id="vpMute" aria-label="Mute" title="Mute (M)">
-          <svg viewBox="0 0 24 24" class="ico"><use href="#i-volume"></use></svg>
-        </button>
-        <input class="vplayer__vol" id="vpVol" type="range" min="0" max="100" value="70" aria-label="Volume" />
-      </div>
-
-      <label class="vplayer__speed">
-        <span class="sr-only">Playback speed</span>
-        <select id="vpSpeed" aria-label="Playback speed">
-          <option value="0.5">0.5\u00d7</option>
-          <option value="0.75">0.75\u00d7</option>
-          <option value="1" selected>1\u00d7</option>
-          <option value="1.25">1.25\u00d7</option>
-          <option value="1.5">1.5\u00d7</option>
-          <option value="2">2\u00d7</option>
-        </select>
-      </label>
-
-      <button class="vbtn" id="vpLoop" aria-pressed="false" aria-label="Loop video" title="Loop">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-loop"></use></svg>
-      </button>
-      <button class="vbtn" id="vpTheatre" aria-pressed="false" aria-label="Theatre size" title="Wider view (T)">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-theatre"></use></svg>
-      </button>
-      <button class="vbtn" id="vpCC" aria-pressed="false" aria-label="Subtitles" title="Subtitles">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-caption"></use></svg>
-      </button>
-      <button class="vbtn" id="vpFull" aria-label="Toggle fullscreen" title="Fullscreen (F)">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-fullscreen"></use></svg>
-      </button>
-    </div>
-
-    <div class="vplayer__links">
-      <a class="vlink" id="vplayerYT" href="#" target="_blank" rel="noopener noreferrer">
-        <span class="vlink__yt" aria-hidden="true">▶</span> Open on YouTube
-      </a>
-      <button class="vlink" id="vpShare" type="button">
-        <svg viewBox="0 0 24 24" class="ico"><use href="#i-share"></use></svg> <span id="vpShareLabel">Copy link</span>
-      </button>
-      <a class="vlink" id="vplayerAuthor" href="#" target="_blank" rel="noopener noreferrer">Channel</a>
     </div>
   </div>
 </div>`;

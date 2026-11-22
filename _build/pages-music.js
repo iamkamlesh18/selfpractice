@@ -536,7 +536,8 @@ const body = `
       <p class="page-hero__lead reveal" data-delay="160">
         Sounds of Isha chants and stotrams, plus a hand-picked shelf of YouTube meditations —
         mantra, healing frequencies, chakra music, sleep drones and ambient.
-        Press a cover to play it here, or open it on YouTube to support the creator.
+        Playback is YouTube's own player, so it never stops when you switch tabs or minimise —
+        and every view goes to the original creator.
       </p>
     </div>
     <div class="page-hero__aside">
@@ -582,7 +583,7 @@ ${ISHA_LIST.map(ishaCard).join('\n')}
     <div class="section__head">
       <p class="eyebrow reveal"><span class="eyebrow__dot"></span> The collection</p>
       <h2 class="section__title reveal">Pick a <em>mood</em></h2>
-      <p class="section__lead reveal">Everything here plays from YouTube, so the audio quality and length are the original creator's. Support them if something helps.</p>
+      <p class="section__lead reveal">Everything plays from YouTube using their own player, so the controls, quality and captions are exactly what you would get on YouTube — and the view goes to the original creator. Minimise to keep the music going while you browse.</p>
     </div>
 
     <div class="track-filters reveal" role="group" aria-label="Filter music">

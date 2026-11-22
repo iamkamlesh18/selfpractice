@@ -14,7 +14,7 @@ const REQUIRES = {
   'assets/js/yoga.js': ['.subnav'],
   'assets/js/frequencies.js': ['#freqGrid', '.freq'],
   'assets/js/chakra.js': ['#chakraStage', '.chakra-item', '#ckGo'],
-  'assets/js/music.js': ['#trackGrid', '.track'],
+  'assets/js/music.js': ['#trackGrid', '.track', '#vplayer', '#vpMin'],
   // Shared recorder: it also loads on pages that only *write* to the log, and
   // returns early when the Journey UI is absent, so these are page-only hooks.
   'assets/js/journey.js': ['#journeyPage', '#jTotal', '#jHeat', '#jBreakdown'],
