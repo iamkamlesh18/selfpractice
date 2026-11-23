@@ -437,6 +437,9 @@
   });
   barLinks.forEach((a) => a.addEventListener('click', () => setActive(a.dataset.cat)));
 
+  /* land on Home, like YouTube's front page */
+  setActive('home');
+
   /* a section link must open the list at the top, not behind the player */
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="#"]');
