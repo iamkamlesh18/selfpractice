@@ -1,55 +1,78 @@
 /* =========================================================
    SŌMA — music page, YouTube-style
 
-   · One persistent player, mounted in-page; selecting another track
-     swaps the video in the SAME iframe (no second audio source).
-   · Never pauses on tab switch / minimize / scroll.
-   · YouTube's own controls do all the transport work.
-   · Search filters every card and row live.
-   · Queue in the right rail; mini player appears when you scroll past.
+   · One persistent player at the top of the feed. It stays put
+     while it plays and the track list scrolls underneath it —
+     the videos are never hidden behind it (the feed is padded).
+   · Selecting another track swaps the video in the SAME iframe,
+     so there is never a second audio source.
+   · Never pauses on tab switch / minimise / scroll.
+     YouTube's own controls do the transport work.
+   · No search: what is on the page is the whole shelf.
+   · Up next (right rail) + any track can be queued with +,
+     with previous / next walking the list.
+   · A small floating player appears if you scroll the player away.
    ========================================================= */
 (() => {
   'use strict';
 
   const { $, $$ } = window.Soma;
 
-  const root = $('.yt-shell');
-  if (!root) return;
+  const shell = $('.yt-shell');
+  if (!shell) return;
 
   const API_SRC = 'https://www.youtube.com/iframe_api';
+  const BAR_H = 64;
 
   /* ---------- elements ---------- */
   const playerEl = $('#ytPlayer');
   const idleEl = $('#ytIdle');
-  const stageEl = $('#ytStage');
   const target = $('#vplayerTarget');
   const errEl = $('#vplayerError');
   const titleEl = $('#vplayerTitle');
   const byEl = $('#vplayerBy');
   const ytLink = $('#vplayerYT');
-  const queueBtn = $('#vpQueue');
+  const hintEl = $('#ytHint');
   const queueList = $('#ytQueueList');
   const queueEmpty = $('#ytQueueEmpty');
   const mini = $('#ytMini');
   const miniArt = $('#ytMiniArt');
   const miniTitle = $('#ytMiniTitle');
   const miniBy = $('#ytMiniBy');
-  const searchInput = $('#ytSearchInput');
-  const searchClear = $('#ytSearchClear');
-  const emptyMsg = $('#ytEmpty');
-  const rail = $('#ytRail');
+  const scrim = $('#ytRailScrim');
 
   let yt = null;
   let ready = false;
   let apiPromise = null;
-  let current = null;          // { id, title, author }
-  let wasPlaying = false;
-  let userStopped = false;
+  let current = null;            // { id, title, author }
 
-  const queue = [];            // [{ id, title, author }]
+  const queue = [];              // [{ id, title, author }] — up next
   const queueIds = new Set();
 
-  const allCards = () => $$('.vcard, .vrow');
+  /* ---------- track lookup ---------- */
+  const trackOf = (el) => ({
+    id: el.dataset.song,
+    title: el.dataset.title || 'Untitled',
+    author: el.dataset.author || ''
+  });
+
+  function findTrack(id) {
+    const el = $(`[data-song="${id}"]`);
+    return el ? trackOf(el) : null;
+  }
+
+  function upNextOrder() {
+    const ids = (window.SOMA_UPNEXT || []).filter((id) => findTrack(id));
+    const rest = $$('[data-song]').map((el) => el.dataset.song);
+    return ids.concat(rest.filter((id) => ids.indexOf(id) === -1));
+  }
+
+  function stepFrom(id, dir) {
+    const order = upNextOrder();
+    const i = order.indexOf(id);
+    if (i === -1) return null;
+    return order[(i + dir + order.length) % order.length] || null;
+  }
 
   /* =========================================================
      1. IFrame API
@@ -65,17 +88,22 @@
         resolve();
       };
 
+      let settled = false;
       if (!document.querySelector(`script[src="${API_SRC}"]`)) {
         const s = document.createElement('script');
         s.src = API_SRC;
         s.async = true;
-        s.onerror = () => reject(new Error('api'));
+        s.onerror = () => { if (!settled) { settled = true; reject(new Error('api')); } };
         document.head.appendChild(s);
       }
       setTimeout(() => {
-        if (window.YT && window.YT.Player) resolve();
-        else reject(new Error('timeout'));
+        if (settled) return;
+        if (window.YT && window.YT.Player) { settled = true; resolve(); }
+        else { settled = true; reject(new Error('timeout')); }
       }, 12000);
+    }).catch((err) => {
+      apiPromise = null;          // allow a retry on the next play
+      throw err;
     });
     return apiPromise;
   }
@@ -83,15 +111,30 @@
   /* =========================================================
      2. Player
      ========================================================= */
+  function mount() {
+    const holder = document.createElement('div');
+    holder.id = 'ytMount';
+    holder.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;background:#000;overflow:hidden';
+    target.innerHTML = '';
+    target.appendChild(holder);
+    return holder;
+  }
+
   function buildPlayer(id) {
+    // a previous API/iframe may have been destroyed by stopAll — start fresh
+    if (yt && (!ready || !document.body.contains(yt.getIframe?.() || null))) {
+      try { yt.destroy(); } catch (e) { /* already gone */ }
+      yt = null;
+      ready = false;
+    }
+
     if (yt && ready) {
       // same instance, new video — this is what prevents double audio
       yt.loadVideoById(id);
       return;
     }
 
-    target.innerHTML = '<div id="ytMount"></div>';
-    yt = new window.YT.Player($('#ytMount'), {
+    yt = new window.YT.Player(mount(), {
       videoId: id,
       playerVars: {
         autoplay: 1,
@@ -99,12 +142,24 @@
         modestbranding: 1,
         playsinline: 1,
         fs: 1,
-        origin: window.location.origin
+        ...(window.location.origin && window.location.origin !== 'null'
+          ? { origin: window.location.origin } : {})
       },
       events: {
         onReady: () => {
           ready = true;
           errEl.hidden = true;
+          // YouTube sizes itself from the iframe on load — nudge it into place
+          setTimeout(() => {
+            try { yt.setSize(target.clientWidth, target.clientHeight); } catch (e) { /* older builds */ }
+          }, 300);
+          // player events shouldn't pause anything on tab switch
+          const frame = target.querySelector('iframe');
+          if (frame) frame.removeAttribute('tabindex');
+        },
+        onStateChange: (e) => {
+          // roll on to the next track when one ends
+          if (e.data === window.YT.PlayerState.ENDED) go(1);
         },
         onError: () => {
           errEl.hidden = false;
@@ -119,22 +174,34 @@
     errEl.hidden = true;
 
     const same = current && current.id === id && ready;
-    current = { id, title, author };
-    wasPlaying = true;
-    userStopped = false;
+    current = { id, title: title || 'Untitled', author: author || '' };
 
-    titleEl.textContent = title || 'Now playing';
-    byEl.textContent = author || '';
+    titleEl.textContent = current.title;
+    byEl.textContent = current.author || 'Sounds of Isha';
     ytLink.href = 'https://www.youtube.com/watch?v=' + id;
     miniArt.src = `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
-    miniTitle.textContent = title || '';
-    miniBy.textContent = author || '';
+    miniTitle.textContent = current.title;
+    miniBy.textContent = current.author || 'Sounds of Isha';
 
-    playerEl.hidden = false;
-    idleEl.hidden = true;
+    playerEl.classList.add('is-playing');
+    if (idleEl) idleEl.hidden = true;
+    if (ready) errEl.hidden = true;   // stale API warning while re-mounting
+    mini.hidden = true;
+    requestAnimationFrame(syncMini);
+    if (hintEl) hintEl.textContent = 'Playing — keep browsing, it will not stop.';
 
     markPlaying();
-    addToQueue({ id, title, author });
+
+    // Up next: a track you play leaves the queue, anything else stays.
+    // If nothing was queued by hand, the following tracks are queued for you.
+    if (queueIds.has(id)) {
+      queueIds.delete(id);
+      const i = queue.findIndex((t) => t.id === id);
+      if (i !== -1) queue.splice(i, 1);
+    } else if (!queue.length) {
+      fillQueue(id);
+    }
+    renderQueue();
 
     if (same) {
       yt.playVideo();
@@ -142,28 +209,73 @@
     }
 
     loadApi()
-      .then(() => buildPlayer(id))
+      .then(() => {
+        errEl.hidden = true;
+        buildPlayer(id);
+      })
       .catch(() => {
         errEl.hidden = false;
         errEl.textContent = 'The player could not load. Use “Watch on YouTube”.';
       });
   }
 
+  /* put the tracks after `id` into Up next (so next/autoplay work) */
+  function fillQueue(id, count = 6) {
+    const order = upNextOrder();
+    const start = order.indexOf(id);
+    if (start === -1) return;
+    for (let n = 1; n <= count; n++) {
+      const t = findTrack(order[(start + n) % order.length]);
+      if (t && t.id !== id) addToQueueSilently(t);
+    }
+  }
+
+  function addToQueueSilently(track) {
+    if (!track || !track.id || queueIds.has(track.id)) return;
+    queueIds.add(track.id);
+    queue.push(track);
+  }
+
+  function go(dir) {
+    let next;
+    if (dir > 0 && queue.length) {
+      next = queue[0];
+    } else {
+      const fromId = current ? current.id : upNextOrder()[0];
+      const id = stepFrom(fromId, dir);
+      next = id ? findTrack(id) : null;
+    }
+    if (!next) return;
+    if (queue.length) queueIds.delete(next.id);
+    playTrack(next.id, next.title, next.author);
+  }
+
   function stopAll() {
-    userStopped = true;
-    wasPlaying = false;
-    if (ready && yt && typeof yt.stopVideo === 'function') yt.stopVideo();
-    playerEl.hidden = true;
-    idleEl.hidden = false;
-    mini.hidden = true;
+    if (yt) {
+      try {
+        if (typeof yt.stopVideo === 'function') yt.stopVideo();
+        yt.destroy();
+      } catch (e) { /* player already torn down */ }
+    }
+    yt = null;
+    ready = false;
     current = null;
+    target.innerHTML = '';
+    errEl.hidden = true;
+    if (idleEl) idleEl.hidden = false;
+    titleEl.textContent = 'Nothing playing';
+    byEl.textContent = 'Press play on any track';
+    ytLink.href = '#';
+    playerEl.classList.remove('is-playing');
+    mini.hidden = true;
+    if (hintEl) hintEl.textContent = `Your whole shelf — ${$$('[data-song]').length} tracks, nothing hidden.`;
     markPlaying();
   }
 
-  /* highlight the card / row that is playing */
+  /* highlight every card / row / queue item that is playing */
   function markPlaying() {
     const id = current && current.id;
-    allCards().forEach((el) => {
+    $$('[data-song]').forEach((el) => {
       el.classList.toggle('is-playing', !!id && el.dataset.song === id);
     });
     $$('#ytQueueList li').forEach((li) => {
@@ -172,15 +284,8 @@
   }
 
   /* =========================================================
-     3. Queue
+     3. Up next
      ========================================================= */
-  function addToQueue(track) {
-    if (!track || !track.id || queueIds.has(track.id)) return;
-    queueIds.add(track.id);
-    queue.push(track);
-    renderQueue();
-  }
-
   function renderQueue() {
     if (!queueList) return;
     queueList.innerHTML = queue.map((t) => `
@@ -188,18 +293,40 @@
         <img src="https://i.ytimg.com/vi/${t.id}/mqdefault.jpg" alt="" loading="lazy" />
         <span class="ytq__text">
           <b>${t.title}</b>
-          <small>${t.author || ''}</small>
+          <small>${t.author || 'Sounds of Isha'}</small>
         </span>
+        <button class="ytq__x" data-unqueue="${t.id}" aria-label="Remove ${t.title.replace(/"/g, '')} from queue" title="Remove">
+          <svg viewBox="0 0 24 24"><use href="#i-close"></use></svg>
+        </button>
       </li>`).join('');
     if (queueEmpty) queueEmpty.hidden = queue.length > 0;
     markPlaying();
   }
 
+  function addToQueue(track) {
+    addToQueueSilently(track);
+    renderQueue();
+  }
+
+  function removeFromQueue(id) {
+    const i = queue.findIndex((t) => t.id === id);
+    if (i === -1) return;
+    queue.splice(i, 1);
+    queueIds.delete(id);
+    renderQueue();
+  }
+
   queueList?.addEventListener('click', (e) => {
+    const x = e.target.closest('[data-unqueue]');
+    if (x) {
+      e.stopPropagation();
+      removeFromQueue(x.dataset.unqueue);
+      return;
+    }
     const li = e.target.closest('li');
     if (!li) return;
     playTrack(li.dataset.song, li.dataset.title, li.dataset.author);
-    playerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    backToPlayer();
   });
 
   $('#ytQueueClear')?.addEventListener('click', () => {
@@ -208,22 +335,27 @@
     renderQueue();
   });
 
-  queueBtn?.addEventListener('click', () => {
-    const on = queueBtn.getAttribute('aria-pressed') !== 'true';
-    queueBtn.setAttribute('aria-pressed', String(on));
-    $('#ytQueue').style.display = on ? '' : 'none';
-  });
-
   /* =========================================================
-     4. Cards → play
+     4. Cards → play, + → queue
      ========================================================= */
   document.addEventListener('click', (e) => {
+    const plus = e.target.closest('[data-queue]');
+    if (plus) {
+      e.preventDefault();
+      const t = findTrack(plus.dataset.queue);
+      if (t && !queueIds.has(t.id)) {
+        addToQueue(t);
+        plus.classList.add('is-done');
+        setTimeout(() => plus.classList.remove('is-done'), 900);
+      }
+      return;
+    }
+
     const btn = e.target.closest('[data-video]');
     if (btn) {
       const cardEl = btn.closest('[data-song]');
-      const title = cardEl ? cardEl.dataset.title : '';
-      const author = cardEl ? cardEl.dataset.author : '';
-      playTrack(btn.dataset.video, title, author);
+      const t = cardEl ? trackOf(cardEl) : { id: btn.dataset.video };
+      playTrack(t.id, t.title, t.author);
       return;
     }
 
@@ -231,106 +363,124 @@
     const cardEl = e.target.closest('.vcard__meta, .vrow__meta');
     if (cardEl) {
       const parent = cardEl.closest('[data-song]');
-      if (parent) playTrack(parent.dataset.song, parent.dataset.title, parent.dataset.author);
+      if (parent) {
+        const t = trackOf(parent);
+        playTrack(t.id, t.title, t.author);
+      }
     }
   });
 
   $('#vpStop')?.addEventListener('click', stopAll);
+  $('#vpNext')?.addEventListener('click', () => go(1));
+  $('#vpPrev')?.addEventListener('click', () => go(-1));
   $('#ytMiniStop')?.addEventListener('click', stopAll);
 
   /* =========================================================
-     5. Minimise / picture-in-picture / mini bar
+     5. Keep the player on screen, and a mini player after it
      ========================================================= */
-  $('#vpMin')?.addEventListener('click', () => {
-    // scroll the player out of the way; the mini bar keeps it reachable
-    window.scrollTo({ top: playerEl.offsetTop + playerEl.offsetHeight, behavior: 'smooth' });
-  });
-
-  $('#vpPip')?.addEventListener('click', async () => {
-    try {
-      const frame = target.querySelector('iframe');
-      if (frame && document.pictureInPictureEnabled && frame.requestPictureInPicture) {
-        await frame.requestPictureInPicture();
-      }
-    } catch (err) { /* not every browser allows this */ }
-  });
-
-  $('#ytMiniFocus')?.addEventListener('click', () => {
-    playerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-  $('#ytMiniStart')?.addEventListener('click', () => {
-    playerEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-
-  /* show the mini bar once the real player is scrolled above the fold */
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(([entry]) => {
-      mini.hidden = entry.isIntersecting || playerEl.hidden || !current;
-    }, { rootMargin: '-70px 0px 0px 0px' });
-    io.observe(playerEl);
+  function barOffset() {
+    const bar = $('.ytbar');
+    return ((bar && bar.offsetHeight) || 62) + 12;
   }
 
-  /* =========================================================
-     6. Search
-     ========================================================= */
-  function applySearch(q) {
-    const needle = q.trim().toLowerCase();
-    let shown = 0;
-
-    $$('.yt-section').forEach((sec) => {
-      let visibleInSection = 0;
-      $$('.vcard, .vrow', sec).forEach((item) => {
-        const hay = (item.dataset.title + ' ' + item.dataset.author + ' ' + item.textContent).toLowerCase();
-        const match = !needle || hay.includes(needle);
-        item.hidden = !match;
-        if (match) visibleInSection++;
-      });
-      sec.hidden = visibleInSection === 0;
-      shown += visibleInSection;
-    });
-
-    if (emptyMsg) emptyMsg.hidden = shown !== 0;
-    if (searchClear) searchClear.hidden = !needle;
+  /* true when the player has been scrolled out of view */
+  function playerOutOfView() {
+    const r = playerEl.getBoundingClientRect();
+    return r.bottom <= barOffset() + 4;
   }
 
-  searchInput?.addEventListener('input', () => applySearch(searchInput.value));
-  searchClear?.addEventListener('click', () => {
-    searchInput.value = '';
-    applySearch('');
-    searchInput.focus();
-  });
-  $('#ytSearch')?.addEventListener('submit', (e) => e.preventDefault());
+  function backToPlayer() {
+    const top = playerEl.getBoundingClientRect().top + window.scrollY - barOffset();
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
+  $('#ytMiniFocus')?.addEventListener('click', backToPlayer);
+  $('#ytMiniStart')?.addEventListener('click', backToPlayer);
+
+  /* the floating player shows only once the real one has scrolled up past
+     the bar — checked on scroll/resize, so it survives the player resizing
+     when a video mounts */
+  function syncMini() {
+    mini.hidden = !current || !playerOutOfView();
+  }
+  window.addEventListener('scroll', syncMini, { passive: true });
+  window.addEventListener('resize', syncMini);
 
   /* =========================================================
-     7. Left rail: active state + drawer toggle
+     6. Left rail — drawer on small screens, active section
      ========================================================= */
+  function railOpen(open) {
+    shell.classList.toggle('is-rail-open', open);
+    $('#ytBurger')?.setAttribute('aria-expanded', String(open));
+    if (scrim) scrim.hidden = !open;
+    document.body.classList.toggle('is-rail-drawer', open);
+  }
+
   $('#ytBurger')?.addEventListener('click', () => {
-    const open = root.classList.toggle('is-rail-open');
-    $('#ytBurger').setAttribute('aria-expanded', String(open));
+    railOpen(!shell.classList.contains('is-rail-open'));
   });
+  scrim?.addEventListener('click', () => railOpen(false));
 
-  $$('.ytrail__item[data-cat]').forEach((a) => {
+  const railLinks = $$('.ytrail__item[data-cat]');
+  const barLinks = $$('.ytbar__nav a[data-cat], .yt-chips .yt-chip[data-cat]');
+
+  function setActive(cat) {
+    railLinks.forEach((a) => a.classList.toggle('is-active', a.dataset.cat === cat));
+    barLinks.forEach((a) => a.classList.toggle('is-active', a.dataset.cat === cat));
+  }
+
+  railLinks.forEach((a) => {
     a.addEventListener('click', () => {
-      $$('.ytrail__item').forEach((x) => x.classList.remove('is-active'));
-      a.classList.add('is-active');
-      root.classList.remove('is-rail-open');
+      setActive(a.dataset.cat);
+      railOpen(false);
     });
   });
+  barLinks.forEach((a) => a.addEventListener('click', () => setActive(a.dataset.cat)));
 
-  /* =========================================================
-     8. Small polish
-     ========================================================= */
-  // Esc clears a search that is running
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && searchInput && document.activeElement === searchInput) {
-      searchInput.value = '';
-      applySearch('');
-      searchInput.blur();
-    }
+  /* a section link must open the list at the top, not behind the player */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    const targetEl = document.getElementById(id);
+    if (!targetEl) return;
+    e.preventDefault();
+    const gap = playerEl.getBoundingClientRect().height + barOffset() + 16;
+    const top = targetEl.getBoundingClientRect().top + window.scrollY - gap;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   });
 
-  // never pause on visibility change — music keeps playing.
-  // (Nothing is registered here, deliberately.)
+  const sections = $$('.yt-section');
+  if ('IntersectionObserver' in window && sections.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) setActive(en.target.id);
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach((s) => spy.observe(s));
+    const top = $('#musicTop');
+    if (top) {
+      const ioTop = new IntersectionObserver(([en]) => { if (en.isIntersecting) setActive('home'); },
+        { rootMargin: `-${BAR_H}px 0px -80% 0px` });
+      ioTop.observe(top);
+    }
+  }
+
+  /* =========================================================
+     7. Small polish
+     ========================================================= */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') railOpen(false);
+    if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+    if (e.key === 'ArrowRight' && e.shiftKey && current) { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft' && e.shiftKey && current) { e.preventDefault(); go(-1); }
+  });
+
+  /* never pause on visibility change — music keeps playing.
+     (Nothing is registered here, deliberately.) */
+
+  /* lazy thumbnails: don't let YouTube images block the first paint */
+  miniArt.loading = 'lazy';
 
   renderQueue();
 })();

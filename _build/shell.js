@@ -193,12 +193,21 @@ const DOCK = `
   <button class="ambient-prompt__no" id="ambientNo" type="button" aria-label="Not now">Not now</button>
 </div>`;
 
-function page({ file, title, desc, page, body, scripts = [], bodyClass = '', modals = false, layout = '' }) {
+/* Data carried into the page for the YouTube-style player (music.html). */
+function appData({ upNext } = {}) {
+  if (!upNext || !upNext.length) return '';
+  return `
+<script>
+  window.SOMA_UPNEXT = ${JSON.stringify(upNext)};
+</script>`;
+}
+
+function page({ file, title, desc, page, body, scripts = [], bodyClass = '', modals = false, layout = '', upNext = [] }) {
   /* "yt" layout: the page provides its own top bar and side rails, so the
      global nav, footer and audio dock are omitted to leave a clean app shell. */
   const isApp = layout === 'yt';
 
-  const html = `${head({ title, desc, page })}
+  const html = `${head({ title, desc, page })}${isApp ? appData({ upNext }) : ''}
 <main${bodyClass ? ` class="${bodyClass}"` : ''} id="top">
 ${body.trim()}
 </main>
